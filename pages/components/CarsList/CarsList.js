@@ -13,7 +13,7 @@ function CarsList({ data }) {
               alt={car.model}
               width={400}
               height={200}
-            ></Image>
+            />
             <div>
               {car.name} {car.model}
             </div>
