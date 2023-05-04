@@ -6,26 +6,20 @@ function CarsList({ data }) {
   return (
     <>
       <StyledList>
-        <ul>
-          {data.map((car) => (
-            <li key={car.id}>
-              <Image
-                src={car.imageSource}
-                alt={car.model}
-                width={400}
-                height={200}
-              ></Image>
+        {data.map((car) => (
+          <li key={car.id}>
+            <Image
+              src={car.imageSource}
+              alt={car.model}
+              width={400}
+              height={200}
+            ></Image>
+            <div>
               {car.name} {car.model}
-            </li>
-          ))}
-        </ul>
+            </div>
+          </li>
+        ))}
       </StyledList>
-      {/* <Image
-        src={data[11].imageSource}
-        alt={data[11].model}
-        width={400}
-        height={400}
-      ></Image> */}
     </>
   );
 }
