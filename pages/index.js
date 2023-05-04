@@ -1,7 +1,6 @@
+import CarsList from "@/components/CarsList/CarsList";
+import data from "@/data.json";
+
 export default function HomePage() {
-  return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
-  );
+  return <CarsList data={data} />;
 }
