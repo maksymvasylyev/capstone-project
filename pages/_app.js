@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-import { SWRConfig, useSWRConfig } from "swr";
+import { SWRConfig } from "swr";
 
 const fetcher = (URL) => fetch("data.json").then((res) => res.json());
 
