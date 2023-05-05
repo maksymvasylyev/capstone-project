@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
+import FilteredCarsList from "./FilteredCarsList";
+import data from "../../data.json";
 
 function FilterForm() {
+  const [list, setList] = useState(data);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // console.log(event.target.elements.CountryOfManufacture.value);
+    const formData = new FormData(event.target);
+    const inputData = Object.fromEntries(formData);
+    const { CountryOfManufacture, BodyType, Fuel, PriceRange } = inputData;
+    console.log(CountryOfManufacture);
+  }
   return (
     <>
       <h1>Choose your Car</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="CountryOfManufacture">Country of Manufacture</label>
         <select name="CountryOfManufacture" id="CountryOfManufacture" required>
           <option defaultValue value="">
@@ -45,6 +58,28 @@ function FilterForm() {
         </select>
         <button type="Submit">Go</button>
       </form>
+      <ul>
+        {data
+          .filter(
+            (car) =>
+              car.CountryOfManufacture === "Germany" && car.bodyType === "Sedan"
+          )
+          .map((car) => (
+            <li key={car.id}>
+              <Image
+                src={car.imageSource}
+                alt={car.model}
+                width={400}
+                height={200}
+              />
+              <div>
+                {car.name} {car.model}
+              </div>
+            </li>
+          ))}
+      </ul>
+
+      <FilteredCarsList data={data} />
     </>
   );
 }
