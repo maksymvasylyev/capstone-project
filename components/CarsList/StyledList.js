@@ -6,7 +6,4 @@ export default styled.ul`
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr 1fr;
-  // flex-direction: column;
-  // gap: 50px;
-  // justify-content: start;
 `;
