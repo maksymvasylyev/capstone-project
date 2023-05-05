@@ -7,7 +7,7 @@ function FilterForm() {
       <form>
         <label htmlFor="CountryOfManufacture">Country of Manufacture</label>
         <select name="CountryOfManufacture" id="CountryOfManufacture" required>
-          <option selected disabled value="">
+          <option defaultValue value="">
             --Make a choice--
           </option>
           <option value="Germany">Germany</option>
@@ -17,7 +17,7 @@ function FilterForm() {
 
         <label htmlFor="BodyType">Body Type</label>
         <select name="BodyType" id="BodyType" required>
-          <option selected disabled value="">
+          <option defaultValue value="">
             --Make a choice--
           </option>
           <option value="Sedan">Sedan</option>
@@ -27,7 +27,7 @@ function FilterForm() {
 
         <label htmlFor="Fuel">Fuel</label>
         <select name="Fuel" id="Fuel" required>
-          <option selected disabled value="">
+          <option defaultValue value="">
             --Make a choice--
           </option>
           <option value="Benzin">Benzin</option>
@@ -36,7 +36,7 @@ function FilterForm() {
 
         <label htmlFor="PriceRange">Price Range (Euro)</label>
         <select name="PriceRange" id="PriceRange" required>
-          <option selected disabled value="">
+          <option defaultValue value="">
             --Make a choice--
           </option>
           <option value="30000-50000">30.000-50.000</option>
