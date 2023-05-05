@@ -1,5 +1,7 @@
 import React from "react";
 import data from "../../data.json";
+import SearchResult from "./SearchResult";
+import Image from "next/image";
 
 function FilterForm() {
   return (
@@ -33,6 +35,26 @@ function FilterForm() {
           <option value="over100000">Over 100.000</option>
         </select>
       </form>
+
+      <ul>
+        {data
+          .filter((car) => car.bodyType === "Sedan")
+          .map((car) => (
+            <li key={car.id}>
+              <Image
+                src={car.imageSource}
+                alt={car.model}
+                width={400}
+                height={200}
+              />
+              <div>
+                {car.name} {car.model}
+              </div>
+            </li>
+          ))}
+      </ul>
+
+      <SearchResult data={data} />
     </>
   );
 }
