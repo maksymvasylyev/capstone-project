@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FilteredCarsList from "./FilteredCarsList";
 import data from "../../data.json";
 import StyledForm from "./StyledForm";
@@ -29,7 +29,7 @@ const StyledSubmitButton = styled.button`
   color: white;
   padding: 15px 15px;
   position: relative;
-  right: -300px;
+  right: -200px;
   text-decoration: none;
   display: inline-block;
   font-size: 3rem;
@@ -58,7 +58,7 @@ function FilterForm() {
           car.CountryOfManufacture === CountryOfManufacture &&
           car.bodyType === BodyType &&
           car.Fuel.includes(Fuel) &&
-          between(car.Price, Number(`${minPrice}`), Number(`${maxPrice}`))
+          between(car.Price, Number(minPrice), Number(maxPrice))
       )
     );
     event.target.reset();

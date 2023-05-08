@@ -23,15 +23,15 @@ function FilteredCarsList({ list }) {
                 style={{ borderRadius: "10%" }}
                 src={car.imageSource}
                 alt={car.model}
-                width={400}
-                height={200}
+                width={300}
+                height={150}
               />
               <div
                 style={{
-                  fontSize: "2rem",
+                  fontSize: "1.5rem",
                   color: "white",
                   position: "relative",
-                  top: "-40px",
+                  top: "-30px",
                   left: "20px",
                 }}
               >
@@ -39,10 +39,10 @@ function FilteredCarsList({ list }) {
               </div>
               <div
                 style={{
-                  fontSize: "2rem",
+                  fontSize: "1.5rem",
                   color: "black",
                   position: "relative",
-                  top: "-40px",
+                  top: "-30px",
                 }}
               >
                 {car.name} {car.model}
