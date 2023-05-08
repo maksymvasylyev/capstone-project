@@ -8,11 +8,26 @@ function FilterForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // console.log(event.target.elements.CountryOfManufacture.value);
+    // console.log(event.target.PriceRange.value);
     const formData = new FormData(event.target);
     const inputData = Object.fromEntries(formData);
-    const { CountryOfManufacture, BodyType, Fuel, PriceRange } = inputData;
-    console.log(CountryOfManufacture);
+    const { CountryOfManufacture, BodyType, Fuel, minPrice, maxPrice } =
+      inputData;
+
+    function between(x, min, max) {
+      return x >= min && x <= max;
+    }
+
+    setList(
+      data.filter(
+        (car) =>
+          car.CountryOfManufacture === `${CountryOfManufacture}` &&
+          car.bodyType === `${BodyType}` &&
+          car.Fuel.includes(`${Fuel}`) &&
+          between(car.Price, Number(`${minPrice}`), Number(`${maxPrice}`))
+      )
+    );
+    event.target.reset();
   }
   return (
     <>
@@ -47,36 +62,41 @@ function FilterForm() {
           <option value="Diesel">Diesel</option>
         </select>
 
-        <label htmlFor="PriceRange">Price Range (Euro)</label>
-        <select name="PriceRange" id="PriceRange" required>
-          <option defaultValue value="">
-            --Make a choice--
-          </option>
-          <option value="30000-50000">30.000-50.000</option>
-          <option value="50000-100000">50.000-100.000</option>
-          <option value="over100000">Over 100.000</option>
-        </select>
+        <label htmlFor="minPrice">Min Price (Euro)</label>
+        <input
+          type="number"
+          name="minPrice"
+          id="minPrice"
+          min="0"
+          max="1000000"
+          required
+        />
+        <label htmlFor="maxPrice">Max Price (Euro)</label>
+        <input
+          type="number"
+          name="maxPrice"
+          id="maxPrice"
+          min="0"
+          max="1000000"
+          required
+        />
+
         <button type="Submit">Go</button>
       </form>
       <ul>
-        {data
-          .filter(
-            (car) =>
-              car.CountryOfManufacture === "Germany" && car.bodyType === "Sedan"
-          )
-          .map((car) => (
-            <li key={car.id}>
-              <Image
-                src={car.imageSource}
-                alt={car.model}
-                width={400}
-                height={200}
-              />
-              <div>
-                {car.name} {car.model}
-              </div>
-            </li>
-          ))}
+        {list.map((car) => (
+          <li key={car.id}>
+            <Image
+              src={car.imageSource}
+              alt={car.model}
+              width={400}
+              height={200}
+            />
+            <div>
+              {car.name} {car.model}
+            </div>
+          </li>
+        ))}
       </ul>
 
       <FilteredCarsList data={data} />
