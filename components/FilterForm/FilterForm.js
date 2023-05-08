@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import FilteredCarsList from "./FilteredCarsList";
 import data from "../../data.json";
 
@@ -8,12 +7,14 @@ function FilterForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // console.log(event.target.PriceRange.value);
+    //fetch input data
     const formData = new FormData(event.target);
     const inputData = Object.fromEntries(formData);
+    //destructing
     const { CountryOfManufacture, BodyType, Fuel, minPrice, maxPrice } =
       inputData;
 
+    //if the number is in the range
     function between(x, min, max) {
       return x >= min && x <= max;
     }
@@ -28,6 +29,7 @@ function FilterForm() {
       )
     );
     event.target.reset();
+    event.target.elements.CountryOfManufacture.focus();
   }
   return (
     <>
@@ -62,7 +64,7 @@ function FilterForm() {
           <option value="Diesel">Diesel</option>
         </select>
 
-        <label htmlFor="minPrice">Min Price (Euro)</label>
+        <label htmlFor="minPrice">Min Price (Euro):</label>
         <input
           type="number"
           name="minPrice"
@@ -71,7 +73,7 @@ function FilterForm() {
           max="1000000"
           required
         />
-        <label htmlFor="maxPrice">Max Price (Euro)</label>
+        <label htmlFor="maxPrice">Max Price (Euro):</label>
         <input
           type="number"
           name="maxPrice"
@@ -83,23 +85,8 @@ function FilterForm() {
 
         <button type="Submit">Go</button>
       </form>
-      <ul>
-        {list.map((car) => (
-          <li key={car.id}>
-            <Image
-              src={car.imageSource}
-              alt={car.model}
-              width={400}
-              height={200}
-            />
-            <div>
-              {car.name} {car.model}
-            </div>
-          </li>
-        ))}
-      </ul>
 
-      <FilteredCarsList data={data} />
+      <FilteredCarsList list={list} />
     </>
   );
 }

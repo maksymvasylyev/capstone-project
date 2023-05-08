@@ -13,7 +13,14 @@ function CarsList({ data }) {
             width={400}
             height={200}
           />
-          <div>
+          <div
+            style={{
+              fontSize: "2rem",
+              color: "black",
+              position: "relative",
+              top: "-40px",
+            }}
+          >
             {car.name} {car.model}
           </div>
         </li>

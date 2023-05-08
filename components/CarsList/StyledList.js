@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export default styled.ul`
   list-style: none;
-  padding: 30px;
+  padding: 10px;
   display: grid;
-  gap: 10px;
+  gap: 40px;
   grid-template-columns: 1fr 1fr;
   border: 3px, solid, red;
 `;
