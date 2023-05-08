@@ -1,12 +1,20 @@
 import React from "react";
 import Image from "next/image";
 import StyledList from "../CarsList/StyledList";
+import styled from "styled-components";
+
+const StyledResultDiv = styled.div`
+  text-align: center;
+  color: red;
+  font-size: 2rem;
+  margin: 50px;
+`;
 
 function FilteredCarsList({ list }) {
   return (
     <>
       {list.length < 1 ? (
-        "We didn`t find anything for you"
+        <StyledResultDiv>{"We didn`t find anything for you"}</StyledResultDiv>
       ) : (
         <StyledList>
           {list.map((car) => (
