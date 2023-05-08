@@ -8,12 +8,21 @@ function CarsList({ data }) {
       {data.map((car) => (
         <li key={car.id}>
           <Image
+            style={{ borderRadius: "10%" }}
             src={car.imageSource}
             alt={car.model}
-            width={400}
-            height={200}
+            width={300}
+            height={150}
           />
-          <div>
+          <div
+            style={{
+              fontSize: "1.5rem",
+              color: "black",
+              position: "relative",
+              top: "-30px",
+              left: "20px",
+            }}
+          >
             {car.name} {car.model}
           </div>
         </li>

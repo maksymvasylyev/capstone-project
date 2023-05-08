@@ -6,6 +6,7 @@ import styled from "styled-components";
 const StyledLink = styled.div`
   position: fixed;
   color: red;
+  top: 0px;
 `;
 
 export default function HomePage() {
