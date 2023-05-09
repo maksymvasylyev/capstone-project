@@ -61,9 +61,14 @@ function FilterForm() {
           between(car.Price, Number(minPrice), Number(maxPrice))
       )
     );
-    event.target.reset();
+    // event.target.reset();
     // event.target.elements.CountryOfManufacture.focus();
   }
+
+  function resetForm() {
+    setList(data);
+  }
+
   return (
     <>
       <h1
@@ -122,6 +127,10 @@ function FilterForm() {
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
+
+      <StyledSubmitButton type="button" onClick={resetForm}>
+        Clean search result
+      </StyledSubmitButton>
 
       <FilteredCarsList list={list} />
     </>
