@@ -29,17 +29,22 @@ function FilteredCarsList({ list }) {
                   height={150}
                 />
               </Link>
-              <div
-                style={{
-                  fontSize: "1.5rem",
-                  color: "white",
-                  position: "relative",
-                  top: "-30px",
-                  left: "20px",
-                }}
+              <Link
+                href={`/detailsCar/${car.id}`}
+                style={{ textDecoration: "none" }}
               >
-                from {car.Price} Euro
-              </div>
+                <div
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "white",
+                    position: "relative",
+                    top: "-30px",
+                    left: "20px",
+                  }}
+                >
+                  from {car.Price} Euro
+                </div>
+              </Link>
               <div
                 style={{
                   fontSize: "1.5rem",

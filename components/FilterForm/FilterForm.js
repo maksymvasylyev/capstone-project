@@ -33,6 +33,10 @@ const StyledSubmitButton = styled.button`
   text-decoration: none;
   display: inline-block;
   font-size: 3rem;
+
+  &:hover {
+    background-color: orange;
+  }
 `;
 
 //if the number is in the range
@@ -58,7 +62,11 @@ function FilterForm() {
           car.CountryOfManufacture === CountryOfManufacture &&
           car.bodyType === BodyType &&
           car.Fuel.includes(Fuel) &&
-          between(car.Price, Number(minPrice), Number(maxPrice))
+          between(
+            car.Price,
+            Number(minPrice) || 1,
+            Number(maxPrice) || 90000000000
+          )
       )
     );
     event.target.reset();
@@ -120,9 +128,9 @@ function FilterForm() {
         </StyledSelect>
 
         <StyledLabel htmlFor="minPrice">Min Price (Euro):</StyledLabel>
-        <StyledInput type="number" name="minPrice" id="minPrice" required />
+        <StyledInput type="number" name="minPrice" id="minPrice" min={1} />
         <StyledLabel htmlFor="maxPrice">Max Price (Euro):</StyledLabel>
-        <StyledInput type="number" name="maxPrice" id="maxPrice" required />
+        <StyledInput type="number" name="maxPrice" id="maxPrice" />
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
