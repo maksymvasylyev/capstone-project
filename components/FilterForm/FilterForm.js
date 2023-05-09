@@ -41,7 +41,7 @@ function between(x, min, max) {
 }
 
 function FilterForm() {
-  const [list, setList] = useLocalStorageState(data, { defaultValue: [] });
+  const [list, setList] = useLocalStorageState("list", { defaultValue: data });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -61,8 +61,7 @@ function FilterForm() {
           between(car.Price, Number(minPrice), Number(maxPrice))
       )
     );
-    // event.target.reset();
-    // event.target.elements.CountryOfManufacture.focus();
+    event.target.reset();
   }
 
   function resetForm() {
