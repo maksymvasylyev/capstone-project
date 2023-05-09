@@ -41,7 +41,7 @@ function between(x, min, max) {
 }
 
 function FilterForm() {
-  const [list, setList] = useLocalStorageState(data, { defaultValue: data });
+  const [list, setList] = useLocalStorageState("list", { defaultValue: data });
 
   function handleSubmit(event) {
     event.preventDefault();
