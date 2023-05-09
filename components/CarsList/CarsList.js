@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import StyledList from "./StyledList";
+import Link from "next/link";
 
 function CarsList({ data }) {
   return (
@@ -16,6 +17,7 @@ function CarsList({ data }) {
             width={300}
             height={150}
           />
+
           <div
             style={{
               fontSize: "1.5rem",

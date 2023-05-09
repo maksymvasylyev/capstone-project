@@ -22,15 +22,15 @@ function FilteredCarsList({ list }) {
         <StyledList>
           {list.map((car) => (
             <li key={car.id}>
-              <Image
-                style={{ borderRadius: "10%" }}
-                src={car.imageSource}
-                alt={car.model}
-                width={300}
-                height={150}
-              />
-              <Link href="https:google.com/">Link</Link>
-
+              <Link href={`/detailsCar/${car.id}`}>
+                <Image
+                  style={{ borderRadius: "10%" }}
+                  src={car.imageSource}
+                  alt={car.model}
+                  width={300}
+                  height={150}
+                />
+              </Link>
               <div
                 style={{
                   fontSize: "1.5rem",

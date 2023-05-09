@@ -4,7 +4,9 @@ import Link from "next/link";
 function CarDetails({ car }) {
   return (
     <>
-      <Link href="/filter-form">Back to search result</Link>
+      <div>
+        <Link href="/filter-form">Back to search result</Link>
+      </div>
       <Image src={car.imageSource} alt="car" width={600} height={300} />
       <h1>{car.name}</h1>
       <h2>{car.model}</h2>
