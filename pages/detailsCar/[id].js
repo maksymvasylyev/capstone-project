@@ -11,9 +11,6 @@ function DetailPage() {
     return console.log("No data");
   }
 
-  //   const { name, model } = currentCar;
-
-  console.log(currentCar);
   return <CarDetails car={currentCar} />;
 }
 
