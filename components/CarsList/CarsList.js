@@ -8,7 +8,9 @@ function CarsList({ data }) {
       {data.map((car) => (
         <li key={car.id}>
           <Image
-            style={{ borderRadius: "10%", objectFit: "contain" }}
+            style={{
+              borderRadius: "10%",
+            }}
             src={car.imageSource}
             alt={car.model}
             width={300}
