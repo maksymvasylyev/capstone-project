@@ -1,8 +1,8 @@
-import { useState } from "react";
 import FilteredCarsList from "./FilteredCarsList";
 import data from "../../data.json";
 import StyledForm from "./StyledForm";
 import styled from "styled-components";
+import useLocalStorageState from "use-local-storage-state";
 
 const StyledSelect = styled.select`
   height: "50px";
@@ -41,7 +41,7 @@ function between(x, min, max) {
 }
 
 function FilterForm() {
-  const [list, setList] = useState(data);
+  const [list, setList] = useLocalStorageState(data, { defaultValue: [] });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -116,23 +116,9 @@ function FilterForm() {
         </StyledSelect>
 
         <StyledLabel htmlFor="minPrice">Min Price (Euro):</StyledLabel>
-        <StyledInput
-          type="number"
-          name="minPrice"
-          id="minPrice"
-          min="0"
-          max="1000000"
-          required
-        />
+        <StyledInput type="number" name="minPrice" id="minPrice" required />
         <StyledLabel htmlFor="maxPrice">Max Price (Euro):</StyledLabel>
-        <StyledInput
-          type="number"
-          name="maxPrice"
-          id="maxPrice"
-          min="0"
-          max="1000000"
-          required
-        />
+        <StyledInput type="number" name="maxPrice" id="maxPrice" required />
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>

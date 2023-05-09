@@ -3,7 +3,6 @@ import Image from "next/image";
 import StyledList from "../CarsList/StyledList";
 import styled from "styled-components";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const StyledResultDiv = styled.div`
   text-align: center;
@@ -13,7 +12,6 @@ const StyledResultDiv = styled.div`
 `;
 
 function FilteredCarsList({ list }) {
-  const router = useRouter();
   return (
     <>
       {list.length < 1 ? (

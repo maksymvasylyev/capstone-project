@@ -14,12 +14,7 @@ function DetailPage() {
   //   const { name, model } = currentCar;
 
   console.log(currentCar);
-  return (
-    <>
-      {/* <h1>{currentCar.name}</h1> */}
-      <CarDetails car={currentCar} />
-    </>
-  );
+  return <CarDetails car={currentCar} />;
 }
 
 export default DetailPage;
