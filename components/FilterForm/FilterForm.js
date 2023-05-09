@@ -39,6 +39,23 @@ const StyledSubmitButton = styled.button`
   }
 `;
 
+const StyledResetButton = styled.button`
+  background-color: black;
+  border: none;
+  border-radius: 10%;
+  color: white;
+  padding: 15px 15px;
+  position: relative;
+
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3rem;
+
+  &:hover {
+    background-color: orange;
+  }
+`;
+
 //if the number is in the range
 function between(x, min, max) {
   return x >= min && x <= max;
@@ -135,9 +152,9 @@ function FilterForm() {
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
 
-      <StyledSubmitButton type="button" onClick={resetForm}>
+      <StyledResetButton type="button" onClick={resetForm}>
         Clean search result
-      </StyledSubmitButton>
+      </StyledResetButton>
 
       <FilteredCarsList list={list} />
     </>
