@@ -79,6 +79,15 @@ function between(x, min, max) {
 function FilterForm() {
   const [list, setList] = useLocalStorageState("list", { defaultValue: data });
 
+  function handleToggleFavorite(id) {
+    const updatedFavCars = list.map((car) => {
+      if (car.id === id) {
+        return { ...car, isFavorite: !car.isFavorite };
+      } else return car;
+    });
+    setList(updatedFavCars);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     //fetch input data
@@ -155,7 +164,10 @@ function FilterForm() {
         Clean search result
       </StyledResetButton>
 
-      <FilteredCarsList list={list} />
+      <FilteredCarsList
+        list={list}
+        handleToggleFavorite={handleToggleFavorite}
+      />
     </>
   );
 }

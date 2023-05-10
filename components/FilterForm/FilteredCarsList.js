@@ -11,7 +11,7 @@ const StyledResultDiv = styled.div`
   margin: 50px;
 `;
 
-function FilteredCarsList({ list }) {
+function FilteredCarsList({ list, handleToggleFavorite }) {
   return (
     <>
       {list.length < 1 ? (
@@ -54,6 +54,12 @@ function FilteredCarsList({ list }) {
                 }}
               >
                 {car.name} {car.model}
+              </div>
+              <div>
+                <p>{car.isFavorite ? "is favorite" : "is not favorite"}</p>
+                <button onClick={() => handleToggleFavorite(car.id)}>
+                  Toggle Fav
+                </button>
               </div>
             </li>
           ))}
