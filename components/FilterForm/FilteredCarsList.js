@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import StyledList from "../CarsList/StyledList";
 import styled from "styled-components";
+import Link from "next/link";
 
 const StyledResultDiv = styled.div`
   text-align: center;
@@ -19,24 +20,31 @@ function FilteredCarsList({ list }) {
         <StyledList>
           {list.map((car) => (
             <li key={car.id}>
-              <Image
-                style={{ borderRadius: "10%" }}
-                src={car.imageSource}
-                alt={car.model}
-                width={300}
-                height={150}
-              />
-              <div
-                style={{
-                  fontSize: "1.5rem",
-                  color: "white",
-                  position: "relative",
-                  top: "-30px",
-                  left: "20px",
-                }}
+              <Link href={`/detailsCar/${car.id}`}>
+                <Image
+                  style={{ borderRadius: "10%" }}
+                  src={car.imageSource}
+                  alt={car.model}
+                  width={300}
+                  height={150}
+                />
+              </Link>
+              <Link
+                href={`/detailsCar/${car.id}`}
+                style={{ textDecoration: "none" }}
               >
-                from {car.Price} Euro
-              </div>
+                <div
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "white",
+                    position: "relative",
+                    top: "-30px",
+                    left: "20px",
+                  }}
+                >
+                  from {car.Price} Euro
+                </div>
+              </Link>
               <div
                 style={{
                   fontSize: "1.5rem",

@@ -1,8 +1,8 @@
-import { useState } from "react";
 import FilteredCarsList from "./FilteredCarsList";
 import data from "../../data.json";
 import StyledForm from "./StyledForm";
 import styled from "styled-components";
+import useLocalStorageState from "use-local-storage-state";
 
 const StyledSelect = styled.select`
   height: "50px";
@@ -33,6 +33,27 @@ const StyledSubmitButton = styled.button`
   text-decoration: none;
   display: inline-block;
   font-size: 3rem;
+
+  &:hover {
+    background-color: orange;
+  }
+`;
+
+const StyledResetButton = styled.button`
+  background-color: black;
+  border: none;
+  border-radius: 10%;
+  color: white;
+  padding: 15px 15px;
+  position: relative;
+
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3rem;
+
+  &:hover {
+    background-color: orange;
+  }
 `;
 
 //if the number is in the range
@@ -41,7 +62,7 @@ function between(x, min, max) {
 }
 
 function FilterForm() {
-  const [list, setList] = useState(data);
+  const [list, setList] = useLocalStorageState("list", { defaultValue: data });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -58,12 +79,20 @@ function FilterForm() {
           car.CountryOfManufacture === CountryOfManufacture &&
           car.bodyType === BodyType &&
           car.Fuel.includes(Fuel) &&
-          between(car.Price, Number(minPrice), Number(maxPrice))
+          between(
+            car.Price,
+            Number(minPrice) || 1,
+            Number(maxPrice) || 90000000000
+          )
       )
     );
     event.target.reset();
-    // event.target.elements.CountryOfManufacture.focus();
   }
+
+  function resetForm() {
+    setList(data);
+  }
+
   return (
     <>
       <h1
@@ -116,26 +145,16 @@ function FilterForm() {
         </StyledSelect>
 
         <StyledLabel htmlFor="minPrice">Min Price (Euro):</StyledLabel>
-        <StyledInput
-          type="number"
-          name="minPrice"
-          id="minPrice"
-          min="0"
-          max="1000000"
-          required
-        />
+        <StyledInput type="number" name="minPrice" id="minPrice" min={1} />
         <StyledLabel htmlFor="maxPrice">Max Price (Euro):</StyledLabel>
-        <StyledInput
-          type="number"
-          name="maxPrice"
-          id="maxPrice"
-          min="0"
-          max="1000000"
-          required
-        />
+        <StyledInput type="number" name="maxPrice" id="maxPrice" />
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
+
+      <StyledResetButton type="button" onClick={resetForm}>
+        Clean search result
+      </StyledResetButton>
 
       <FilteredCarsList list={list} />
     </>

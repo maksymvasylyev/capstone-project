@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import StyledList from "./StyledList";
+import Link from "next/link";
 
 function CarsList({ data }) {
   return (
@@ -8,12 +9,15 @@ function CarsList({ data }) {
       {data.map((car) => (
         <li key={car.id}>
           <Image
-            style={{ borderRadius: "10%", objectFit: "contain" }}
+            style={{
+              borderRadius: "10%",
+            }}
             src={car.imageSource}
             alt={car.model}
             width={300}
             height={150}
           />
+
           <div
             style={{
               fontSize: "1.5rem",
