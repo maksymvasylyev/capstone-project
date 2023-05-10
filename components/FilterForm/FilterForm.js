@@ -77,6 +77,7 @@ function between(x, min, max) {
 }
 
 function FilterForm() {
+  // const [fav, setFav] = useLocalStorageState("fav", { defaultValue: data });
   const [list, setList] = useLocalStorageState("list", { defaultValue: data });
 
   function handleToggleFavorite(id) {
