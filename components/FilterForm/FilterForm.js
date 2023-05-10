@@ -5,17 +5,19 @@ import styled from "styled-components";
 import useLocalStorageState from "use-local-storage-state";
 
 const StyledSelect = styled.select`
-  height: "50px";
-  width: 80%;
-  font-size: 1.5rem;
-  text-align: center;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledInput = styled.input`
-  height: 50px;
-  width: 80%;
-  font-size: 2rem;
-  text-align: center;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledLabel = styled.label`
@@ -56,6 +58,19 @@ const StyledResetButton = styled.button`
   }
 `;
 
+const StyledH1Filter = styled.h1`
+  color: red;
+  text-align: center;
+  display: flex;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 10%;
+  width: 80%;
+  margin: 10px auto 20px auto;
+  padding: 20px;
+  right: -100px;
+`;
+
 //if the number is in the range
 function between(x, min, max) {
   return x >= min && x <= max;
@@ -89,25 +104,9 @@ function FilterForm() {
     event.target.reset();
   }
 
-  function resetForm() {
-    setList(data);
-  }
-
   return (
     <>
-      <h1
-        style={{
-          color: "red",
-          textAlign: "center",
-          border: "1px solid black",
-          borderRadius: "10%",
-          width: "80%",
-          margin: "10px auto 20px auto",
-          padding: "20px",
-        }}
-      >
-        Choose your Car
-      </h1>
+      <StyledH1Filter>Choose your Car</StyledH1Filter>
       <StyledForm onSubmit={handleSubmit}>
         <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture
@@ -152,7 +151,7 @@ function FilterForm() {
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
 
-      <StyledResetButton type="button" onClick={resetForm}>
+      <StyledResetButton type="button" onClick={() => setList(data)}>
         Clean search result
       </StyledResetButton>
 
