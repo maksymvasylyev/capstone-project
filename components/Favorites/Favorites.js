@@ -7,7 +7,6 @@ import { StyledResultDiv } from "../FilterForm/FilteredCarsList";
 function Favorites({ cars, handleToggleFavorite }) {
   return (
     <>
-      <Link href="/filter-form">Back to Filter Form</Link>
       {cars.filter((car) => car.isFavorite).length < 1 ? (
         <StyledResultDiv>{"You didn`t like anything yet"}</StyledResultDiv>
       ) : (

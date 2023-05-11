@@ -6,12 +6,16 @@ import styled from "styled-components";
 const StyledLink = styled.div`
   position: fixed;
   color: Pink;
-  top: 0px;
-  right: 60px;
+  top: 10vh;
+  right: 25vw;
   font-size: 2em;
   padding: 10px;
   border: 3px solid black;
   border-radius: 10%;
+
+  &:hover {
+    background-color: grey;
+  }
 `;
 
 export default function HomePage() {

@@ -2,7 +2,6 @@ import Image from "next/image";
 import StyledList from "../CarsList/StyledList";
 import styled from "styled-components";
 import Link from "next/link";
-import FilterForm from "./FilterForm";
 
 export const StyledResultDiv = styled.div`
   text-align: center;

@@ -1,6 +1,7 @@
 import useLocalStorageState from "use-local-storage-state";
 import GlobalStyle from "../styles";
 import data from "../data.json";
+import Layout from "@/components/Layout/Layout";
 
 export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
@@ -17,13 +18,13 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <Layout>
       <GlobalStyle />
       <Component
         {...pageProps}
         cars={cars}
         onToggleFavorite={handleToggleFavorite}
       />
-    </>
+    </Layout>
   );
 }
