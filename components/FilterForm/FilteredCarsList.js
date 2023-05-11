@@ -1,14 +1,23 @@
-import React from "react";
 import Image from "next/image";
 import StyledList from "../CarsList/StyledList";
 import styled from "styled-components";
 import Link from "next/link";
+import FilterForm from "./FilterForm";
 
 const StyledResultDiv = styled.div`
   text-align: center;
   color: red;
   font-size: 2rem;
   margin: 50px;
+`;
+
+const StyledLikeButton = styled.button`
+  background-color: transparent;
+  border: none;
+  display: flex;
+  position: relative;
+  top: 43px;
+  right: -245px;
 `;
 
 function FilteredCarsList({ list, handleToggleFavorite }) {
@@ -20,6 +29,23 @@ function FilteredCarsList({ list, handleToggleFavorite }) {
         <StyledList>
           {list.map((car) => (
             <li key={car.id}>
+              <StyledLikeButton onClick={() => handleToggleFavorite(car.id)}>
+                {car.isFavorite ? (
+                  <Image
+                    src={"/heart.png"}
+                    alt="liked"
+                    width={40}
+                    height={40}
+                  ></Image>
+                ) : (
+                  <Image
+                    src={"/notLiked.png"}
+                    alt="notLiked"
+                    width={40}
+                    height={40}
+                  ></Image>
+                )}
+              </StyledLikeButton>
               <Link href={`/detailsCar/${car.id}`}>
                 <Image
                   style={{ borderRadius: "10%" }}
@@ -54,12 +80,6 @@ function FilteredCarsList({ list, handleToggleFavorite }) {
                 }}
               >
                 {car.name} {car.model}
-              </div>
-              <div>
-                <p>{car.isFavorite ? "is favorite" : "is not favorite"}</p>
-                <button onClick={() => handleToggleFavorite(car.id)}>
-                  Toggle Fav
-                </button>
               </div>
             </li>
           ))}

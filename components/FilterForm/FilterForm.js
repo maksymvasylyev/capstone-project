@@ -2,7 +2,7 @@ import FilteredCarsList from "./FilteredCarsList";
 import data from "../../data.json";
 import StyledForm from "./StyledForm";
 import styled from "styled-components";
-import useLocalStorageState from "use-local-storage-state";
+import { useState } from "react";
 
 const StyledSelect = styled.select`
   margin-top: 0.5em;
@@ -76,18 +76,8 @@ function between(x, min, max) {
   return x >= min && x <= max;
 }
 
-function FilterForm() {
-  // const [fav, setFav] = useLocalStorageState("fav", { defaultValue: data });
-  const [list, setList] = useLocalStorageState("list", { defaultValue: data });
-
-  function handleToggleFavorite(id) {
-    const updatedFavCars = list.map((car) => {
-      if (car.id === id) {
-        return { ...car, isFavorite: !car.isFavorite };
-      } else return car;
-    });
-    setList(updatedFavCars);
-  }
+function FilterForm({ cars, onToggleFavorite }) {
+  const [filteredCars, setFilteredCars] = useState(cars);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -98,8 +88,8 @@ function FilterForm() {
     const { CountryOfManufacture, BodyType, Fuel, minPrice, maxPrice } =
       inputData;
 
-    setList(
-      data.filter(
+    setFilteredCars(
+      cars.filter(
         (car) =>
           car.CountryOfManufacture === CountryOfManufacture &&
           car.bodyType === BodyType &&
@@ -112,6 +102,16 @@ function FilterForm() {
       )
     );
     event.target.reset();
+  }
+
+  function handleToggleFavorite(id) {
+    const updatedFavCars = filteredCars.map((car) => {
+      if (car.id === id) {
+        return { ...car, isFavorite: !car.isFavorite };
+      } else return car;
+    });
+    setFilteredCars(updatedFavCars);
+    onToggleFavorite(id);
   }
 
   return (
@@ -161,12 +161,12 @@ function FilterForm() {
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
 
-      <StyledResetButton type="button" onClick={() => setList(data)}>
+      <StyledResetButton type="button" onClick={() => setFilteredCars(cars)}>
         Clean search result
       </StyledResetButton>
 
       <FilteredCarsList
-        list={list}
+        list={filteredCars}
         handleToggleFavorite={handleToggleFavorite}
       />
     </>
