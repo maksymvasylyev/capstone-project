@@ -5,8 +5,13 @@ import styled from "styled-components";
 
 const StyledLink = styled.div`
   position: fixed;
-  color: red;
+  color: Pink;
   top: 0px;
+  right: 60px;
+  font-size: 2em;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 10%;
 `;
 
 export default function HomePage() {

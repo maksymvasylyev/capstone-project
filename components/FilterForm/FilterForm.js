@@ -1,8 +1,9 @@
 import FilteredCarsList from "./FilteredCarsList";
-import data from "../../data.json";
+
 import StyledForm from "./StyledForm";
 import styled from "styled-components";
 import { useState } from "react";
+import Link from "next/link";
 
 const StyledSelect = styled.select`
   margin-top: 0.5em;
@@ -51,7 +52,7 @@ const StyledResetButton = styled.button`
 
   text-decoration: none;
   display: inline-block;
-  font-size: 3rem;
+  font-size: 2rem;
 
   &:hover {
     background-color: orange;
@@ -69,6 +70,20 @@ const StyledH1Filter = styled.h1`
   margin: 10px auto 20px auto;
   padding: 20px;
   right: -100px;
+`;
+
+const StyledFavoritesLink = styled(Link)`
+  /* position: fixed;
+  justify-content: space-between; */
+  /* height: 50px; */
+  /* align-items: center; */
+  font-size: 3rem;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: orange;
+  }
 `;
 
 //if the number is in the range
@@ -117,6 +132,7 @@ function FilterForm({ cars, onToggleFavorite }) {
   return (
     <>
       <StyledH1Filter>Choose your Car</StyledH1Filter>
+
       <StyledForm onSubmit={handleSubmit}>
         <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture
@@ -164,6 +180,7 @@ function FilterForm({ cars, onToggleFavorite }) {
       <StyledResetButton type="button" onClick={() => setFilteredCars(cars)}>
         Clean search result
       </StyledResetButton>
+      <StyledFavoritesLink href="/favorites">Favorites</StyledFavoritesLink>
 
       <FilteredCarsList
         list={filteredCars}

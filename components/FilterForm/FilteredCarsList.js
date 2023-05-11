@@ -4,14 +4,14 @@ import styled from "styled-components";
 import Link from "next/link";
 import FilterForm from "./FilterForm";
 
-const StyledResultDiv = styled.div`
+export const StyledResultDiv = styled.div`
   text-align: center;
   color: red;
   font-size: 2rem;
   margin: 50px;
 `;
 
-const StyledLikeButton = styled.button`
+export const StyledLikeButton = styled.button`
   background-color: transparent;
   border: none;
   display: flex;
