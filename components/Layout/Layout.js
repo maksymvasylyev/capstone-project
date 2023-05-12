@@ -19,13 +19,15 @@ const Headline = styled.h1`
 
 export default function Layout({ children }) {
   return (
-    <Wrapper>
+    <>
       <Head>
         <title>Choose your Car</title>
       </Head>
-      <Headline>Choose your car</Headline>
-      <Main>{children}</Main>
-      <Navigation />
-    </Wrapper>
+      <Wrapper>
+        <Headline>Choose your car</Headline>
+        <Main>{children}</Main>
+        <Navigation />
+      </Wrapper>
+    </>
   );
 }
