@@ -1,5 +1,7 @@
 import StyledList from "./StyledList";
 import { StyledImage } from "../Favorites/StyledFavorites";
+import styled from "styled-components";
+import { StyledNameDiv } from "../Favorites/StyledFavorites";
 
 function CarsList({ data }) {
   return (
@@ -13,17 +15,9 @@ function CarsList({ data }) {
             height={115}
           />
 
-          <div
-            style={{
-              fontSize: "1.2em",
-              color: "black",
-              position: "relative",
-              top: "-25px",
-              left: "20px",
-            }}
-          >
+          <StyledNameDiv>
             {car.name} {car.model}
-          </div>
+          </StyledNameDiv>
         </li>
       ))}
     </StyledList>

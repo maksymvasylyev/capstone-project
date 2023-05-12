@@ -5,7 +5,11 @@ import {
   StyledImage,
   StyledResultDiv,
   StyledLikeButton,
+  StyledLink,
+  StyledNameDiv,
+  StyledPriceDiv,
 } from "../Favorites/StyledFavorites";
+import styled from "styled-components";
 
 function FilteredCarsList({ list, handleToggleFavorite }) {
   return (
@@ -44,32 +48,12 @@ function FilteredCarsList({ list, handleToggleFavorite }) {
                   height={115}
                 />
               </Link>
-              <Link
-                href={`/detailsCar/${car.id}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "white",
-                    position: "relative",
-                    top: "-30px",
-                    left: "20px",
-                  }}
-                >
-                  from {car.Price} Euro
-                </div>
-              </Link>
-              <div
-                style={{
-                  fontSize: "1.5rem",
-                  color: "black",
-                  position: "relative",
-                  top: "-30px",
-                }}
-              >
+              <StyledLink href={`/detailsCar/${car.id}`}>
+                <StyledPriceDiv>from {car.Price} Euro</StyledPriceDiv>
+              </StyledLink>
+              <StyledNameDiv>
                 {car.name} {car.model}
-              </div>
+              </StyledNameDiv>
             </li>
           ))}
         </StyledList>

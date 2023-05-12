@@ -1,9 +1,14 @@
 import Link from "next/link";
 import StyledList from "../CarsList/StyledList";
-import { StyledLikeButton } from "./StyledFavorites";
+import {
+  StyledLikeButton,
+  StyledNameDiv,
+  StyledResultDiv,
+  StyledImage,
+  StyledLink,
+  StyledPriceDiv,
+} from "./StyledFavorites";
 import Image from "next/image";
-import { StyledResultDiv } from "./StyledFavorites";
-import { StyledImage } from "./StyledFavorites";
 
 function Favorites({ cars, handleToggleFavorite }) {
   return (
@@ -40,36 +45,16 @@ function Favorites({ cars, handleToggleFavorite }) {
                   <StyledImage
                     src={car.imageSource}
                     alt={car.model}
-                    width={300}
-                    height={150}
+                    width={230}
+                    height={115}
                   />
                 </Link>
-                <Link
-                  href={`/detailsCar/${car.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <div
-                    style={{
-                      fontSize: "1.5rem",
-                      color: "white",
-                      position: "relative",
-                      top: "-30px",
-                      left: "20px",
-                    }}
-                  >
-                    from {car.Price} Euro
-                  </div>
-                </Link>
-                <div
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "black",
-                    position: "relative",
-                    top: "-30px",
-                  }}
-                >
+                <StyledLink href={`/detailsCar/${car.id}`}>
+                  <StyledPriceDiv>from {car.Price} Euro</StyledPriceDiv>
+                </StyledLink>
+                <StyledNameDiv>
                   {car.name} {car.model}
-                </div>
+                </StyledNameDiv>
               </li>
             ))}
         </StyledList>
