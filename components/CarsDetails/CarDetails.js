@@ -6,11 +6,23 @@ const StyledDescriptionList = styled.ul`
   text-align: start;
   list-style: none;
 `;
+
+const StyledDescriptionBackLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: start;
+  position: relative;
+  top: 40px;
+`;
+
 function CarDetails({ car }) {
   return (
     <>
       <div>
-        <Link href="/filter-form">Back to search result</Link>
+        <StyledDescriptionBackLink href="/filter-form">
+          <Image src={"/left-arrow.png"} alt="liked" width={40} height={40} />
+        </StyledDescriptionBackLink>
       </div>
       <Image src={car.imageSource} alt="car" width={600} height={300} />
       <h1>{car.name}</h1>
