@@ -9,9 +9,8 @@ import {
   StyledNameDiv,
   StyledPriceDiv,
 } from "../Favorites/StyledFavorites";
-import styled from "styled-components";
 
-function FilteredCarsList({ list, handleToggleFavorite }) {
+function FilteredCarsList({ list, onToggleFavorite }) {
   return (
     <>
       {list.length < 1 ? (
@@ -22,7 +21,7 @@ function FilteredCarsList({ list, handleToggleFavorite }) {
             <li key={car.id}>
               <StyledLikeButton
                 type="button"
-                onClick={() => handleToggleFavorite(car.id)}
+                onClick={() => onToggleFavorite(car.id)}
               >
                 {car.isFavorite ? (
                   <Image

@@ -10,7 +10,7 @@ import {
 } from "./StyledFavorites";
 import Image from "next/image";
 
-function Favorites({ cars, handleToggleFavorite }) {
+function Favorites({ cars, onToggleFavorite }) {
   return (
     <>
       {cars.filter((car) => car.isFavorite).length < 1 ? (
@@ -23,7 +23,7 @@ function Favorites({ cars, handleToggleFavorite }) {
               <li key={car.id}>
                 <StyledLikeButton
                   type="button"
-                  onClick={() => handleToggleFavorite(car.id)}
+                  onClick={() => onToggleFavorite(car.id)}
                 >
                   {car.isFavorite ? (
                     <Image

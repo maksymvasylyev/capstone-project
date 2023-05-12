@@ -63,7 +63,21 @@ function between(x, min, max) {
 }
 
 function FilterForm({ cars, onToggleFavorite }) {
-  const [filteredCars, setFilteredCars] = useState(cars);
+  const [ourFilterData, setOurFilterData] = useState(null);
+
+  const filteredCars = ourFilterData
+    ? cars.filter(
+        (car) =>
+          car.CountryOfManufacture === ourFilterData.CountryOfManufacture &&
+          car.bodyType === ourFilterData.BodyType &&
+          car.Fuel.includes(ourFilterData.Fuel) &&
+          between(
+            car.Price,
+            Number(ourFilterData.minPrice) || 1,
+            Number(ourFilterData.maxPrice) || 90000000000
+          )
+      )
+    : cars;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -73,31 +87,9 @@ function FilterForm({ cars, onToggleFavorite }) {
     //destructing
     const { CountryOfManufacture, BodyType, Fuel, minPrice, maxPrice } =
       inputData;
+    setOurFilterData(inputData);
 
-    setFilteredCars(
-      cars.filter(
-        (car) =>
-          car.CountryOfManufacture === CountryOfManufacture &&
-          car.bodyType === BodyType &&
-          car.Fuel.includes(Fuel) &&
-          between(
-            car.Price,
-            Number(minPrice) || 1,
-            Number(maxPrice) || 90000000000
-          )
-      )
-    );
     event.target.reset();
-  }
-
-  function handleToggleFavorite(id) {
-    const updatedFavCars = filteredCars.map((car) => {
-      if (car.id === id) {
-        return { ...car, isFavorite: !car.isFavorite };
-      } else return car;
-    });
-    setFilteredCars(updatedFavCars);
-    onToggleFavorite(id);
   }
 
   return (
@@ -146,13 +138,13 @@ function FilterForm({ cars, onToggleFavorite }) {
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
 
-      <StyledResetButton type="button" onClick={() => setFilteredCars(cars)}>
+      <StyledResetButton type="button" onClick={() => setOurFilterData(null)}>
         Clean search result
       </StyledResetButton>
 
       <FilteredCarsList
         list={filteredCars}
-        handleToggleFavorite={handleToggleFavorite}
+        onToggleFavorite={onToggleFavorite}
       />
     </>
   );
