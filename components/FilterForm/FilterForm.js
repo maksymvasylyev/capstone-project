@@ -24,36 +24,40 @@ const StyledLabel = styled.label`
 `;
 
 const StyledSubmitButton = styled.button`
-  background-color: #4caf50;
-  border: none;
+  background-color: white;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  color: white;
-  padding: 15px 15px;
+  padding: 15px;
+  margin-bottom: 10px;
   position: relative;
-  right: -200px;
+  right: -100px;
   text-decoration: none;
   display: inline-block;
   font-size: 3rem;
 
   &:hover {
-    background-color: orange;
+    background-color: black;
+    border: none;
+    color: white;
   }
 `;
 
 const StyledResetButton = styled.button`
-  background-color: black;
-  border: none;
+  background-color: white;
+  border: 3px solid black;
+  color: black;
   border-radius: 10%;
-  color: white;
-  padding: 15px 15px;
+  padding: 5px 10vw;
   position: relative;
-
   text-decoration: none;
   display: inline-block;
   font-size: 2rem;
 
   &:hover {
-    background-color: orange;
+    background-color: black;
+    border: none;
+    color: white;
   }
 `;
 
