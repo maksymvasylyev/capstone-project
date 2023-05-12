@@ -1,23 +1,11 @@
 import Image from "next/image";
 import StyledList from "../CarsList/StyledList";
-import styled from "styled-components";
 import Link from "next/link";
-
-export const StyledResultDiv = styled.div`
-  text-align: center;
-  color: red;
-  font-size: 2rem;
-  margin: 50px;
-`;
-
-export const StyledLikeButton = styled.button`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  position: relative;
-  top: 43px;
-  right: -245px;
-`;
+import {
+  StyledImage,
+  StyledResultDiv,
+  StyledLikeButton,
+} from "../Favorites/StyledFavorites";
 
 function FilteredCarsList({ list, handleToggleFavorite }) {
   return (
@@ -25,33 +13,35 @@ function FilteredCarsList({ list, handleToggleFavorite }) {
       {list.length < 1 ? (
         <StyledResultDiv>{"We didn`t find anything for you"}</StyledResultDiv>
       ) : (
-        <StyledList>
+        <StyledList role="list">
           {list.map((car) => (
             <li key={car.id}>
-              <StyledLikeButton onClick={() => handleToggleFavorite(car.id)}>
+              <StyledLikeButton
+                type="button"
+                onClick={() => handleToggleFavorite(car.id)}
+              >
                 {car.isFavorite ? (
                   <Image
                     src={"/heart.png"}
                     alt="liked"
                     width={40}
                     height={40}
-                  ></Image>
+                  />
                 ) : (
                   <Image
                     src={"/notLiked.png"}
                     alt="notLiked"
                     width={40}
                     height={40}
-                  ></Image>
+                  />
                 )}
               </StyledLikeButton>
               <Link href={`/detailsCar/${car.id}`}>
-                <Image
-                  style={{ borderRadius: "10%" }}
+                <StyledImage
                   src={car.imageSource}
                   alt={car.model}
-                  width={300}
-                  height={150}
+                  width={230}
+                  height={115}
                 />
               </Link>
               <Link

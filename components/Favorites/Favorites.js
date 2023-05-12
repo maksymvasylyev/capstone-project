@@ -1,8 +1,9 @@
 import Link from "next/link";
 import StyledList from "../CarsList/StyledList";
-import { StyledLikeButton } from "../FilterForm/FilteredCarsList";
+import { StyledLikeButton } from "./StyledFavorites";
 import Image from "next/image";
-import { StyledResultDiv } from "../FilterForm/FilteredCarsList";
+import { StyledResultDiv } from "./StyledFavorites";
+import { StyledImage } from "./StyledFavorites";
 
 function Favorites({ cars, handleToggleFavorite }) {
   return (
@@ -10,31 +11,33 @@ function Favorites({ cars, handleToggleFavorite }) {
       {cars.filter((car) => car.isFavorite).length < 1 ? (
         <StyledResultDiv>{"You didn`t like anything yet"}</StyledResultDiv>
       ) : (
-        <StyledList>
+        <StyledList role="list">
           {cars
             .filter((car) => car.isFavorite)
             .map((car) => (
               <li key={car.id}>
-                <StyledLikeButton onClick={() => handleToggleFavorite(car.id)}>
+                <StyledLikeButton
+                  type="button"
+                  onClick={() => handleToggleFavorite(car.id)}
+                >
                   {car.isFavorite ? (
                     <Image
                       src={"/heart.png"}
                       alt="liked"
                       width={40}
                       height={40}
-                    ></Image>
+                    />
                   ) : (
                     <Image
                       src={"/notLiked.png"}
                       alt="notLiked"
                       width={40}
                       height={40}
-                    ></Image>
+                    />
                   )}
                 </StyledLikeButton>
                 <Link href={`/detailsCar/${car.id}`}>
-                  <Image
-                    style={{ borderRadius: "10%" }}
+                  <StyledImage
                     src={car.imageSource}
                     alt={car.model}
                     width={300}

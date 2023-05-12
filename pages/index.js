@@ -6,9 +6,11 @@ import styled from "styled-components";
 const StyledLink = styled.div`
   position: fixed;
   color: Pink;
+  width: 80%;
   top: 10vh;
-  right: 25vw;
-  font-size: 2em;
+  right: 10vw;
+  text-align: center;
+  font-size: 2.5em;
   padding: 10px;
   border: 3px solid black;
   border-radius: 10%;

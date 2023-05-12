@@ -3,9 +3,10 @@ import styled from "styled-components";
 import Head from "next/head.js";
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: 120vh;
   display: grid;
-  grid-template-rows: 5rem auto 4rem;
+  text-align: center;
+  grid-template-rows: 5rem auto 2em;
 `;
 
 const Main = styled.main`
