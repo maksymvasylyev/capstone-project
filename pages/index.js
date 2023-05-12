@@ -3,7 +3,7 @@ import data from "@/data.json";
 import Link from "next/link";
 import styled from "styled-components";
 
-const StyledLink = styled.div`
+const StyledLinkDivMain = styled.div`
   position: fixed;
   color: Pink;
   width: 80%;
@@ -24,7 +24,9 @@ export default function HomePage() {
   return (
     <>
       <Link href="/filter-form">
-        <StyledLink>Filter to get exactly what you need </StyledLink>
+        <StyledLinkDivMain>
+          Filter to get exactly what you need{" "}
+        </StyledLinkDivMain>
       </Link>
       <CarsList data={data} />
     </>
