@@ -49,6 +49,14 @@ export default function Navigation() {
             Favorites
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            href="/compare"
+            active={router.pathname === "/compare" ? "active" : ""}
+          >
+            Compare
+          </NavLink>
+        </li>
       </List>
     </nav>
   );

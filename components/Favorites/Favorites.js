@@ -7,6 +7,7 @@ import {
   StyledImage,
   StyledLink,
   StyledPriceDiv,
+  StyledCompareButton,
 } from "./StyledFavorites";
 import Image from "next/image";
 
@@ -55,9 +56,20 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
                 <StyledNameDiv>
                   {car.name} {car.model}
                 </StyledNameDiv>
-                <button type="button" onClick={() => onToggleCompared(car.id)}>
-                  {car.isCompared ? "Added" : "Add to compare"}
-                </button>
+                <StyledCompareButton
+                  type="button"
+                  active={car.isCompared}
+                  onClick={() =>
+                    cars.filter((car) => car.isCompared).length > 1 &&
+                    car.isCompared === false
+                      ? alert("You can compare only 2 cars at the same time")
+                      : onToggleCompared(car.id)
+                  }
+                >
+                  {car.isCompared
+                    ? "Added to Compare List"
+                    : "Add to Compare List"}
+                </StyledCompareButton>
               </li>
             ))}
         </StyledList>

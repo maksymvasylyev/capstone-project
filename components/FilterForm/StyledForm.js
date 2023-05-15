@@ -12,3 +12,23 @@ export default styled.form`
   grid-template-columns: 1fr;
   border: 3px, solid, red;
 `;
+
+export const StyledSubmitButton = styled.button`
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 50%;
+  padding: 15px;
+  margin-bottom: 10px;
+  position: relative;
+  right: -100px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3rem;
+
+  &:hover {
+    background-color: black;
+    border: none;
+    color: white;
+  }
+`;
