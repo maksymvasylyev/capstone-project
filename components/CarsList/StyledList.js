@@ -5,6 +5,7 @@ export default styled.ul`
   padding: 0px;
   display: grid;
   gap: 10px;
+  justify-items: center;
   grid-template-columns: 1fr 1fr;
   border: 3px, solid, red;
 `;

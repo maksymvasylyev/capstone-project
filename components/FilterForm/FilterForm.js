@@ -1,21 +1,22 @@
 import FilteredCarsList from "./FilteredCarsList";
-import data from "../../data.json";
 import StyledForm from "./StyledForm";
 import styled from "styled-components";
-import useLocalStorageState from "use-local-storage-state";
+import { useState } from "react";
 
 const StyledSelect = styled.select`
-  height: "50px";
-  width: 80%;
-  font-size: 1.5rem;
-  text-align: center;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledInput = styled.input`
-  height: 50px;
-  width: 80%;
-  font-size: 2rem;
-  text-align: center;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledLabel = styled.label`
@@ -23,36 +24,40 @@ const StyledLabel = styled.label`
 `;
 
 const StyledSubmitButton = styled.button`
-  background-color: #4caf50;
-  border: none;
+  background-color: white;
+  color: black;
+  border: 3px solid black;
   border-radius: 50%;
-  color: white;
-  padding: 15px 15px;
+  padding: 15px;
+  margin-bottom: 10px;
   position: relative;
-  right: -200px;
+  right: -100px;
   text-decoration: none;
   display: inline-block;
   font-size: 3rem;
 
   &:hover {
-    background-color: orange;
+    background-color: black;
+    border: none;
+    color: white;
   }
 `;
 
 const StyledResetButton = styled.button`
-  background-color: black;
-  border: none;
+  background-color: white;
+  border: 3px solid black;
+  color: black;
   border-radius: 10%;
-  color: white;
-  padding: 15px 15px;
+  padding: 5px 10vw;
   position: relative;
-
   text-decoration: none;
   display: inline-block;
-  font-size: 3rem;
+  font-size: 2rem;
 
   &:hover {
-    background-color: orange;
+    background-color: black;
+    border: none;
+    color: white;
   }
 `;
 
@@ -61,8 +66,22 @@ function between(x, min, max) {
   return x >= min && x <= max;
 }
 
-function FilterForm() {
-  const [list, setList] = useLocalStorageState("list", { defaultValue: data });
+function FilterForm({ cars, onToggleFavorite }) {
+  const [ourFilterData, setOurFilterData] = useState(null);
+
+  const filteredCars = ourFilterData
+    ? cars.filter(
+        (car) =>
+          car.CountryOfManufacture === ourFilterData.CountryOfManufacture &&
+          car.bodyType === ourFilterData.BodyType &&
+          car.Fuel.includes(ourFilterData.Fuel) &&
+          between(
+            car.Price,
+            Number(ourFilterData.minPrice) || 1,
+            Number(ourFilterData.maxPrice) || 90000000000
+          )
+      )
+    : cars;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -72,42 +91,13 @@ function FilterForm() {
     //destructing
     const { CountryOfManufacture, BodyType, Fuel, minPrice, maxPrice } =
       inputData;
+    setOurFilterData(inputData);
 
-    setList(
-      data.filter(
-        (car) =>
-          car.CountryOfManufacture === CountryOfManufacture &&
-          car.bodyType === BodyType &&
-          car.Fuel.includes(Fuel) &&
-          between(
-            car.Price,
-            Number(minPrice) || 1,
-            Number(maxPrice) || 90000000000
-          )
-      )
-    );
     event.target.reset();
-  }
-
-  function resetForm() {
-    setList(data);
   }
 
   return (
     <>
-      <h1
-        style={{
-          color: "red",
-          textAlign: "center",
-          border: "1px solid black",
-          borderRadius: "10%",
-          width: "80%",
-          margin: "10px auto 20px auto",
-          padding: "20px",
-        }}
-      >
-        Choose your Car
-      </h1>
       <StyledForm onSubmit={handleSubmit}>
         <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture
@@ -152,11 +142,14 @@ function FilterForm() {
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
 
-      <StyledResetButton type="button" onClick={resetForm}>
+      <StyledResetButton type="button" onClick={() => setOurFilterData(null)}>
         Clean search result
       </StyledResetButton>
 
-      <FilteredCarsList list={list} />
+      <FilteredCarsList
+        list={filteredCars}
+        onToggleFavorite={onToggleFavorite}
+      />
     </>
   );
 }

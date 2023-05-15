@@ -1,34 +1,23 @@
-import React from "react";
-import Image from "next/image";
 import StyledList from "./StyledList";
-import Link from "next/link";
+import { StyledImage } from "../Favorites/StyledFavorites";
+import styled from "styled-components";
+import { StyledNameDiv } from "../Favorites/StyledFavorites";
 
 function CarsList({ data }) {
   return (
-    <StyledList>
+    <StyledList role="list">
       {data.map((car) => (
         <li key={car.id}>
-          <Image
-            style={{
-              borderRadius: "10%",
-            }}
+          <StyledImage
             src={car.imageSource}
             alt={car.model}
-            width={300}
-            height={150}
+            width={230}
+            height={115}
           />
 
-          <div
-            style={{
-              fontSize: "1.5rem",
-              color: "black",
-              position: "relative",
-              top: "-30px",
-              left: "20px",
-            }}
-          >
+          <StyledNameDiv>
             {car.name} {car.model}
-          </div>
+          </StyledNameDiv>
         </li>
       ))}
     </StyledList>

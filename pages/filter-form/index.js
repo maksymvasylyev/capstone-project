@@ -1,8 +1,7 @@
 import FilterForm from "@/components/FilterForm/FilterForm";
-import React from "react";
 
-function FilterPage() {
-  return <FilterForm />;
+function FilterPage({ cars, onToggleFavorite }) {
+  return <FilterForm cars={cars} onToggleFavorite={onToggleFavorite} />;
 }
 
 export default FilterPage;

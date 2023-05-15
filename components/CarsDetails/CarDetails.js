@@ -1,16 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
+
+const StyledDescriptionList = styled.ul`
+  text-align: start;
+  list-style: none;
+`;
+
+const StyledDescriptionBackLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: start;
+  position: relative;
+  top: 40px;
+`;
 
 function CarDetails({ car }) {
   return (
     <>
       <div>
-        <Link href="/filter-form">Back to search result</Link>
+        <StyledDescriptionBackLink href="/filter-form">
+          <Image src={"/left-arrow.png"} alt="liked" width={40} height={40} />
+        </StyledDescriptionBackLink>
       </div>
       <Image src={car.imageSource} alt="car" width={600} height={300} />
       <h1>{car.name}</h1>
       <h2>{car.model}</h2>
-      <ul style={{ listStyle: "none" }}>
+      <StyledDescriptionList>
         <li>Body Type: {car.bodyType}</li>
         <li>Wheels Drive: {car.wheelsDrive}</li>
         <li>Acceleration (0-100km/h (s)): {car.acceleration}</li>
@@ -26,7 +43,7 @@ function CarDetails({ car }) {
         <li>Power (HP): {car.Power}</li>
         <li>Price (Euro): {car.Price}</li>
         <li>Country of Manufacture: {car.CountryOfManufacture}</li>
-      </ul>
+      </StyledDescriptionList>
     </>
   );
 }

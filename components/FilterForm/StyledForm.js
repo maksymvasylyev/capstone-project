@@ -6,8 +6,8 @@ export default styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 10px;
   grid-template-columns: 1fr;
   border: 3px, solid, red;
