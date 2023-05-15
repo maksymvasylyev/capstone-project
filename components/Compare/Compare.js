@@ -20,8 +20,9 @@ const StyledCompareList = styled.ul`
   font-size: 1.2em;
 `;
 
-const StyledNameCompareH3 = styled.h3`
+const StyledNameCompareH4 = styled.h4`
   margin: 0;
+  font-size: 1.2em;
 `;
 
 function Compare({
@@ -30,150 +31,124 @@ function Compare({
   onToggleCompared,
   clearComparedList,
 }) {
+  const carsToCompare = cars.filter((car) => car.isCompared);
   return (
     <>
       {cars.filter((car) => car.isCompared).length < 1 ? (
-        <StyledResultDiv>{"You have nothing to compare yet"}</StyledResultDiv>
+        <StyledResultDiv>You have nothing to compare yet</StyledResultDiv>
       ) : (
         <div>
           {" "}
           <StyledList role="list">
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>
-                  <StyledLikeButton
-                    style={{ top: "65px", right: "-5px" }}
-                    type="button"
-                    onClick={() => onToggleFavorite(car.id)}
-                  >
-                    {car.isFavorite ? (
-                      <Image
-                        src={"/heart.png"}
-                        alt="liked"
-                        width={40}
-                        height={40}
-                      />
-                    ) : (
-                      <Image
-                        src={"/notLiked.png"}
-                        alt="notLiked"
-                        width={40}
-                        height={40}
-                      />
-                    )}
-                  </StyledLikeButton>
-                  <StyledLikeButton
-                    style={{ top: "25px", right: "-200px" }}
-                    type="button"
-                    onClick={() => onToggleCompared(car.id)}
-                  >
+            {carsToCompare.map((car) => (
+              <li key={car.id}>
+                <StyledLikeButton
+                  style={{ top: "65px", right: "-5px" }}
+                  type="button"
+                  onClick={() => onToggleFavorite(car.id)}
+                >
+                  {car.isFavorite ? (
                     <Image
-                      src={"/cross.png"}
-                      alt="delete"
-                      width={20}
-                      height={20}
+                      src="/heart.png"
+                      alt="liked"
+                      width={40}
+                      height={40}
                     />
-                  </StyledLikeButton>
+                  ) : (
+                    <Image
+                      src="/notLiked.png"
+                      alt="notLiked"
+                      width={40}
+                      height={40}
+                    />
+                  )}
+                </StyledLikeButton>
+                <StyledLikeButton
+                  style={{ top: "25px", right: "-200px" }}
+                  type="button"
+                  onClick={() => onToggleCompared(car.id)}
+                >
+                  <Image src="/cross.png" alt="delete" width={20} height={20} />
+                </StyledLikeButton>
 
-                  <StyledImage
-                    src={car.imageSource}
-                    alt={car.model}
-                    width={230}
-                    height={115}
-                  />
+                <StyledImage
+                  src={car.imageSource}
+                  alt={car.model}
+                  width={230}
+                  height={115}
+                />
 
-                  <h1>{car.name}</h1>
-                  <h2>{car.model}</h2>
-                </li>
-              ))}
+                <h2>{car.name}</h2>
+                <h3>{car.model}</h3>
+              </li>
+            ))}
           </StyledList>
-          <StyledNameCompareH3>{"Body Type:"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Body Type:"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.bodyType}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.bodyType}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>{"Wheels Drive:"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Wheels Drive:"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.wheelsDrive}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.wheelsDrive}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>
+          <StyledNameCompareH4>
             {"Acceleration (0-100km/h (s))"}
-          </StyledNameCompareH3>
+          </StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.acceleration}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.acceleration}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3> {"Fuel:"}</StyledNameCompareH3>
+          <StyledNameCompareH4> {"Fuel:"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>
-                  {" "}
-                  {car.Fuel.length < 2
-                    ? `${car.Fuel[0]}`
-                    : `${car.Fuel[0]}, ${car.Fuel[1]}`}
-                </li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>
+                {" "}
+                {car.Fuel.length < 2
+                  ? `${car.Fuel[0]}`
+                  : `${car.Fuel[0]}, ${car.Fuel[1]}`}
+              </li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>{"Fuel Economy (l/100km)"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Fuel Economy (l/100km)"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.FuelEconomy}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.FuelEconomy}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>{"Top Speed (km/h)"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Top Speed (km/h)"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.TopSpeed}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.TopSpeed}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>{"Engine (L)"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Engine (L)"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.Engine}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.Engine}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>{"Power (HP)"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Power (HP)"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.PowerHP}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.PowerHP}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>{"Country of Manufacture"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Country of Manufacture"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.CountryOfManufacture}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.CountryOfManufacture}</li>
+            ))}
           </StyledCompareList>
-          <StyledNameCompareH3>{"Price from (Euro)"}</StyledNameCompareH3>
+          <StyledNameCompareH4>{"Price from (Euro)"}</StyledNameCompareH4>
           <StyledCompareList>
-            {cars
-              .filter((car) => car.isCompared)
-              .map((car) => (
-                <li key={car.id}>{car.Price}</li>
-              ))}
+            {carsToCompare.map((car) => (
+              <li key={car.id}>{car.Price}</li>
+            ))}
           </StyledCompareList>
           <StyledSubmitButton type="button" onClick={clearComparedList}>
             Compare Other Cars

@@ -7,14 +7,12 @@ function ComparePage({
   clearComparedList,
 }) {
   return (
-    <>
-      <Compare
-        cars={cars}
-        onToggleFavorite={onToggleFavorite}
-        onToggleCompared={onToggleCompared}
-        clearComparedList={clearComparedList}
-      />
-    </>
+    <Compare
+      cars={cars}
+      onToggleFavorite={onToggleFavorite}
+      onToggleCompared={onToggleCompared}
+      clearComparedList={clearComparedList}
+    />
   );
 }
 
