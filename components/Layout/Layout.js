@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Head from "next/head.js";
 
 const Wrapper = styled.div`
-  height: 120vh;
+  height: 185vh;
   display: grid;
   text-align: center;
   grid-template-rows: 5rem auto 2em;

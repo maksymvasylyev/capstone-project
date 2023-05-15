@@ -26,14 +26,14 @@ function FilteredCarsList({ list, onToggleFavorite, onToggleCompared }) {
               >
                 {car.isFavorite ? (
                   <Image
-                    src={"/heart.png"}
+                    src="/heart.png"
                     alt="liked"
                     width={40}
                     height={40}
                   />
                 ) : (
                   <Image
-                    src={"/notLiked.png"}
+                    src="/notLiked.png"
                     alt="notLiked"
                     width={40}
                     height={40}
