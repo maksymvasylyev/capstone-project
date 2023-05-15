@@ -1,24 +1,24 @@
 import Link from "next/link";
 import StyledList from "../CarsList/StyledList";
 import {
-  StyledLikeButton,
-  StyledNameDiv,
-  StyledResultDiv,
   StyledImage,
+  StyledLikeButton,
   StyledLink,
+  StyledNameDiv,
   StyledPriceDiv,
-} from "./StyledFavorites";
+  StyledResultDiv,
+} from "../Favorites/StyledFavorites";
 import Image from "next/image";
 
-function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
+function Compare({ cars, onToggleFavorite }) {
   return (
     <>
-      {cars.filter((car) => car.isFavorite).length < 1 ? (
-        <StyledResultDiv>{"You didn`t like anything yet"}</StyledResultDiv>
+      {cars.filter((car) => car.isCompared).length < 1 ? (
+        <StyledResultDiv>{"You have nothing to compare yet"}</StyledResultDiv>
       ) : (
         <StyledList role="list">
           {cars
-            .filter((car) => car.isFavorite)
+            .filter((car) => car.isCompared)
             .map((car) => (
               <li key={car.id}>
                 <StyledLikeButton
@@ -55,9 +55,6 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
                 <StyledNameDiv>
                   {car.name} {car.model}
                 </StyledNameDiv>
-                <button type="button" onClick={() => onToggleCompared(car.id)}>
-                  {car.isCompared ? "Added" : "Add to compare"}
-                </button>
               </li>
             ))}
         </StyledList>
@@ -66,4 +63,4 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
   );
 }
 
-export default Favorites;
+export default Compare;

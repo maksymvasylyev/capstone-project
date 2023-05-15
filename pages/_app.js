@@ -17,6 +17,15 @@ export default function App({ Component, pageProps }) {
     setCars(updatedCars);
   }
 
+  function handleToggleCompared(id) {
+    const updatedCars = cars.map((car) => {
+      if (car.id === id) {
+        return { ...car, isCompared: !car.isCompared };
+      } else return car;
+    });
+    setCars(updatedCars);
+  }
+
   return (
     <Layout>
       <GlobalStyle />
@@ -24,6 +33,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         cars={cars}
         onToggleFavorite={handleToggleFavorite}
+        onToggleCompared={handleToggleCompared}
       />
     </Layout>
   );

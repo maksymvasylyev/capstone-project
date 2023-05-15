@@ -25,7 +25,7 @@ export default function HomePage() {
     <>
       <Link href="/filter-form">
         <StyledLinkDivMain>
-          Filter to get exactly what you need{" "}
+          Click to choose exactly what you need{" "}
         </StyledLinkDivMain>
       </Link>
       <CarsList data={data} />

@@ -1,7 +1,7 @@
 import FilteredCarsList from "./FilteredCarsList";
 import StyledForm from "./StyledForm";
 import styled from "styled-components";
-import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 const StyledSelect = styled.select`
   margin-top: 0.5em;
@@ -67,7 +67,7 @@ function between(x, min, max) {
 }
 
 function FilterForm({ cars, onToggleFavorite }) {
-  const [ourFilterData, setOurFilterData] = useState(null);
+  const [ourFilterData, setOurFilterData] = useLocalStorageState(null);
 
   const filteredCars = ourFilterData
     ? cars.filter(
