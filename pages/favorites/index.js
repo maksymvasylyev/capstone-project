@@ -1,10 +1,12 @@
 import Favorites from "@/components/Favorites/Favorites";
 
-function FavoritePage({ cars, onToggleFavorite }) {
+function FavoritePage({ cars, onToggleFavorite, onToggleCompared }) {
   return (
-    <>
-      <Favorites cars={cars} onToggleFavorite={onToggleFavorite} />
-    </>
+    <Favorites
+      cars={cars}
+      onToggleFavorite={onToggleFavorite}
+      onToggleCompared={onToggleCompared}
+    />
   );
 }
 

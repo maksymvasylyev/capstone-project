@@ -8,9 +8,10 @@ import {
   StyledLink,
   StyledNameDiv,
   StyledPriceDiv,
+  StyledCompareButton,
 } from "../Favorites/StyledFavorites";
 
-function FilteredCarsList({ list, onToggleFavorite }) {
+function FilteredCarsList({ list, onToggleFavorite, onToggleCompared }) {
   return (
     <>
       {list.length < 1 ? (
@@ -25,14 +26,14 @@ function FilteredCarsList({ list, onToggleFavorite }) {
               >
                 {car.isFavorite ? (
                   <Image
-                    src={"/heart.png"}
+                    src="/heart.png"
                     alt="liked"
                     width={40}
                     height={40}
                   />
                 ) : (
                   <Image
-                    src={"/notLiked.png"}
+                    src="/notLiked.png"
                     alt="notLiked"
                     width={40}
                     height={40}
@@ -53,6 +54,20 @@ function FilteredCarsList({ list, onToggleFavorite }) {
               <StyledNameDiv>
                 {car.name} {car.model}
               </StyledNameDiv>
+              <StyledCompareButton
+                type="button"
+                active={car.isCompared}
+                onClick={() =>
+                  list.filter((car) => car.isCompared).length > 1 &&
+                  car.isCompared === false
+                    ? alert("You can compare only 2 cars at the same time")
+                    : onToggleCompared(car.id)
+                }
+              >
+                {car.isCompared
+                  ? "Added to Compare List"
+                  : "Add to Compare List"}
+              </StyledCompareButton>
             </li>
           ))}
         </StyledList>

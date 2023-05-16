@@ -2,12 +2,14 @@ import useLocalStorageState from "use-local-storage-state";
 import GlobalStyle from "../styles";
 import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: data,
   });
 
+  const router = useRouter();
   function handleToggleFavorite(id) {
     const updatedCars = cars.map((car) => {
       if (car.id === id) {
@@ -17,6 +19,25 @@ export default function App({ Component, pageProps }) {
     setCars(updatedCars);
   }
 
+  function handleToggleCompared(id) {
+    const updatedCars = cars.map((car) => {
+      if (car.id === id) {
+        return { ...car, isCompared: !car.isCompared };
+      } else return car;
+    });
+    setCars(updatedCars);
+  }
+
+  function clearComparedList() {
+    const clearComparedCars = cars.map((car) => {
+      if (car.isCompared) {
+        return { ...car, isCompared: !car.isCompared };
+      } else return car;
+    });
+    setCars(clearComparedCars);
+    router.push("/favorites");
+  }
+
   return (
     <Layout>
       <GlobalStyle />
@@ -24,6 +45,8 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         cars={cars}
         onToggleFavorite={handleToggleFavorite}
+        onToggleCompared={handleToggleCompared}
+        clearComparedList={clearComparedList}
       />
     </Layout>
   );

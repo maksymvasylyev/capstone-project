@@ -1,7 +1,7 @@
 import FilteredCarsList from "./FilteredCarsList";
-import StyledForm from "./StyledForm";
 import styled from "styled-components";
-import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
+import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 
 const StyledSelect = styled.select`
   margin-top: 0.5em;
@@ -21,26 +21,6 @@ const StyledInput = styled.input`
 
 const StyledLabel = styled.label`
   color: blue;
-`;
-
-const StyledSubmitButton = styled.button`
-  background-color: white;
-  color: black;
-  border: 3px solid black;
-  border-radius: 50%;
-  padding: 15px;
-  margin-bottom: 10px;
-  position: relative;
-  right: -100px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 3rem;
-
-  &:hover {
-    background-color: black;
-    border: none;
-    color: white;
-  }
 `;
 
 const StyledResetButton = styled.button`
@@ -66,8 +46,8 @@ function between(x, min, max) {
   return x >= min && x <= max;
 }
 
-function FilterForm({ cars, onToggleFavorite }) {
-  const [ourFilterData, setOurFilterData] = useState(null);
+function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
+  const [ourFilterData, setOurFilterData] = useLocalStorageState(null);
 
   const filteredCars = ourFilterData
     ? cars.filter(
@@ -88,9 +68,6 @@ function FilterForm({ cars, onToggleFavorite }) {
     //fetch input data
     const formData = new FormData(event.target);
     const inputData = Object.fromEntries(formData);
-    //destructing
-    const { CountryOfManufacture, BodyType, Fuel, minPrice, maxPrice } =
-      inputData;
     setOurFilterData(inputData);
 
     event.target.reset();
@@ -149,6 +126,7 @@ function FilterForm({ cars, onToggleFavorite }) {
       <FilteredCarsList
         list={filteredCars}
         onToggleFavorite={onToggleFavorite}
+        onToggleCompared={onToggleCompared}
       />
     </>
   );

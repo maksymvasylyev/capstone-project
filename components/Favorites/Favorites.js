@@ -7,10 +7,11 @@ import {
   StyledImage,
   StyledLink,
   StyledPriceDiv,
+  StyledCompareButton,
 } from "./StyledFavorites";
 import Image from "next/image";
 
-function Favorites({ cars, onToggleFavorite }) {
+function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
   return (
     <>
       {cars.filter((car) => car.isFavorite).length < 1 ? (
@@ -27,14 +28,14 @@ function Favorites({ cars, onToggleFavorite }) {
                 >
                   {car.isFavorite ? (
                     <Image
-                      src={"/heart.png"}
+                      src="/heart.png"
                       alt="liked"
                       width={40}
                       height={40}
                     />
                   ) : (
                     <Image
-                      src={"/notLiked.png"}
+                      src="/notLiked.png"
                       alt="notLiked"
                       width={40}
                       height={40}
@@ -55,6 +56,20 @@ function Favorites({ cars, onToggleFavorite }) {
                 <StyledNameDiv>
                   {car.name} {car.model}
                 </StyledNameDiv>
+                <StyledCompareButton
+                  type="button"
+                  active={car.isCompared ? "active" : ""}
+                  onClick={() =>
+                    cars.filter((car) => car.isCompared).length > 1 &&
+                    car.isCompared === false
+                      ? alert("You can compare only 2 cars at the same time")
+                      : onToggleCompared(car.id)
+                  }
+                >
+                  {car.isCompared
+                    ? "Added to Compare List"
+                    : "Add to Compare List"}
+                </StyledCompareButton>
               </li>
             ))}
         </StyledList>

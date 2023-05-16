@@ -1,6 +1,5 @@
 import StyledList from "./StyledList";
 import { StyledImage } from "../Favorites/StyledFavorites";
-import styled from "styled-components";
 import { StyledNameDiv } from "../Favorites/StyledFavorites";
 
 function CarsList({ data }) {
