@@ -46,8 +46,8 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
                   <StyledImage
                     src={car.imageSource}
                     alt={car.model}
-                    width={230}
-                    height={115}
+                    width={350}
+                    height={175}
                   />
                 </Link>
                 <StyledLink href={`/detailsCar/${car.id}`}>

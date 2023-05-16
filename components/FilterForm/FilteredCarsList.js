@@ -25,12 +25,7 @@ function FilteredCarsList({ list, onToggleFavorite, onToggleCompared }) {
                 onClick={() => onToggleFavorite(car.id)}
               >
                 {car.isFavorite ? (
-                  <Image
-                    src="/heart.png"
-                    alt="liked"
-                    width={40}
-                    height={40}
-                  />
+                  <Image src="/heart.png" alt="liked" width={40} height={40} />
                 ) : (
                   <Image
                     src="/notLiked.png"
@@ -44,8 +39,8 @@ function FilteredCarsList({ list, onToggleFavorite, onToggleCompared }) {
                 <StyledImage
                   src={car.imageSource}
                   alt={car.model}
-                  width={230}
-                  height={115}
+                  width={350}
+                  height={175}
                 />
               </Link>
               <StyledLink href={`/detailsCar/${car.id}`}>
