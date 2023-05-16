@@ -1,6 +1,7 @@
 import React from "react";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 import styled from "styled-components";
+import AddCarList from "./AddCarList";
 
 const StyledHeader = styled.h2`
   font-size: 1.7em;
@@ -26,12 +27,19 @@ const StyledNewCarInput = styled.input`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-function AddCarForm({ cars }) {
-  function handleAddCar() {}
+function AddCarForm() {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newCarData = Object.fromEntries(formData);
+
+    onAddCar(newCarData);
+    event.target.reset();
+  }
   return (
     <>
       <StyledHeader>Add Your Own Car</StyledHeader>
-      <StyledForm onSubmit={handleAddCar}>
+      <StyledForm onSubmit={handleSubmit}>
         <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
         <StyledNewCarInput name="name" id="name" />
 
@@ -130,6 +138,7 @@ function AddCarForm({ cars }) {
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
+      <AddCarList onAddCar={onAddCar} />
     </>
   );
 }

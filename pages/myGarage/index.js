@@ -1,7 +1,7 @@
 import AddCarForm from "@/components/AddCarForm/AddCarForm";
 
-function MyGaragePage({ cars }) {
-  return <AddCarForm cars={cars} />;
+function MyGaragePage({ cars, onAddCar }) {
+  return <AddCarForm cars={cars} onAddCar={onAddCar} />;
 }
 
 export default MyGaragePage;

@@ -3,6 +3,7 @@ import GlobalStyle from "../styles";
 import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
+import { uid } from "uid";
 
 export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
@@ -38,6 +39,11 @@ export default function App({ Component, pageProps }) {
     router.push("/favorites");
   }
 
+  function handleAddCar(newCar) {
+    setCars([...cars, { ...newCar, id: uid() }]);
+    console.log(newCar);
+  }
+
   return (
     <Layout>
       <GlobalStyle />
@@ -47,6 +53,7 @@ export default function App({ Component, pageProps }) {
         onToggleFavorite={handleToggleFavorite}
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
+        onAddCar={handleAddCar}
       />
     </Layout>
   );
