@@ -4,10 +4,14 @@ import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import { uid } from "uid";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: data,
+  });
+  const [myCars, setMyCars] = useLocalStorageState("carsList", {
+    defaultValue: [],
   });
 
   const router = useRouter();
@@ -40,8 +44,7 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleAddCar(newCar) {
-    setCars([...cars, { ...newCar, id: uid() }]);
-    console.log(newCar);
+    setMyCars([...myCars, { id: uid(), ...newCar }]);
   }
 
   return (
@@ -54,6 +57,7 @@ export default function App({ Component, pageProps }) {
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
         onAddCar={handleAddCar}
+        myCars={myCars}
       />
     </Layout>
   );
