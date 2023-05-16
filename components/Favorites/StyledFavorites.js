@@ -15,7 +15,7 @@ export const StyledLikeButton = styled.button`
   display: flex;
   position: relative;
   top: 45px;
-  right: -175px;
+  right: -290px;
 `;
 
 export const StyledImage = styled(Image)`
@@ -42,6 +42,9 @@ export const StyledPriceDiv = styled.div`
 
 export const StyledCompareButton = styled.button`
   display: flex;
+  position: relative;
+  top: -10px;
+  right: -70px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;

@@ -10,8 +10,8 @@ function CarsList({ data }) {
           <StyledImage
             src={car.imageSource}
             alt={car.model}
-            width={230}
-            height={115}
+            width={350}
+            height={175}
           />
 
           <StyledNameDiv>

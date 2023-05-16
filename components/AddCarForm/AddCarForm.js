@@ -7,10 +7,11 @@ const StyledHeader = styled.h2`
 `;
 const StyledNewCarLabel = styled.label`
   color: black;
+  margin: 0;
 `;
 
 const StyledNewCarSelect = styled.select`
-  margin-top: 0.5em;
+  margin: 0.5em;
   padding: 0.5em;
   border-radius: 5px;
   border: none;
@@ -18,7 +19,7 @@ const StyledNewCarSelect = styled.select`
 `;
 
 const StyledNewCarInput = styled.input`
-  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   padding: 0.5em;
   border-radius: 5px;
   border: solid;
@@ -29,7 +30,7 @@ function AddCarForm({ cars }) {
   function handleAddCar() {}
   return (
     <>
-      <StyledHeader>Add Your Car</StyledHeader>
+      <StyledHeader>Add Your Own Car</StyledHeader>
       <StyledForm onSubmit={handleAddCar}>
         <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
         <StyledNewCarInput name="name" id="name" />

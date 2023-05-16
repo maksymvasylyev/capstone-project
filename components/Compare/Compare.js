@@ -64,7 +64,7 @@ function Compare({
                   )}
                 </StyledLikeButton>
                 <StyledLikeButton
-                  style={{ top: "25px", right: "-200px" }}
+                  style={{ top: "25px", right: "-300px" }}
                   type="button"
                   onClick={() => onToggleCompared(car.id)}
                 >
@@ -74,8 +74,8 @@ function Compare({
                 <StyledImage
                   src={car.imageSource}
                   alt={car.model}
-                  width={230}
-                  height={115}
+                  width={350}
+                  height={175}
                 />
 
                 <h2>{car.name}</h2>
