@@ -57,6 +57,14 @@ export default function Navigation() {
             Compare
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            href="/myGarage"
+            active={router.pathname === "/myGarage" ? "active" : ""}
+          >
+            My Garage
+          </NavLink>
+        </li>
       </List>
     </nav>
   );

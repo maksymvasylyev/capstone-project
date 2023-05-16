@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   margin-top: 0.5em;
   padding: 0.5em;
   border-radius: 5px;
-  border: none;
+  border: solid;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
