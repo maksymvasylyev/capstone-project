@@ -45,12 +45,17 @@ export default function App({ Component, pageProps }) {
       ...cars,
       {
         id: uid(),
-        isFavorite: false,
+        imageSource: "/myCarPicture.jpeg",
         isCompared: false,
+        isFavorite: null,
         section: "myGarage",
         ...newCar,
       },
     ]);
+  }
+
+  function handleDeleteCar(id) {
+    setCars(cars.filter((car) => car.id !== id));
   }
 
   return (
@@ -63,6 +68,7 @@ export default function App({ Component, pageProps }) {
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
         onAddCar={handleAddCar}
+        onDeleteCar={handleDeleteCar}
       />
     </Layout>
   );

@@ -5,7 +5,12 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["mercedes-benz.kh.ua", "www.bmw.ua", "cf-cdn-v5.audi.at"],
+    domains: [
+      "mercedes-benz.kh.ua",
+      "www.bmw.ua",
+      "cf-cdn-v5.audi.at",
+      "images.pexels.com",
+    ],
   },
   webpack(config) {
     config.module.rules.push({

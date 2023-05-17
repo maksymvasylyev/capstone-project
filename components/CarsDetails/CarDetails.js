@@ -1,20 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-
-const StyledDescriptionList = styled.ul`
-  text-align: start;
-  list-style: none;
-`;
-
-const StyledDescriptionBackLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  display: flex;
-  justify-content: start;
-  position: relative;
-  top: 40px;
-`;
+import {
+  StyledDescriptionBackLink,
+  StyledDescriptionList,
+} from "./StyledCarDetails";
 
 function CarDetails({ car }) {
   return (

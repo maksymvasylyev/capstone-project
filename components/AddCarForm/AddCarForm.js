@@ -27,7 +27,7 @@ const StyledNewCarInput = styled.input`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-function AddCarForm({ cars, onAddCar }) {
+function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -47,7 +47,7 @@ function AddCarForm({ cars, onAddCar }) {
         <StyledNewCarInput name="model" id="model" />
 
         <StyledNewCarLabel htmlFor="bodyType">Body Type:</StyledNewCarLabel>
-        <StyledNewCarSelect name="BodyType" id="BodyType">
+        <StyledNewCarSelect name="bodyType" id="bodyType" required>
           <option defaultValue value="">
             --Make a choice--
           </option>
@@ -61,7 +61,7 @@ function AddCarForm({ cars, onAddCar }) {
         <StyledNewCarLabel htmlFor="wheelsDrive">
           Wheels Drive:
         </StyledNewCarLabel>
-        <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive">
+        <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive" required>
           <option defaultValue value="">
             --Make a choice--
           </option>
@@ -81,7 +81,7 @@ function AddCarForm({ cars, onAddCar }) {
         />
 
         <StyledNewCarLabel htmlFor="Fuel">Fuel:</StyledNewCarLabel>
-        <StyledNewCarSelect name="Fuel" id="Fuel">
+        <StyledNewCarSelect name="Fuel" id="Fuel" required>
           <option defaultValue value="">
             --Make a choice--
           </option>
@@ -138,7 +138,11 @@ function AddCarForm({ cars, onAddCar }) {
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
-      <AddCarList cars={cars} />
+      <AddCarList
+        cars={cars}
+        onDeleteCar={onDeleteCar}
+        onToggleCompared={onToggleCompared}
+      />
     </>
   );
 }

@@ -25,6 +25,15 @@ const StyledNameCompareH4 = styled.h4`
   font-size: 1.2em;
 `;
 
+const StyledYourCarDiv = styled.div`
+  /* background-color: transparent;
+  border: none;
+  display: flex;
+  position: relative; */
+  font-size: 1.5em;
+  margin-bottom: 13px;
+`;
+
 function Compare({
   cars,
   onToggleFavorite,
@@ -42,27 +51,32 @@ function Compare({
           <StyledList role="list">
             {carsToCompare.map((car) => (
               <li key={car.id}>
-                <StyledLikeButton
-                  style={{ top: "65px", right: "-5px" }}
-                  type="button"
-                  onClick={() => onToggleFavorite(car.id)}
-                >
-                  {car.isFavorite ? (
-                    <Image
-                      src="/heart.png"
-                      alt="liked"
-                      width={40}
-                      height={40}
-                    />
-                  ) : (
-                    <Image
-                      src="/notLiked.png"
-                      alt="notLiked"
-                      width={40}
-                      height={40}
-                    />
-                  )}
-                </StyledLikeButton>
+                {car.isFavorite === null ? (
+                  <StyledYourCarDiv>Your Car</StyledYourCarDiv>
+                ) : (
+                  <StyledLikeButton
+                    style={{ top: "65px", right: "-5px" }}
+                    type="button"
+                    onClick={() => onToggleFavorite(car.id)}
+                  >
+                    {car.isFavorite ? (
+                      <Image
+                        src="/heart.png"
+                        alt="liked"
+                        width={40}
+                        height={40}
+                      />
+                    ) : (
+                      <Image
+                        src="/notLiked.png"
+                        alt="notLiked"
+                        width={40}
+                        height={40}
+                      />
+                    )}
+                  </StyledLikeButton>
+                )}
+
                 <StyledLikeButton
                   style={{ top: "25px", right: "-300px" }}
                   type="button"
@@ -108,9 +122,9 @@ function Compare({
             {carsToCompare.map((car) => (
               <li key={car.id}>
                 {" "}
-                {car.Fuel.length < 2
-                  ? `${car.Fuel[0]}`
-                  : `${car.Fuel[0]}, ${car.Fuel[1]}`}
+                {Array.isArray(car.Fuel) && car.Fuel.length > 1
+                  ? `${car.Fuel[0]}, ${car.Fuel[1]}`
+                  : `${car.Fuel}`}
               </li>
             ))}
           </StyledCompareList>
