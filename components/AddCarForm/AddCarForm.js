@@ -27,7 +27,7 @@ const StyledNewCarInput = styled.input`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-function AddCarForm({ myCars, onAddCar }) {
+function AddCarForm({ cars, onAddCar }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -138,7 +138,7 @@ function AddCarForm({ myCars, onAddCar }) {
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
-      <AddCarList myCars={myCars} />
+      <AddCarList cars={cars} />
     </>
   );
 }

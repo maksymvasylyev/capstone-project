@@ -1,10 +1,11 @@
-function AddCarList({ myCars }) {
-  console.log(myCars);
+function AddCarList({ cars }) {
   return (
     <ul>
-      {myCars.map((car) => (
-        <li key={car.id}>{car.name}</li>
-      ))}
+      {cars
+        .filter((car) => car.section == "myGarage")
+        .map((car) => (
+          <li key={car.id}>{car.name}</li>
+        ))}
     </ul>
   );
 }

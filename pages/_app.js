@@ -10,9 +10,6 @@ export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: data,
   });
-  const [myCars, setMyCars] = useLocalStorageState("carsList", {
-    defaultValue: [],
-  });
 
   const router = useRouter();
   function handleToggleFavorite(id) {
@@ -44,7 +41,16 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleAddCar(newCar) {
-    setMyCars([...myCars, { id: uid(), ...newCar }]);
+    setCars([
+      ...cars,
+      {
+        id: uid(),
+        isFavorite: false,
+        isCompared: false,
+        section: "myGarage",
+        ...newCar,
+      },
+    ]);
   }
 
   return (
@@ -57,7 +63,6 @@ export default function App({ Component, pageProps }) {
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
         onAddCar={handleAddCar}
-        myCars={myCars}
       />
     </Layout>
   );
