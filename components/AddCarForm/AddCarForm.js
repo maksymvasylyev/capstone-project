@@ -38,7 +38,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
   }
   return (
     <>
-      <StyledHeader>Add Your Own Car</StyledHeader>
+      <StyledHeader>Add Car You Own</StyledHeader>
       <StyledForm onSubmit={handleSubmit}>
         <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
         <StyledNewCarInput name="name" id="name" />
