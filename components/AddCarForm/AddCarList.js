@@ -14,7 +14,6 @@ const StyledAddCarList = styled.ul`
   font-size: 1em;
   justify-items: center;
   grid-template-columns: 1fr;
-  border: 3px, solid, red;
 `;
 
 function AddCarList({ cars, onDeleteCar, onToggleCompared }) {

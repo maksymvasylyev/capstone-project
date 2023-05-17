@@ -26,10 +26,6 @@ const StyledNameCompareH4 = styled.h4`
 `;
 
 const StyledYourCarDiv = styled.div`
-  /* background-color: transparent;
-  border: none;
-  display: flex;
-  position: relative; */
   font-size: 1.5em;
   margin-bottom: 13px;
 `;
