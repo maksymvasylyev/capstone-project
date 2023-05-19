@@ -10,6 +10,9 @@ const nextConfig = {
       "www.bmw.ua",
       "cf-cdn-v5.audi.at",
       "images.pexels.com",
+      "www.chevrolet.ca",
+      "www.ford.com",
+      "toyotaassets.scene7.com",
     ],
   },
   webpack(config) {
