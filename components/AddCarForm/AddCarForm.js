@@ -1,6 +1,7 @@
 import React from "react";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 import styled from "styled-components";
+import AddCarList from "./AddCarList";
 
 const StyledHeader = styled.h2`
   font-size: 1.7em;
@@ -26,12 +27,19 @@ const StyledNewCarInput = styled.input`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
-function AddCarForm({ cars }) {
-  function handleAddCar() {}
+function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newCarData = Object.fromEntries(formData);
+
+    onAddCar(newCarData);
+    event.target.reset();
+  }
   return (
     <>
-      <StyledHeader>Add Your Own Car</StyledHeader>
-      <StyledForm onSubmit={handleAddCar}>
+      <StyledHeader>Add Car You Own</StyledHeader>
+      <StyledForm onSubmit={handleSubmit}>
         <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
         <StyledNewCarInput name="name" id="name" />
 
@@ -39,7 +47,7 @@ function AddCarForm({ cars }) {
         <StyledNewCarInput name="model" id="model" />
 
         <StyledNewCarLabel htmlFor="bodyType">Body Type:</StyledNewCarLabel>
-        <StyledNewCarSelect name="BodyType" id="BodyType">
+        <StyledNewCarSelect name="bodyType" id="bodyType" required>
           <option defaultValue value="">
             --Make a choice--
           </option>
@@ -53,7 +61,7 @@ function AddCarForm({ cars }) {
         <StyledNewCarLabel htmlFor="wheelsDrive">
           Wheels Drive:
         </StyledNewCarLabel>
-        <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive">
+        <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive" required>
           <option defaultValue value="">
             --Make a choice--
           </option>
@@ -73,7 +81,7 @@ function AddCarForm({ cars }) {
         />
 
         <StyledNewCarLabel htmlFor="Fuel">Fuel:</StyledNewCarLabel>
-        <StyledNewCarSelect name="Fuel" id="Fuel">
+        <StyledNewCarSelect name="Fuel" id="Fuel" required>
           <option defaultValue value="">
             --Make a choice--
           </option>
@@ -130,6 +138,11 @@ function AddCarForm({ cars }) {
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
+      <AddCarList
+        cars={cars}
+        onDeleteCar={onDeleteCar}
+        onToggleCompared={onToggleCompared}
+      />
     </>
   );
 }

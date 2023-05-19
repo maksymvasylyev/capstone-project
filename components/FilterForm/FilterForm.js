@@ -52,6 +52,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
   const filteredCars = ourFilterData
     ? cars.filter(
         (car) =>
+          car.section !== "myGarage" &&
           car.CountryOfManufacture === ourFilterData.CountryOfManufacture &&
           car.bodyType === ourFilterData.BodyType &&
           car.Fuel.includes(ourFilterData.Fuel) &&
