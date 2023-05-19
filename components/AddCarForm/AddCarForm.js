@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 import styled from "styled-components";
 import AddCarList from "./AddCarList";
+import Image from "next/image";
 
 const StyledHeader = styled.h2`
   font-size: 1.7em;
@@ -60,6 +61,57 @@ const StyledAddCarButton = styled.button`
 
 function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
   const [showForm, setShowForm] = useState(true);
+  const [image, setImage] = useState(null);
+
+  const [imageValue, setImageValue] = useState("");
+
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadedImages, setUploadedImages] = useState([]);
+
+  function handleFileChange(event) {
+    // Get the selected file from the event target
+    const file = event.target.files[0];
+    // Set the image state variable to the file
+    setImage(file);
+
+    setImageValue(event.target.value);
+  }
+
+  async function handleFileUpload(event) {
+    event.preventDefault();
+    setIsUploading(true);
+    // Create a new FormData object to store the image file and metadata
+    const formData = new FormData();
+    // Append the image file to the FormData object with the key 'file'
+    formData.append("file", image);
+
+    // Append the upload preset to the FormData object with the key 'upload_preset'
+    // The upload preset is a predefined set of options for uploading images to Cloudinary
+    // You can create one in the Cloudinary dashboard under Settings > Upload > Upload presets
+    formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+    // Use the fetch API to send a POST request to the Cloudinary upload endpoint
+    // Replace <cloudname> with your own Cloudinary cloud name
+    // https://api.cloudinary.com/v1_1/<cloudname>/upload
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      // Parse the response as JSON and add the image to the uploadedImages array
+      const json = await response.json();
+      setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsUploading(false);
+      setImage(null);
+      setImageValue("");
+    }
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -67,6 +119,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
     const newCarData = Object.fromEntries(formData);
 
     onAddCar(newCarData);
+    handleFileUpload();
     event.target.reset();
     setShowForm(false);
   }
@@ -75,6 +128,16 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
       <StyledHeader>Add Your Own Car</StyledHeader>
       {showForm ? (
         <StyledForm onSubmit={handleSubmit}>
+          <p>
+            <label htmlFor="avatar">Please choose an image</label>
+          </p>
+          <input
+            type="file"
+            id="avatar"
+            onChange={handleFileChange}
+            value={imageValue}
+          />
+
           <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
           <StyledNewCarInput name="name" id="name" />
 
@@ -171,13 +234,28 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
             max={900000000}
           />
 
-          <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
+          <StyledSubmitButton type="Submit" disabled={!image}>
+            {isUploading ? "Uploading …" : "Upload"}
+          </StyledSubmitButton>
         </StyledForm>
       ) : (
         <StyledAddCarButton type="button" onClick={() => setShowForm(true)}>
           Add New Car
         </StyledAddCarButton>
       )}
+      <section>
+        {uploadedImages &&
+          uploadedImages.map((image) => (
+            <Image
+              key={image.public_id}
+              src={image.secure_url}
+              width={150}
+              height={150}
+              alt={image.public_id}
+              style={{ objectFit: "cover" }}
+            />
+          ))}
+      </section>
       <AddCarList
         cars={cars}
         onDeleteCar={onDeleteCar}
