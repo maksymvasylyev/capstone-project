@@ -63,6 +63,8 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
   const [showForm, setShowForm] = useState(true);
   const [image, setImage] = useState(null);
 
+  const [myCars, setMyCars] = useState(cars);
+
   const [imageValue, setImageValue] = useState("");
 
   const [isUploading, setIsUploading] = useState(false);
@@ -77,7 +79,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
     setImageValue(event.target.value);
   }
 
-  async function handleFileUpload() {
+  async function handleFileUpload(newMyCar) {
     setIsUploading(true);
 
     const formData = new FormData();
@@ -99,6 +101,16 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
       const json = await response.json();
       setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
       console.log(json);
+      setMyCars([
+        ...cars,
+        {
+          imageSource: json.secure_url,
+
+          ...newMyCar,
+        },
+      ]);
+      console.log(cars);
+      console.log(myCars);
     } catch (error) {
       console.error(error);
     } finally {
@@ -238,7 +250,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
           Add New Car
         </StyledAddCarButton>
       )}
-      <section>
+      {/* <section>
         {uploadedImages &&
           uploadedImages.map((image) => (
             <Image
@@ -250,7 +262,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
               style={{ objectFit: "cover" }}
             />
           ))}
-      </section>
+      </section> */}
       <AddCarList
         cars={cars}
         onDeleteCar={onDeleteCar}
