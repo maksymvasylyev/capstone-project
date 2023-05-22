@@ -101,7 +101,6 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
         }
       );
 
-      // Parse the response as JSON and add the image to the uploadedImages array
       const json = await response.json();
       setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
       console.log(json);
@@ -117,8 +116,6 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
         },
         ...myCars,
       ]);
-      console.log(cars);
-      console.log(myCars);
     } catch (error) {
       console.error(error);
     } finally {
@@ -134,7 +131,6 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
     const newCarData = Object.fromEntries(formData);
 
     handleAddCar(newCarData);
-    // handleFileUpload();
     event.target.reset();
     setShowForm(false);
   }
