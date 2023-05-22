@@ -77,8 +77,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
     setImageValue(event.target.value);
   }
 
-  async function handleFileUpload(event) {
-    event.preventDefault();
+  async function handleFileUpload() {
     setIsUploading(true);
 
     const formData = new FormData();
@@ -99,6 +98,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
       // Parse the response as JSON and add the image to the uploadedImages array
       const json = await response.json();
       setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
+      console.log(json);
     } catch (error) {
       console.error(error);
     } finally {
