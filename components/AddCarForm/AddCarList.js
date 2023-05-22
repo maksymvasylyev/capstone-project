@@ -16,10 +16,10 @@ const StyledAddCarList = styled.ul`
   grid-template-columns: 1fr;
 `;
 
-function AddCarList({ cars, onDeleteCar, onToggleCompared }) {
+function AddCarList({ myCars, onDeleteCar, onToggleCompared }) {
   return (
     <StyledAddCarList role="list">
-      {cars
+      {myCars
         .filter((car) => car.section == "myGarage")
         .map((car) => (
           <li key={car.id}>

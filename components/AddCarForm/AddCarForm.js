@@ -3,6 +3,8 @@ import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 import styled from "styled-components";
 import AddCarList from "./AddCarList";
 import Image from "next/image";
+import { uid } from "uid";
+import useLocalStorageState from "use-local-storage-state";
 
 const StyledHeader = styled.h2`
   font-size: 1.7em;
@@ -59,11 +61,13 @@ const StyledAddCarButton = styled.button`
   }
 `;
 
-function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
+function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
   const [showForm, setShowForm] = useState(true);
   const [image, setImage] = useState(null);
 
-  const [myCars, setMyCars] = useState(cars);
+  const [myCars, setMyCars] = useLocalStorageState("myCars", {
+    defaultValue: cars,
+  });
 
   const [imageValue, setImageValue] = useState("");
 
@@ -79,7 +83,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
     setImageValue(event.target.value);
   }
 
-  async function handleFileUpload(newMyCar) {
+  async function handleAddCar(newMyCar) {
     setIsUploading(true);
 
     const formData = new FormData();
@@ -102,12 +106,16 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
       setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
       console.log(json);
       setMyCars([
-        ...cars,
         {
+          id: uid(),
           imageSource: json.secure_url,
+          isCompared: false,
+          isFavorite: null,
+          section: "myGarage",
 
           ...newMyCar,
         },
+        ...myCars,
       ]);
       console.log(cars);
       console.log(myCars);
@@ -125,8 +133,8 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
     const formData = new FormData(event.target);
     const newCarData = Object.fromEntries(formData);
 
-    onAddCar(newCarData);
-    handleFileUpload();
+    handleAddCar(newCarData);
+    // handleFileUpload();
     event.target.reset();
     setShowForm(false);
   }
@@ -264,7 +272,7 @@ function AddCarForm({ cars, onAddCar, onDeleteCar, onToggleCompared }) {
           ))}
       </section> */}
       <AddCarList
-        cars={cars}
+        myCars={myCars}
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
       />
