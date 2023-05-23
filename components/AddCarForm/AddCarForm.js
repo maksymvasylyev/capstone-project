@@ -5,6 +5,7 @@ import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import data from "../../data.json";
+import cloudinary from "cloudinary";
 
 const StyledHeader = styled.h2`
   font-size: 1.7em;
