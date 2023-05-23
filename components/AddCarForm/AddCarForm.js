@@ -268,6 +268,7 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
           ))}
       </section> */}
       <AddCarList
+        cars={cars}
         myCars={myCars}
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
