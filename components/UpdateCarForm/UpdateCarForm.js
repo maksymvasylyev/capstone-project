@@ -7,7 +7,7 @@ import {
 } from "../AddCarForm/StyledAddCarForm";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 
-function UpdateCarForm({ car, onEditCar, hideAddCarForm }) {
+function UpdateCarForm({ car, onEditCar, hideAddCarForm, showForm }) {
   const router = useRouter();
   console.log(car);
 

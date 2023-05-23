@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import UpdateCarForm from "@/components/UpdateCarForm/UpdateCarForm";
 
-function UpdatePage({ cars, onEditCar, hideAddCarForm }) {
+function UpdatePage({ cars, onEditCar, hideAddCarForm, showForm }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -15,6 +15,7 @@ function UpdatePage({ cars, onEditCar, hideAddCarForm }) {
       car={currentUpdatedCar}
       onEditCar={onEditCar}
       hideAddCarForm={hideAddCarForm}
+      showForm={showForm}
     />
   );
 }
