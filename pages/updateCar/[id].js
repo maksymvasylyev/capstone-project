@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import UpdateCarForm from "@/components/UpdateCarForm/UpdateCarForm";
 
-function UpdatePage({ cars }) {
+function UpdatePage({ cars, onEditCar }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -10,7 +10,7 @@ function UpdatePage({ cars }) {
     return console.log("No data");
   }
 
-  return <UpdateCarForm car={currentUpdatedCar} />;
+  return <UpdateCarForm car={currentUpdatedCar} onEditCar={onEditCar} />;
 }
 
 export default UpdatePage;

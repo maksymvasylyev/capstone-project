@@ -3,6 +3,7 @@ import GlobalStyle from "../styles";
 import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
+import { uid } from "uid";
 
 export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
@@ -42,6 +43,29 @@ export default function App({ Component, pageProps }) {
     setCars(cars.filter((car) => car.id !== id));
   }
 
+  function handleEditCar(updatedCar, id) {
+    console.log(id);
+
+    setCars(
+      cars.map((car) =>
+        car.id === id
+          ? [
+              ...cars,
+              {
+                id: uid(),
+                imageSource: "/myCarPicture.jpeg",
+                isCompared: false,
+                isFavorite: null,
+                section: "myGarage",
+                ...updatedCar,
+              },
+            ]
+          : car
+      )
+    );
+    console.log(cars);
+  }
+
   return (
     <Layout>
       <GlobalStyle />
@@ -52,6 +76,7 @@ export default function App({ Component, pageProps }) {
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
         onDeleteCar={handleDeleteCar}
+        onEditCar={handleEditCar}
       />
     </Layout>
   );

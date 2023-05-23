@@ -7,9 +7,16 @@ import {
 } from "../AddCarForm/StyledAddCarForm";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 
-function UpdateCarForm({ car }) {
+function UpdateCarForm({ car, onEditCar }) {
+  console.log(car);
+
   function handleSubmit(event) {
     event.preventDefault();
+    const formData = new FormData(event.target);
+    const updatedData = Object.fromEntries(formData);
+
+    onEditCar(updatedData, car.id);
+    console.log(car.id);
   }
   return (
     <>
