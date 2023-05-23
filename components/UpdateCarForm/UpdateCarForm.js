@@ -1,6 +1,5 @@
-function UpdateCarForm(car) {
-  console.log(car);
-  return `${car}`;
+function UpdateCarForm({ car }) {
+  return `${car.name}`;
 }
 
 export default UpdateCarForm;

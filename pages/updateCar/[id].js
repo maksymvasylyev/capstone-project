@@ -6,8 +6,6 @@ function UpdatePage({ cars }) {
   const { id } = router.query;
 
   const currentUpdatedCar = cars.find((car) => car.id === id);
-  console.log(cars);
-  console.log(currentUpdatedCar);
   if (!currentUpdatedCar) {
     return console.log("No data");
   }
