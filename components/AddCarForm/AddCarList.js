@@ -24,13 +24,18 @@ function AddCarList({ cars, onDeleteCar, onToggleCompared }) {
         .map((car) => (
           <li key={car.id}>
             <StyledLikeButton
-              style={{ right: "-550px" }}
+              style={{ right: "-640px" }}
               type="button"
               onClick={() => onDeleteCar(car.id)}
             >
               <Image src="/cross.png" alt="delete" width={40} height={40} />
             </StyledLikeButton>
-            <Image src={car.imageSource} alt="car" width={600} height={300} />
+            <Image
+              src={car.imageSource}
+              alt="yourCar"
+              width={700}
+              height={350}
+            />
             <h1>{car.name}</h1>
             <h2>{car.model}</h2>
             <StyledDescriptionList>

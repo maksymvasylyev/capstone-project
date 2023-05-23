@@ -125,6 +125,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
       </StyledResetButton>
 
       <FilteredCarsList
+        cars={cars}
         list={filteredCars}
         onToggleFavorite={onToggleFavorite}
         onToggleCompared={onToggleCompared}
