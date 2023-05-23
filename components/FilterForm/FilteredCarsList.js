@@ -11,7 +11,7 @@ import {
   StyledCompareButton,
 } from "../Favorites/StyledFavorites";
 
-function FilteredCarsList({ list, onToggleFavorite, onToggleCompared }) {
+function FilteredCarsList({ cars, list, onToggleFavorite, onToggleCompared }) {
   return (
     <>
       {list.length < 1 ? (
@@ -60,7 +60,7 @@ function FilteredCarsList({ list, onToggleFavorite, onToggleCompared }) {
                   type="button"
                   active={car.isCompared}
                   onClick={() =>
-                    list.filter((car) => car.isCompared).length > 1 &&
+                    cars.filter((car) => car.isCompared).length > 1 &&
                     car.isCompared === false
                       ? alert("You can compare only 2 cars at the same time")
                       : onToggleCompared(car.id)
