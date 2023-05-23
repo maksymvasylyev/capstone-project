@@ -16,10 +16,10 @@ const StyledAddCarList = styled.ul`
   grid-template-columns: 1fr;
 `;
 
-function AddCarList({ cars, myCars, onDeleteCar, onToggleCompared }) {
+function AddCarList({ cars, onDeleteCar, onToggleCompared }) {
   return (
     <StyledAddCarList role="list">
-      {myCars
+      {cars
         .filter((car) => car.section == "myGarage")
         .map((car) => (
           <li key={car.id}>
@@ -55,7 +55,7 @@ function AddCarList({ cars, myCars, onDeleteCar, onToggleCompared }) {
               style={{ top: "30px", right: "-200px", marginBottom: "30px" }}
               active={car.isCompared}
               onClick={() =>
-                myCars.filter((car) => car.isCompared).length > 1 &&
+                cars.filter((car) => car.isCompared).length > 1 &&
                 car.isCompared === false
                   ? alert("You can compare only 2 cars at the same time")
                   : onToggleCompared(car.id)

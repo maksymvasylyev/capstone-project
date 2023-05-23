@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 import styled from "styled-components";
 import AddCarList from "./AddCarList";
-import Image from "next/image";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
+import data from "../../data.json";
 
 const StyledHeader = styled.h2`
   font-size: 1.7em;
@@ -61,12 +61,12 @@ const StyledAddCarButton = styled.button`
   }
 `;
 
-function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
+function AddCarForm({ onDeleteCar, onToggleCompared }) {
   const [showForm, setShowForm] = useState(true);
   const [image, setImage] = useState(null);
 
-  const [myCars, setMyCars] = useLocalStorageState("myCars", {
-    defaultValue: cars,
+  const [cars, setCars] = useLocalStorageState("list", {
+    defaultValue: data,
   });
 
   const [imageValue, setImageValue] = useState("");
@@ -75,11 +75,8 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
   const [uploadedImages, setUploadedImages] = useState([]);
 
   function handleFileChange(event) {
-    // Get the selected file from the event target
     const file = event.target.files[0];
-    // Set the image state variable to the file
     setImage(file);
-
     setImageValue(event.target.value);
   }
 
@@ -87,9 +84,7 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
     setIsUploading(true);
 
     const formData = new FormData();
-
     formData.append("file", image);
-
     formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
 
     try {
@@ -103,8 +98,7 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
 
       const json = await response.json();
       setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
-      console.log(json);
-      setMyCars([
+      setCars([
         {
           id: uid(),
           imageSource: json.secure_url,
@@ -114,7 +108,7 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
 
           ...newMyCar,
         },
-        ...myCars,
+        ...cars,
       ]);
     } catch (error) {
       console.error(error);
@@ -139,10 +133,10 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
       <StyledHeader>Add Your Own Car</StyledHeader>
       {showForm ? (
         <StyledForm onSubmit={handleSubmit}>
-          <p>
-            <label htmlFor="avatar">Please choose an image</label>
-          </p>
-          <input
+          <StyledNewCarLabel htmlFor="avatar">
+            Please choose an image
+          </StyledNewCarLabel>
+          <StyledNewCarInput
             type="file"
             id="avatar"
             onChange={handleFileChange}
@@ -156,7 +150,7 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
           <StyledNewCarInput name="model" id="model" />
 
           <StyledNewCarLabel htmlFor="bodyType">Body Type:</StyledNewCarLabel>
-          <StyledNewCarSelect name="bodyType" id="bodyType" required>
+          <StyledNewCarSelect name="bodyType" id="bodyType">
             <option defaultValue value="">
               --Make a choice--
             </option>
@@ -170,7 +164,7 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
           <StyledNewCarLabel htmlFor="wheelsDrive">
             Wheels Drive:
           </StyledNewCarLabel>
-          <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive" required>
+          <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive">
             <option defaultValue value="">
               --Make a choice--
             </option>
@@ -190,7 +184,7 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
           />
 
           <StyledNewCarLabel htmlFor="Fuel">Fuel:</StyledNewCarLabel>
-          <StyledNewCarSelect name="Fuel" id="Fuel" required>
+          <StyledNewCarSelect name="Fuel" id="Fuel">
             <option defaultValue value="">
               --Make a choice--
             </option>
@@ -254,22 +248,8 @@ function AddCarForm({ cars, onDeleteCar, onToggleCompared }) {
           Add New Car
         </StyledAddCarButton>
       )}
-      {/* <section>
-        {uploadedImages &&
-          uploadedImages.map((image) => (
-            <Image
-              key={image.public_id}
-              src={image.secure_url}
-              width={150}
-              height={150}
-              alt={image.public_id}
-              style={{ objectFit: "cover" }}
-            />
-          ))}
-      </section> */}
       <AddCarList
         cars={cars}
-        myCars={myCars}
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
       />

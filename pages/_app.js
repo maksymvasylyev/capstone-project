@@ -3,8 +3,6 @@ import GlobalStyle from "../styles";
 import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
-import { uid } from "uid";
-import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
@@ -40,20 +38,6 @@ export default function App({ Component, pageProps }) {
     router.push("/favorites");
   }
 
-  // function handleAddCar(newCar) {
-  //   setCars([
-  //     ...cars,
-  //     {
-  //       id: uid(),
-  //       imageSource: "/myCarPicture.jpeg",
-  //       isCompared: false,
-  //       isFavorite: null,
-  //       section: "myGarage",
-  //       ...newCar,
-  //     },
-  //   ]);
-  // }
-
   function handleDeleteCar(id) {
     setCars(cars.filter((car) => car.id !== id));
   }
@@ -67,7 +51,6 @@ export default function App({ Component, pageProps }) {
         onToggleFavorite={handleToggleFavorite}
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
-        // onAddCar={handleAddCar}
         onDeleteCar={handleDeleteCar}
       />
     </Layout>

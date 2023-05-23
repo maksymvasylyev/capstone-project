@@ -1,13 +1,8 @@
 import AddCarForm from "@/components/AddCarForm/AddCarForm";
 
-function MyGaragePage({ cars, onDeleteCar, onToggleCompared }) {
+function MyGaragePage({ onDeleteCar, onToggleCompared }) {
   return (
-    <AddCarForm
-      cars={cars}
-      // onAddCar={onAddCar}
-      onDeleteCar={onDeleteCar}
-      onToggleCompared={onToggleCompared}
-    />
+    <AddCarForm onDeleteCar={onDeleteCar} onToggleCompared={onToggleCompared} />
   );
 }
 
