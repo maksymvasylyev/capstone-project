@@ -7,6 +7,7 @@ function DetailPage() {
   const { id } = router.query;
 
   const currentCar = data.find((car) => car.id === parseInt(id));
+  console.log(currentCar);
   if (!currentCar) {
     return console.log("No data");
   }
