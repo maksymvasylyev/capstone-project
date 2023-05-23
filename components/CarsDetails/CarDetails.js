@@ -7,6 +7,7 @@ import {
 } from "./StyledCarDetails";
 
 function CarDetails({ car }) {
+  console.log(car);
   return (
     <>
       <div>

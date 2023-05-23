@@ -1,5 +1,6 @@
-function UpdateCarForm(currentUpdatedCar) {
-  return <div>{currentUpdatedCar.section}</div>;
+function UpdateCarForm(car) {
+  console.log(car);
+  return `${car}`;
 }
 
 export default UpdateCarForm;

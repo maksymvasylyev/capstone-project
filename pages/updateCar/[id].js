@@ -5,7 +5,7 @@ function UpdatePage({ cars }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const currentUpdatedCar = cars.find((car) => car.id === parseInt(id));
+  const currentUpdatedCar = cars.find((car) => car.id === id);
   console.log(cars);
   console.log(currentUpdatedCar);
   if (!currentUpdatedCar) {
