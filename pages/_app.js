@@ -45,23 +45,31 @@ export default function App({ Component, pageProps }) {
 
   function handleEditCar(updatedCar, id) {
     console.log(id);
-
+    const updatedMyCars = cars.map((car) => {
+      if (car.id === id) {
+        return {
+          ...car,
+          ...updatedCar,
+        };
+      } else return car;
+    });
     setCars(
-      cars.map((car) =>
-        car.id === id
-          ? [
-              ...cars,
-              {
-                id: uid(),
-                imageSource: "/myCarPicture.jpeg",
-                isCompared: false,
-                isFavorite: null,
-                section: "myGarage",
-                ...updatedCar,
-              },
-            ]
-          : car
-      )
+      updatedMyCars
+      // cars.map((car) =>
+      //   car.id === id
+      //     ? [
+      //         ...cars,
+      //         {
+      //           id: uid(),
+      //           imageSource: "/myCarPicture.jpeg",
+      //           isCompared: false,
+      //           isFavorite: null,
+      //           section: "myGarage",
+      //           ...updatedCar,
+      //         },
+      //       ]
+      //     : car
+      // )
     );
     console.log(cars);
   }

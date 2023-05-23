@@ -13,12 +13,16 @@ import {
   StyledNewCarSelect,
 } from "./StyledAddCarForm";
 
-function AddCarForm({ onDeleteCar, onToggleCompared }) {
+function AddCarForm({ onDeleteCar, onToggleCompared, cars }) {
   const [showForm, setShowForm] = useState(true);
   const [image, setImage] = useState(null);
 
-  const [cars, setCars] = useLocalStorageState("list", {
-    defaultValue: data,
+  // const [cars, setCars] = useLocalStorageState("list", {
+  //   defaultValue: data,
+  // });
+
+  const [newCars, setNewCars] = useLocalStorageState("list", {
+    defaultValue: cars,
   });
 
   const [imageValue, setImageValue] = useState("");
@@ -50,7 +54,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
 
       const json = await response.json();
       setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
-      setCars([
+      setNewCars([
         {
           id: uid(),
           imageSource: json.secure_url,
@@ -60,7 +64,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
 
           ...newMyCar,
         },
-        ...cars,
+        ...newCars,
       ]);
     } catch (error) {
       console.error(error);
@@ -201,7 +205,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
         </StyledAddCarButton>
       )}
       <AddCarList
-        cars={cars}
+        newCars={newCars}
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
       />

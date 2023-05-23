@@ -1,3 +1,4 @@
+import { Router, useRouter } from "next/router";
 import {
   StyledAddCarButton,
   StyledHeader,
@@ -6,8 +7,11 @@ import {
   StyledNewCarSelect,
 } from "../AddCarForm/StyledAddCarForm";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
+import { useState } from "react";
 
 function UpdateCarForm({ car, onEditCar }) {
+  const [showForm, setShowForm] = useState(true);
+  const router = useRouter();
   console.log(car);
 
   function handleSubmit(event) {
@@ -17,6 +21,8 @@ function UpdateCarForm({ car, onEditCar }) {
 
     onEditCar(updatedData, car.id);
     console.log(car.id);
+    router.push("/myGarage");
+    setShowForm(false);
   }
   return (
     <>
