@@ -4,8 +4,10 @@ import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import { uid } from "uid";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
+  const [showForm, setShowForm] = useState(true);
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: data,
   });
@@ -18,6 +20,10 @@ export default function App({ Component, pageProps }) {
       } else return car;
     });
     setCars(updatedCars);
+  }
+
+  function hideAddCarForm() {
+    setShowForm(!showForm);
   }
 
   function handleToggleCompared(id) {
@@ -85,6 +91,8 @@ export default function App({ Component, pageProps }) {
         clearComparedList={clearComparedList}
         onDeleteCar={handleDeleteCar}
         onEditCar={handleEditCar}
+        hideAddCarForm={hideAddCarForm}
+        showForm={showForm}
       />
     </Layout>
   );

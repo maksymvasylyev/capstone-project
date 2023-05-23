@@ -1,16 +1,13 @@
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import {
-  StyledAddCarButton,
   StyledHeader,
   StyledNewCarInput,
   StyledNewCarLabel,
   StyledNewCarSelect,
 } from "../AddCarForm/StyledAddCarForm";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
-import { useState } from "react";
 
-function UpdateCarForm({ car, onEditCar }) {
-  const [showForm, setShowForm] = useState(true);
+function UpdateCarForm({ car, onEditCar, hideAddCarForm }) {
   const router = useRouter();
   console.log(car);
 
@@ -22,7 +19,7 @@ function UpdateCarForm({ car, onEditCar }) {
     onEditCar(updatedData, car.id);
     console.log(car.id);
     router.push("/myGarage");
-    setShowForm(false);
+    hideAddCarForm();
   }
   return (
     <>

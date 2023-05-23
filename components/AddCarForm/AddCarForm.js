@@ -12,9 +12,16 @@ import {
   StyledNewCarLabel,
   StyledNewCarSelect,
 } from "./StyledAddCarForm";
+import Image from "next/image";
 
-function AddCarForm({ onDeleteCar, onToggleCompared, cars }) {
-  const [showForm, setShowForm] = useState(true);
+function AddCarForm({
+  onDeleteCar,
+  onToggleCompared,
+  cars,
+  hideAddCarForm,
+  showForm,
+}) {
+  // const [showForm, setShowForm] = useState(true);
   const [image, setImage] = useState(null);
 
   // const [cars, setCars] = useLocalStorageState("list", {
@@ -82,7 +89,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared, cars }) {
 
     handleAddCar(newCarData);
     event.target.reset();
-    setShowForm(false);
+    hideAddCarForm();
   }
   return (
     <>
@@ -90,7 +97,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared, cars }) {
       {showForm ? (
         <StyledForm onSubmit={handleSubmit}>
           <StyledNewCarLabel htmlFor="avatar">
-            Please choose an image
+            Choose an image of your car, if you have
           </StyledNewCarLabel>
           <StyledNewCarInput
             type="file"
@@ -98,7 +105,15 @@ function AddCarForm({ onDeleteCar, onToggleCompared, cars }) {
             onChange={handleFileChange}
             value={imageValue}
           />
-
+          {image && (
+            <Image
+              src={URL.createObjectURL(image)}
+              width={150}
+              height={150}
+              alt="Preview of the image to upload"
+              style={{ objectFit: "cover" }}
+            />
+          )}
           <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
           <StyledNewCarInput name="name" id="name" />
 
@@ -200,7 +215,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared, cars }) {
           </StyledSubmitButton>
         </StyledForm>
       ) : (
-        <StyledAddCarButton type="button" onClick={() => setShowForm(true)}>
+        <StyledAddCarButton type="button" onClick={() => hideAddCarForm()}>
           Add New Car
         </StyledAddCarButton>
       )}

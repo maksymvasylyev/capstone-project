@@ -31,13 +31,14 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
             >
               <Image src="/cross.png" alt="delete" width={40} height={40} />
             </StyledLikeButton>
+            <Image
+              src={car.imageSource}
+              alt="yourCar"
+              width={700}
+              height={350}
+            />
             <Link href={`/updateCar/${car.id}`}>
-              <Image
-                src={car.imageSource}
-                alt="yourCar"
-                width={700}
-                height={350}
-              />
+              <Image src="/pencil.png" alt="edit" width={40} height={40} />
             </Link>
             <h1>{car.name}</h1>
             <h2>{car.model}</h2>
