@@ -3,9 +3,18 @@ import {
   StyledDescriptionBackLink,
   StyledDescriptionList,
 } from "./StyledCarDetails";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
-function CarDetails({ car }) {
-  console.log(car);
+function CarDetails() {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data } = useSWR(id ? `/api/products/${id}` : null);
+
+  if (!data) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <>
       <div>

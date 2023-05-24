@@ -1,5 +1,5 @@
 import CarsList from "@/components/CarsList/CarsList";
-import data from "@/data.json";
+
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -28,7 +28,7 @@ export default function HomePage() {
           Click to choose exactly what you need{" "}
         </StyledLinkDivMain>
       </Link>
-      <CarsList data={data} />
+      <CarsList />
     </>
   );
 }
