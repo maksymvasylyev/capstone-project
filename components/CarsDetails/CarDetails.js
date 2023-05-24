@@ -2,10 +2,9 @@ import Image from "next/image";
 import {
   StyledDescriptionBackLink,
   StyledDescriptionList,
-} from "./StyledCarDetails";
+} from "./CarDetails.styled";
 
 function CarDetails({ car }) {
-  console.log(car);
   return (
     <>
       <div>

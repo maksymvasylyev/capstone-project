@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { StyledDescriptionList } from "../CarsDetails/StyledCarDetails";
+import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
 import {
   StyledCompareButton,
   StyledLikeButton,
-} from "../Favorites/StyledFavorites";
+} from "../Favorites/Favorites.styled";
 import Link from "next/link";
 
 const StyledAddCarList = styled.ul`

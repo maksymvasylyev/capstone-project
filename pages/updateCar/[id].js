@@ -1,21 +1,27 @@
 import { useRouter } from "next/router";
 import UpdateCarForm from "@/components/UpdateCarForm/UpdateCarForm";
 
-function UpdatePage({ cars, onEditCar, hideAddCarForm, showForm }) {
+function UpdatePage({
+  cars,
+  onEditCar,
+  toggleVisibilityOfAddCarForm,
+  isFormShown,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
   const currentUpdatedCar = cars.find((car) => car.id === id);
   if (!currentUpdatedCar) {
-    return console.log("No data");
+    console.log("No data");
+    return <h1>{"You cannot proceed"}</h1>;
   }
 
   return (
     <UpdateCarForm
       car={currentUpdatedCar}
       onEditCar={onEditCar}
-      hideAddCarForm={hideAddCarForm}
-      showForm={showForm}
+      toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
+      isFormShown={isFormShown}
     />
   );
 }
