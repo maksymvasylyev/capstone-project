@@ -24,6 +24,18 @@ const StyledUpdateLink = styled(Link)`
   }
 `;
 
+const StyledDeleteButton = styled.button`
+  background-color: transparent;
+  border: none;
+  display: flex;
+  position: relative;
+  top: 45px;
+  right: -640px;
+  &:hover {
+    border: solid red 1px;
+  }
+`;
+
 function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
   return (
     <StyledAddCarList role="list">
@@ -31,13 +43,12 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
         .filter((car) => car.section == "myGarage")
         .map((car) => (
           <li key={car.id}>
-            <StyledLikeButton
-              style={{ right: "-640px" }}
+            <StyledDeleteButton
               type="button"
               onClick={() => onDeleteCar(car.id)}
             >
               <Image src="/cross.png" alt="delete" width={40} height={40} />
-            </StyledLikeButton>
+            </StyledDeleteButton>
             <Image
               src={car.imageSource}
               alt="yourCar"
