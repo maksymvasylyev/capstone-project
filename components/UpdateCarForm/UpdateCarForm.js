@@ -9,7 +9,6 @@ import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
 
 function UpdateCarForm({ car, onEditCar, hideAddCarForm, showForm }) {
   const router = useRouter();
-  console.log(car);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,7 +16,7 @@ function UpdateCarForm({ car, onEditCar, hideAddCarForm, showForm }) {
     const updatedData = Object.fromEntries(formData);
 
     onEditCar(updatedData, car.id);
-    console.log(car.id);
+
     router.push("/myGarage");
     hideAddCarForm();
   }
@@ -26,16 +25,6 @@ function UpdateCarForm({ car, onEditCar, hideAddCarForm, showForm }) {
       <StyledHeader>Edit Your Car</StyledHeader>
 
       <StyledForm onSubmit={handleSubmit}>
-        {/* <StyledNewCarLabel htmlFor="avatar">
-          Please choose an image
-        </StyledNewCarLabel>
-        <StyledNewCarInput
-          type="file"
-          id="avatar"
-          onChange={handleFileChange}
-          value={imageValue}
-        /> */}
-
         <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
         <StyledNewCarInput name="name" id="name" defaultValue={car.name} />
 

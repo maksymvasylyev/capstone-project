@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
-import styled from "styled-components";
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
-import data from "../../data.json";
 import {
   StyledAddCarButton,
   StyledHeader,
@@ -21,12 +19,7 @@ function AddCarForm({
   hideAddCarForm,
   showForm,
 }) {
-  // const [showForm, setShowForm] = useState(true);
   const [image, setImage] = useState(null);
-
-  // const [cars, setCars] = useLocalStorageState("list", {
-  //   defaultValue: data,
-  // });
 
   const [newCars, setNewCars] = useLocalStorageState("list", {
     defaultValue: cars,

@@ -17,6 +17,13 @@ const StyledAddCarList = styled.ul`
   grid-template-columns: 1fr;
 `;
 
+const StyledUpdateLink = styled(Link)`
+  &:hover {
+    border: solid black 1px;
+    padding-top: 30px;
+  }
+`;
+
 function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
   return (
     <StyledAddCarList role="list">
@@ -37,9 +44,9 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               width={700}
               height={350}
             />
-            <Link href={`/updateCar/${car.id}`}>
+            <StyledUpdateLink href={`/updateCar/${car.id}`}>
               <Image src="/pencil.png" alt="edit" width={40} height={40} />
-            </Link>
+            </StyledUpdateLink>
             <h1>{car.name}</h1>
             <h2>{car.model}</h2>
             <StyledDescriptionList>

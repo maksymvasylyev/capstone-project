@@ -3,7 +3,6 @@ import GlobalStyle from "../styles";
 import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
-import { uid } from "uid";
 import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
@@ -59,24 +58,7 @@ export default function App({ Component, pageProps }) {
         };
       } else return car;
     });
-    setCars(
-      updatedMyCars
-      // cars.map((car) =>
-      //   car.id === id
-      //     ? [
-      //         ...cars,
-      //         {
-      //           id: uid(),
-      //           imageSource: "/myCarPicture.jpeg",
-      //           isCompared: false,
-      //           isFavorite: null,
-      //           section: "myGarage",
-      //           ...updatedCar,
-      //         },
-      //       ]
-      //     : car
-      // )
-    );
+    setCars(updatedMyCars);
     console.log(cars);
   }
 
