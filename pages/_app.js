@@ -45,6 +45,7 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleDeleteCar(id) {
+    alert("Are you sure you want to delete?");
     setCars(cars.filter((car) => car.id !== id));
   }
 
