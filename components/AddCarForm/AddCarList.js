@@ -55,9 +55,11 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               width={700}
               height={350}
             />
-            <StyledUpdateLink href={`/updateCar/${car.id}`}>
-              <Image src="/pencil.png" alt="edit" width={40} height={40} />
-            </StyledUpdateLink>
+            <div>
+              <StyledUpdateLink href={`/updateCar/${car.id}`}>
+                <Image src="/pencil.png" alt="edit" width={40} height={40} />
+              </StyledUpdateLink>
+            </div>
             <h1>{car.name}</h1>
             <h2>{car.model}</h2>
             <StyledDescriptionList>
