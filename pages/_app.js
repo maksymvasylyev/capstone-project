@@ -4,6 +4,9 @@ import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { SWRConfig } from "swr";
+
+const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const [showForm, setShowForm] = useState(true);
@@ -66,17 +69,19 @@ export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        cars={cars}
-        onToggleFavorite={handleToggleFavorite}
-        onToggleCompared={handleToggleCompared}
-        clearComparedList={clearComparedList}
-        onDeleteCar={handleDeleteCar}
-        onEditCar={handleEditCar}
-        hideAddCarForm={hideAddCarForm}
-        showForm={showForm}
-      />
+      <SWRConfig value={{ fetcher }}>
+        <Component
+          {...pageProps}
+          cars={cars}
+          onToggleFavorite={handleToggleFavorite}
+          onToggleCompared={handleToggleCompared}
+          clearComparedList={clearComparedList}
+          onDeleteCar={handleDeleteCar}
+          onEditCar={handleEditCar}
+          hideAddCarForm={hideAddCarForm}
+          showForm={showForm}
+        />
+      </SWRConfig>
     </Layout>
   );
 }
