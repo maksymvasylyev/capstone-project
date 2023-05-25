@@ -1,72 +1,28 @@
 import React, { useState } from "react";
-import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
-import styled from "styled-components";
+import StyledForm, { StyledSubmitButton } from "../FilterForm/Form.styled";
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
-import data from "../../data.json";
+import {
+  StyledAddCarButton,
+  StyledHeader,
+  StyledNewCarInput,
+  StyledNewCarLabel,
+  StyledNewCarSelect,
+} from "./AddCarForm.styled";
+import Image from "next/image";
 
-const StyledHeader = styled.h2`
-  font-size: 1.7em;
-`;
-const StyledNewCarLabel = styled.label`
-  color: black;
-  margin: 0;
-`;
-
-const StyledNewCarSelect = styled.select`
-  margin: 0.5em;
-  padding: 0.5em;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const StyledNewCarInput = styled.input`
-  margin-bottom: 0.5em;
-  padding: 0.5em;
-  border-radius: 5px;
-  border: solid;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const StyledAddCarButton = styled.button`
-  display: flex;
-  position: relative;
-  top: -10px;
-  right: -70px;
-  align-items: center;
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 0.7em 1.4em 0.7em 1.1em;
-  color: white;
-  color: white;
-  background: black;
-  border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
-  letter-spacing: 0.05em;
-  border-radius: 20em;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-
-  &:hover {
-    box-shadow: 0 0.5em 1.5em -0.5em red;
-  }
-
-  &:active {
-    box-shadow: 0 0.3em 1em -0.5em #14a73e98;
-  }
-`;
-
-function AddCarForm({ onDeleteCar, onToggleCompared }) {
-  const [showForm, setShowForm] = useState(true);
+function AddCarForm({
+  onDeleteCar,
+  onToggleCompared,
+  cars,
+  toggleVisibilityOfAddCarForm,
+  isFormShown,
+}) {
   const [image, setImage] = useState(null);
 
-  const [cars, setCars] = useLocalStorageState("list", {
-    defaultValue: data,
+  const [newCars, setNewCars] = useLocalStorageState("list", {
+    defaultValue: cars,
   });
 
   const [imageValue, setImageValue] = useState("");
@@ -98,7 +54,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
 
       const json = await response.json();
       setUploadedImages((uploadedImages) => [json, ...uploadedImages]);
-      setCars([
+      setNewCars([
         {
           id: uid(),
           imageSource: json.secure_url,
@@ -108,7 +64,7 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
 
           ...newMyCar,
         },
-        ...cars,
+        ...newCars,
       ]);
     } catch (error) {
       console.error(error);
@@ -126,15 +82,15 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
 
     handleAddCar(newCarData);
     event.target.reset();
-    setShowForm(false);
+    toggleVisibilityOfAddCarForm();
   }
   return (
     <>
       <StyledHeader>Add Your Own Car</StyledHeader>
-      {showForm ? (
+      {isFormShown ? (
         <StyledForm onSubmit={handleSubmit}>
           <StyledNewCarLabel htmlFor="avatar">
-            Please choose an image
+            Choose an image of your car, if you have
           </StyledNewCarLabel>
           <StyledNewCarInput
             type="file"
@@ -142,7 +98,15 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
             onChange={handleFileChange}
             value={imageValue}
           />
-
+          {image && (
+            <Image
+              src={URL.createObjectURL(image)}
+              width={150}
+              height={150}
+              alt="Preview of the image to upload"
+              style={{ objectFit: "cover" }}
+            />
+          )}
           <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
           <StyledNewCarInput name="name" id="name" />
 
@@ -244,12 +208,15 @@ function AddCarForm({ onDeleteCar, onToggleCompared }) {
           </StyledSubmitButton>
         </StyledForm>
       ) : (
-        <StyledAddCarButton type="button" onClick={() => setShowForm(true)}>
+        <StyledAddCarButton
+          type="button"
+          onClick={() => toggleVisibilityOfAddCarForm()}
+        >
           Add New Car
         </StyledAddCarButton>
       )}
       <AddCarList
-        cars={cars}
+        newCars={newCars}
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
       />

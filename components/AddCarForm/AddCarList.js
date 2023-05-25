@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { StyledDescriptionList } from "../CarsDetails/StyledCarDetails";
+import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
 import {
   StyledCompareButton,
   StyledLikeButton,
-} from "../Favorites/StyledFavorites";
+} from "../Favorites/Favorites.styled";
+import Link from "next/link";
 
 const StyledAddCarList = styled.ul`
   list-style: none;
@@ -16,26 +17,49 @@ const StyledAddCarList = styled.ul`
   grid-template-columns: 1fr;
 `;
 
-function AddCarList({ cars, onDeleteCar, onToggleCompared }) {
+const StyledUpdateLink = styled(Link)`
+  &:hover {
+    border: solid black 1px;
+    padding-top: 30px;
+  }
+`;
+
+const StyledDeleteButton = styled.button`
+  background-color: transparent;
+  border: none;
+  display: flex;
+  position: relative;
+  top: 45px;
+  right: -640px;
+  &:hover {
+    border: solid red 1px;
+  }
+`;
+
+function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
   return (
     <StyledAddCarList role="list">
-      {cars
+      {newCars
         .filter((car) => car.section == "myGarage")
         .map((car) => (
           <li key={car.id}>
-            <StyledLikeButton
-              style={{ right: "-640px" }}
+            <StyledDeleteButton
               type="button"
               onClick={() => onDeleteCar(car.id)}
             >
               <Image src="/cross.png" alt="delete" width={40} height={40} />
-            </StyledLikeButton>
+            </StyledDeleteButton>
             <Image
               src={car.imageSource}
               alt="yourCar"
               width={700}
               height={350}
             />
+            <div>
+              <StyledUpdateLink href={`/updateCar/${car.id}`}>
+                <Image src="/pencil.png" alt="edit" width={40} height={40} />
+              </StyledUpdateLink>
+            </div>
             <h1>{car.name}</h1>
             <h2>{car.model}</h2>
             <StyledDescriptionList>
@@ -55,7 +79,7 @@ function AddCarList({ cars, onDeleteCar, onToggleCompared }) {
               style={{ top: "30px", right: "-200px", marginBottom: "30px" }}
               active={car.isCompared}
               onClick={() =>
-                cars.filter((car) => car.isCompared).length > 1 &&
+                newCars.filter((car) => car.isCompared).length > 1 &&
                 car.isCompared === false
                   ? alert("You can compare only 2 cars at the same time")
                   : onToggleCompared(car.id)

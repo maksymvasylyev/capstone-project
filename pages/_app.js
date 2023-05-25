@@ -3,8 +3,10 @@ import GlobalStyle from "../styles";
 import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
+  const [isFormShown, setIsFormShown] = useState(true);
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: data,
   });
@@ -17,6 +19,10 @@ export default function App({ Component, pageProps }) {
       } else return car;
     });
     setCars(updatedCars);
+  }
+
+  function toggleVisibilityOfAddCarForm() {
+    setIsFormShown(!isFormShown);
   }
 
   function handleToggleCompared(id) {
@@ -39,7 +45,21 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleDeleteCar(id) {
-    setCars(cars.filter((car) => car.id !== id));
+    if (confirm("Are you sure you want to delete this car?")) {
+      setCars(cars.filter((car) => car.id !== id));
+    }
+  }
+
+  function handleEditCar(updatedCar, id) {
+    const updatedMyCars = cars.map((car) => {
+      if (car.id === id) {
+        return {
+          ...car,
+          ...updatedCar,
+        };
+      } else return car;
+    });
+    setCars(updatedMyCars);
   }
 
   return (
@@ -52,6 +72,9 @@ export default function App({ Component, pageProps }) {
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
         onDeleteCar={handleDeleteCar}
+        onEditCar={handleEditCar}
+        toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
+        isFormShown={isFormShown}
       />
     </Layout>
   );
