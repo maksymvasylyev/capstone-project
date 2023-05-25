@@ -1,8 +1,12 @@
-import StyledList from "./StyledList";
-import { StyledImage } from "../Favorites/StyledFavorites";
-import { StyledNameDiv } from "../Favorites/StyledFavorites";
-import { useRouter } from "next/router";
-import useSWR from "swr";
+
+
+
+
+
+import StyledList from "./List.styled";
+import { StyledImage } from "../Favorites/Favorites.styled";
+import { StyledNameDiv } from "../Favorites/Favorites.styled";
+
 
 function CarsList({ cars }) {
   return (

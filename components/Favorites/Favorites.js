@@ -1,5 +1,5 @@
 import Link from "next/link";
-import StyledList from "../CarsList/StyledList";
+import StyledList from "../CarsList/List.styled";
 import {
   StyledLikeButton,
   StyledNameDiv,
@@ -8,7 +8,7 @@ import {
   StyledLink,
   StyledPriceDiv,
   StyledCompareButton,
-} from "./StyledFavorites";
+} from "./Favorites.styled";
 import Image from "next/image";
 
 function Favorites({ cars, onToggleFavorite, onToggleCompared }) {

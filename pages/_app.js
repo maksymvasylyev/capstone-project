@@ -7,8 +7,8 @@ import { useState, useEffect } from "react";
 // const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
-  const [showForm, setShowForm] = useState(true);
-  const router = useRouter();
+
+  const [isFormShown, setIsFormShown] = useState(true);
 
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: [],
@@ -44,8 +44,8 @@ export default function App({ Component, pageProps }) {
     setCars(updatedCars);
   }
 
-  function hideAddCarForm() {
-    setShowForm(!showForm);
+  function toggleVisibilityOfAddCarForm() {
+    setIsFormShown(!isFormShown);
   }
 
   function handleToggleCompared(id) {
@@ -64,16 +64,16 @@ export default function App({ Component, pageProps }) {
       } else return car;
     });
     setCars(clearComparedCars);
-    router.push("/favorites");
+    router.push("/filter-form");
   }
 
   function handleDeleteCar(id) {
-    alert("Are you sure you want to delete?");
-    setCars(cars.filter((car) => car.id !== id));
+    if (confirm("Are you sure you want to delete this car?")) {
+      setCars(cars.filter((car) => car.id !== id));
+    }
   }
 
   function handleEditCar(updatedCar, id) {
-    console.log(id);
     const updatedMyCars = cars.map((car) => {
       if (car.id === id) {
         return {
@@ -83,7 +83,6 @@ export default function App({ Component, pageProps }) {
       } else return car;
     });
     setCars(updatedMyCars);
-    console.log(cars);
   }
 
   return (
@@ -98,8 +97,8 @@ export default function App({ Component, pageProps }) {
         clearComparedList={clearComparedList}
         onDeleteCar={handleDeleteCar}
         onEditCar={handleEditCar}
-        hideAddCarForm={hideAddCarForm}
-        showForm={showForm}
+        toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
+        isFormShown={isFormShown}
       />
       {/* </SWRConfig> */}
     </Layout>

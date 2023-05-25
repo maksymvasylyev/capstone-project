@@ -2,7 +2,8 @@ import Image from "next/image";
 import {
   StyledDescriptionBackLink,
   StyledDescriptionList,
-} from "./StyledCarDetails";
+
+} from "./CarDetails.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -15,6 +16,9 @@ function CarDetails() {
   if (!data) {
     return <h1>Loading...</h1>;
   }
+
+
+
   return (
     <>
       <div>

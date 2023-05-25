@@ -1,12 +1,12 @@
-import StyledList from "../CarsList/StyledList";
+import StyledList from "../CarsList/List.styled";
 import {
   StyledImage,
   StyledLikeButton,
   StyledResultDiv,
-} from "../Favorites/StyledFavorites";
+} from "../Favorites/Favorites.styled";
 import Image from "next/image";
 import styled from "styled-components";
-import { StyledSubmitButton } from "../FilterForm/StyledForm";
+import { StyledSubmitButton } from "../FilterForm/Form.styled";
 
 const StyledCompareList = styled.ul`
   list-style: none;
