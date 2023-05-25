@@ -66,19 +66,18 @@ export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <GlobalStyle />
-      <SWRConfig value={{ fetcher }}>
-        <Component
-          {...pageProps}
-          cars={cars}
-          onToggleFavorite={handleToggleFavorite}
-          onToggleCompared={handleToggleCompared}
-          clearComparedList={clearComparedList}
-          onDeleteCar={handleDeleteCar}
-          onEditCar={handleEditCar}
-          toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
-          isFormShown={isFormShown}
-        />
-      </SWRConfig>
+
+      <Component
+        {...pageProps}
+        cars={cars}
+        onToggleFavorite={handleToggleFavorite}
+        onToggleCompared={handleToggleCompared}
+        clearComparedList={clearComparedList}
+        onDeleteCar={handleDeleteCar}
+        onEditCar={handleEditCar}
+        toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
+        isFormShown={isFormShown}
+      />
     </Layout>
   );
 }
