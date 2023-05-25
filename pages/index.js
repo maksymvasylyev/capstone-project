@@ -1,7 +1,10 @@
 import CarsList from "@/components/CarsList/CarsList";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styled from "styled-components";
+import useSWR from "swr";
+import useLocalStorageState from "use-local-storage-state";
 
 const StyledLinkDivMain = styled.div`
   position: fixed;
@@ -20,7 +23,19 @@ const StyledLinkDivMain = styled.div`
   }
 `;
 
-export default function HomePage() {
+export default function HomePage({ cars }) {
+  // const router = useRouter();
+  // const { data } = useSWR("/api/products");
+
+  // const [cars, setCars] = useLocalStorageState("list", {
+  //   defaultValue: [],
+  // });
+  // setCars(data);
+  // console.log(cars);
+
+  // if (!data) {
+  //   return <h1>Loading...</h1>;
+  // }
   return (
     <>
       <Link href="/filter-form">
@@ -28,7 +43,7 @@ export default function HomePage() {
           Click to choose exactly what you need{" "}
         </StyledLinkDivMain>
       </Link>
-      <CarsList />
+      <CarsList cars={cars} />
     </>
   );
 }

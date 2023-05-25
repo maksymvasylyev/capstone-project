@@ -1,20 +1,42 @@
 import useLocalStorageState from "use-local-storage-state";
 import GlobalStyle from "../styles";
-import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SWRConfig } from "swr";
+import useSWR from "swr";
 
-const fetcher = (url) => fetch(url).then((response) => response.json());
+// const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const [showForm, setShowForm] = useState(true);
+  const router = useRouter();
+
   const [cars, setCars] = useLocalStorageState("list", {
-    defaultValue: data,
+    defaultValue: [],
   });
 
-  const router = useRouter();
+  async function fetchCars() {
+    const response = await fetch("/api/products");
+    const fetchedData = await response.json();
+    setCars(fetchedData);
+  }
+  useEffect(() => {
+    fetchCars();
+  }, []);
+
+  if (!cars) {
+    return "Loading...";
+  }
+
+  console.log(cars);
+
+  // const { data } = useSWR("/api/products");
+
+  // if (!data) {
+  //   return <h1>Loading...</h1>;
+  // }
+
   function handleToggleFavorite(id) {
     const updatedCars = cars.map((car) => {
       if (car.id === id) {
@@ -69,19 +91,19 @@ export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <GlobalStyle />
-      <SWRConfig value={{ fetcher }}>
-        <Component
-          {...pageProps}
-          cars={cars}
-          onToggleFavorite={handleToggleFavorite}
-          onToggleCompared={handleToggleCompared}
-          clearComparedList={clearComparedList}
-          onDeleteCar={handleDeleteCar}
-          onEditCar={handleEditCar}
-          hideAddCarForm={hideAddCarForm}
-          showForm={showForm}
-        />
-      </SWRConfig>
+      {/* <SWRConfig value={{ fetcher }}> */}
+      <Component
+        {...pageProps}
+        cars={cars}
+        onToggleFavorite={handleToggleFavorite}
+        onToggleCompared={handleToggleCompared}
+        clearComparedList={clearComparedList}
+        onDeleteCar={handleDeleteCar}
+        onEditCar={handleEditCar}
+        hideAddCarForm={hideAddCarForm}
+        showForm={showForm}
+      />
+      {/* </SWRConfig> */}
     </Layout>
   );
 }

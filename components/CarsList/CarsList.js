@@ -4,16 +4,10 @@ import { StyledNameDiv } from "../Favorites/StyledFavorites";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
-function CarsList() {
-  const router = useRouter();
-  const { data } = useSWR("/api/products");
-
-  if (!data) {
-    return <h1>Loading...</h1>;
-  }
+function CarsList({ cars }) {
   return (
     <StyledList role="list">
-      {data.map((car) => (
+      {cars.map((car) => (
         <li key={car.id}>
           <StyledImage
             src={car.imageSource}
