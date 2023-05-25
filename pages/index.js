@@ -3,8 +3,6 @@ import CarsList from "@/components/CarsList/CarsList";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import useSWR from "swr";
-import useLocalStorageState from "use-local-storage-state";
 
 const StyledLinkDivMain = styled.div`
   position: fixed;
