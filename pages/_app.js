@@ -3,8 +3,6 @@ import GlobalStyle from "../styles";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { SWRConfig } from "swr";
-import useSWR from "swr";
 
 // const fetcher = (url) => fetch(url).then((response) => response.json());
 
