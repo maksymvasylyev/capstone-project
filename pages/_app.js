@@ -1,17 +1,40 @@
 import useLocalStorageState from "use-local-storage-state";
 import GlobalStyle from "../styles";
-import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+// const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
-  const [isFormShown, setIsFormShown] = useState(true);
+  const [showForm, setShowForm] = useState(true);
+  const router = useRouter();
+
   const [cars, setCars] = useLocalStorageState("list", {
-    defaultValue: data,
+    defaultValue: [],
   });
 
-  const router = useRouter();
+  async function fetchCars() {
+    const response = await fetch("/api/products");
+    const fetchedData = await response.json();
+    setCars(fetchedData);
+  }
+  useEffect(() => {
+    fetchCars();
+  }, []);
+
+  if (!cars) {
+    return "Loading...";
+  }
+
+  console.log(cars);
+
+  // const { data } = useSWR("/api/products");
+
+  // if (!data) {
+  //   return <h1>Loading...</h1>;
+  // }
+
   function handleToggleFavorite(id) {
     const updatedCars = cars.map((car) => {
       if (car.id === id) {
@@ -21,8 +44,8 @@ export default function App({ Component, pageProps }) {
     setCars(updatedCars);
   }
 
-  function toggleVisibilityOfAddCarForm() {
-    setIsFormShown(!isFormShown);
+  function hideAddCarForm() {
+    setShowForm(!showForm);
   }
 
   function handleToggleCompared(id) {
@@ -45,12 +68,12 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleDeleteCar(id) {
-    if (confirm("Are you sure you want to delete this car?")) {
-      setCars(cars.filter((car) => car.id !== id));
-    }
+    alert("Are you sure you want to delete?");
+    setCars(cars.filter((car) => car.id !== id));
   }
 
   function handleEditCar(updatedCar, id) {
+    console.log(id);
     const updatedMyCars = cars.map((car) => {
       if (car.id === id) {
         return {
@@ -60,11 +83,13 @@ export default function App({ Component, pageProps }) {
       } else return car;
     });
     setCars(updatedMyCars);
+    console.log(cars);
   }
 
   return (
     <Layout>
       <GlobalStyle />
+      {/* <SWRConfig value={{ fetcher }}> */}
       <Component
         {...pageProps}
         cars={cars}
@@ -73,9 +98,10 @@ export default function App({ Component, pageProps }) {
         clearComparedList={clearComparedList}
         onDeleteCar={handleDeleteCar}
         onEditCar={handleEditCar}
-        toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
-        isFormShown={isFormShown}
+        hideAddCarForm={hideAddCarForm}
+        showForm={showForm}
       />
+      {/* </SWRConfig> */}
     </Layout>
   );
 }
