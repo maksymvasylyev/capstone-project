@@ -4,16 +4,16 @@ function MyGaragePage({
   onDeleteCar,
   onToggleCompared,
   cars,
-  hideAddCarForm,
-  showForm,
+  toggleVisibilityOfAddCarForm,
+  isFormShown,
 }) {
   return (
     <AddCarForm
       onDeleteCar={onDeleteCar}
       onToggleCompared={onToggleCompared}
       cars={cars}
-      hideAddCarForm={hideAddCarForm}
-      showForm={showForm}
+      toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
+      isFormShown={isFormShown}
     />
   );
 }

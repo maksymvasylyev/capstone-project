@@ -1,7 +1,7 @@
 import FilteredCarsList from "./FilteredCarsList";
 import styled from "styled-components";
 import useLocalStorageState from "use-local-storage-state";
-import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
+import StyledForm, { StyledSubmitButton } from "./Form.styled";
 
 const StyledSelect = styled.select`
   margin-top: 0.5em;

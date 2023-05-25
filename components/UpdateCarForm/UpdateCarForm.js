@@ -4,10 +4,15 @@ import {
   StyledNewCarInput,
   StyledNewCarLabel,
   StyledNewCarSelect,
-} from "../AddCarForm/StyledAddCarForm";
-import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
+} from "../AddCarForm/AddCarForm.styled";
+import StyledForm, { StyledSubmitButton } from "../FilterForm/Form.styled";
 
-function UpdateCarForm({ car, onEditCar, hideAddCarForm, showForm }) {
+function UpdateCarForm({
+  car,
+  onEditCar,
+  toggleVisibilityOfAddCarForm,
+  isFormShown,
+}) {
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -18,7 +23,7 @@ function UpdateCarForm({ car, onEditCar, hideAddCarForm, showForm }) {
     onEditCar(updatedData, car.id);
 
     router.push("/myGarage");
-    hideAddCarForm();
+    toggleVisibilityOfAddCarForm();
   }
   return (
     <>

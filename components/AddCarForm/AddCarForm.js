@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import StyledForm, { StyledSubmitButton } from "../FilterForm/StyledForm";
+import StyledForm, { StyledSubmitButton } from "../FilterForm/Form.styled";
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
@@ -9,15 +9,15 @@ import {
   StyledNewCarInput,
   StyledNewCarLabel,
   StyledNewCarSelect,
-} from "./StyledAddCarForm";
+} from "./AddCarForm.styled";
 import Image from "next/image";
 
 function AddCarForm({
   onDeleteCar,
   onToggleCompared,
   cars,
-  hideAddCarForm,
-  showForm,
+  toggleVisibilityOfAddCarForm,
+  isFormShown,
 }) {
   const [image, setImage] = useState(null);
 
@@ -82,12 +82,12 @@ function AddCarForm({
 
     handleAddCar(newCarData);
     event.target.reset();
-    hideAddCarForm();
+    toggleVisibilityOfAddCarForm();
   }
   return (
     <>
       <StyledHeader>Add Your Own Car</StyledHeader>
-      {showForm ? (
+      {isFormShown ? (
         <StyledForm onSubmit={handleSubmit}>
           <StyledNewCarLabel htmlFor="avatar">
             Choose an image of your car, if you have
@@ -208,7 +208,10 @@ function AddCarForm({
           </StyledSubmitButton>
         </StyledForm>
       ) : (
-        <StyledAddCarButton type="button" onClick={() => hideAddCarForm()}>
+        <StyledAddCarButton
+          type="button"
+          onClick={() => toggleVisibilityOfAddCarForm()}
+        >
           Add New Car
         </StyledAddCarButton>
       )}
