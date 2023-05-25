@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { SWRConfig } from "swr";
 
-const fetcher = (url) => fetch(url).then((response) => response.json());
-
 export default function App({ Component, pageProps }) {
   const [isFormShown, setIsFormShown] = useState(true);
   const [cars, setCars] = useLocalStorageState("list", {
