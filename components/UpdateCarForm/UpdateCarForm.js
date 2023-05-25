@@ -7,12 +7,7 @@ import {
 } from "../AddCarForm/AddCarForm.styled";
 import StyledForm, { StyledSubmitButton } from "../FilterForm/Form.styled";
 
-function UpdateCarForm({
-  car,
-  onEditCar,
-  toggleVisibilityOfAddCarForm,
-  isFormShown,
-}) {
+function UpdateCarForm({ car, onEditCar }) {
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -23,7 +18,6 @@ function UpdateCarForm({
     onEditCar(updatedData, car.id);
 
     router.push("/myGarage");
-    toggleVisibilityOfAddCarForm();
   }
   return (
     <>
@@ -42,6 +36,9 @@ function UpdateCarForm({
           id="bodyType"
           defaultValue={car.bodyType}
         >
+          <option defaultValue value="">
+            --Make a choice--
+          </option>
           <option value="Sedan">Sedan</option>
           <option value="SUV">SUV</option>
           <option value="Coupe">Coupe</option>
@@ -57,6 +54,9 @@ function UpdateCarForm({
           id="wheelsDrive"
           defaultValue={car.wheelsDrive}
         >
+          <option defaultValue value="">
+            --Make a choice--
+          </option>
           <option value="awd">awd</option>
           <option value="rwd">rwd</option>
           <option value="fwd">fwd</option>
@@ -75,6 +75,9 @@ function UpdateCarForm({
 
         <StyledNewCarLabel htmlFor="Fuel">Fuel:</StyledNewCarLabel>
         <StyledNewCarSelect name="Fuel" defaultValue={car.Fuel} id="Fuel">
+          <option defaultValue value="">
+            --Make a choice--
+          </option>
           <option value="Benzin">Benzin</option>
           <option value="Diesel">Diesel</option>
           <option value="Hybrid">Hybrid</option>
