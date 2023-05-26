@@ -1,6 +1,7 @@
 import CarsList from "@/components/CarsList/CarsList";
-import data from "@/data.json";
+// import data from "@/data.json";
 import Link from "next/link";
+import { useState } from "react";
 import styled from "styled-components";
 
 const StyledLinkDivMain = styled.div`
@@ -20,7 +21,7 @@ const StyledLinkDivMain = styled.div`
   }
 `;
 
-export default function HomePage() {
+export default function HomePage({ cars }) {
   return (
     <>
       <Link href="/filter-form">
@@ -28,7 +29,7 @@ export default function HomePage() {
           Click to choose exactly what you need{" "}
         </StyledLinkDivMain>
       </Link>
-      <CarsList data={data} />
+      <CarsList cars={cars} />
     </>
   );
 }

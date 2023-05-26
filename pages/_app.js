@@ -1,17 +1,42 @@
 import useLocalStorageState from "use-local-storage-state";
 import GlobalStyle from "../styles";
-import data from "../data.json";
+// import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useSWR from "swr";
 
 export default function App({ Component, pageProps }) {
-  const [isFormShown, setIsFormShown] = useState(true);
-  const [cars, setCars] = useLocalStorageState("list", {
-    defaultValue: data,
-  });
-
   const router = useRouter();
+  const [isFormShown, setIsFormShown] = useState(true);
+  // const { data, error, isLoading } = useSWR("/api/products");
+
+  // const [cars, setCars] = useLocalStorageState("list", {
+  //   defaultValue: useEffect(() => {
+  //     fetchCars();
+  //   }, []),
+  // });
+
+  // const [cars, setCars] = useLocalStorageState("list", {
+  //   defaultValue: [],
+  // });
+
+  const [data, setData] = useState([]);
+
+  async function fetchCars() {
+    const response = await fetch("/api/products");
+    const fetchedData = await response.json();
+    setData(fetchedData);
+  }
+
+  useEffect(() => {
+    fetchCars();
+  }, []);
+
+  if (!data) {
+    return "Loading...";
+  }
+
   function handleToggleFavorite(id) {
     const updatedCars = cars.map((car) => {
       if (car.id === id) {
@@ -67,7 +92,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         {...pageProps}
-        cars={cars}
+        data={data}
         onToggleFavorite={handleToggleFavorite}
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}

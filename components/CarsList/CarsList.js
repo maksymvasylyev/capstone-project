@@ -2,10 +2,10 @@ import StyledList from "./List.styled";
 import { StyledImage } from "../Favorites/Favorites.styled";
 import { StyledNameDiv } from "../Favorites/Favorites.styled";
 
-function CarsList({ data }) {
+function CarsList({ cars }) {
   return (
     <StyledList role="list">
-      {data.map((car) => (
+      {cars.map((car) => (
         <li key={car.id}>
           <StyledImage
             src={car.imageSource}
