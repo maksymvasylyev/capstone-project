@@ -17,23 +17,23 @@ export default function App({ Component, pageProps }) {
   //   }, []),
   // });
 
-  // const [cars, setCars] = useLocalStorageState("list", {
-  //   defaultValue: [],
-  // });
+  const [cars, setCars] = useLocalStorageState("list", {
+    defaultValue: [],
+  });
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState();
 
   async function fetchCars() {
     const response = await fetch("/api/products");
     const fetchedData = await response.json();
-    setData(fetchedData);
+    setCars(fetchedData);
   }
 
   useEffect(() => {
     fetchCars();
   }, []);
 
-  if (!data) {
+  if (!cars) {
     return "Loading...";
   }
 
@@ -92,7 +92,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         {...pageProps}
-        data={data}
+        cars={cars}
         onToggleFavorite={handleToggleFavorite}
         onToggleCompared={handleToggleCompared}
         clearComparedList={clearComparedList}
