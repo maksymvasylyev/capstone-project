@@ -1,56 +1,14 @@
 import FilteredCarsList from "./FilteredCarsList";
 import styled from "styled-components";
 import useLocalStorageState from "use-local-storage-state";
-import StyledForm, { StyledSubmitButton } from "./Form.styled";
-
-const StyledSelect = styled.select`
-  margin-top: 0.5em;
-  padding: 0.5em;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const StyledInput = styled.input`
-  margin-top: 0.5em;
-  padding: 0.5em;
-  border-radius: 5px;
-  border: solid;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const StyledLabel = styled.label`
-  color: blue;
-`;
-
-const StyledResetButton = styled.button`
-  width: 100%;
-  background-color: white;
-  border: 3px solid black;
-  color: black;
-  border-radius: 10%;
-  padding: 5px 10vw;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2rem;
-
-  &:hover {
-    background-color: black;
-    border: none;
-    color: white;
-  }
-`;
-
-const StyledFilter = styled.div`
-  list-style: none;
-  padding: 0px;
-  display: grid;
-  gap: 10px;
-  /* justify-items: center;
-  grid-template-columns: 1fr 1fr; */
-`;
+import StyledForm, {
+  StyledFormDiv,
+  StyledInput,
+  StyledLabel,
+  StyledResetButton,
+  StyledSelect,
+  StyledSubmitButton,
+} from "./Form.styled";
 
 //if the number is in the range
 function between(x, min, max) {
@@ -86,7 +44,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
   }
 
   return (
-    <StyledFilter>
+    <StyledFormDiv>
       <StyledForm onSubmit={handleSubmit}>
         <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture
@@ -141,7 +99,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
         onToggleFavorite={onToggleFavorite}
         onToggleCompared={onToggleCompared}
       />
-    </StyledFilter>
+    </StyledFormDiv>
   );
 }
 

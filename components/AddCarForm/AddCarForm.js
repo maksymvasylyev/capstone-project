@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import StyledForm, { StyledSubmitButton } from "../FilterForm/Form.styled";
+import StyledForm, {
+  StyledFormDiv,
+  StyledSubmitButton,
+} from "../FilterForm/Form.styled";
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
@@ -86,7 +89,7 @@ function AddCarForm({
   }
   console.log(newCars.filter((car) => car.section === "myGarage").length);
   return (
-    <>
+    <StyledFormDiv>
       <StyledHeader>Add Your Own Car</StyledHeader>
       {isFormShown ? (
         <StyledForm onSubmit={handleSubmit}>
@@ -221,7 +224,7 @@ function AddCarForm({
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
       />
-    </>
+    </StyledFormDiv>
   );
 }
 
