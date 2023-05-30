@@ -28,18 +28,17 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledNameDiv = styled.div`
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: black;
   position: relative;
-  top: -30px;
-  color: white;
+  top: -20px;
 `;
 
 export const StyledPriceDiv = styled.div`
   font-size: 1.5em;
   color: white;
   position: relative;
-  top: -30px;
+  top: -25px;
 `;
 
 export const StyledCompareButton = styled.button`
