@@ -20,6 +20,7 @@ export const StyledLikeButton = styled.button`
 
 export const StyledImage = styled(Image)`
   border-radius: 10%;
+  object-fit: cover;
 `;
 
 export const StyledLink = styled(Link)`
@@ -31,6 +32,7 @@ export const StyledNameDiv = styled.div`
   color: black;
   position: relative;
   top: -30px;
+  color: white;
 `;
 
 export const StyledPriceDiv = styled.div`

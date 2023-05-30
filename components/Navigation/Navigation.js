@@ -3,14 +3,16 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const List = styled.ul`
-  padding-left: 0;
-  list-style: none;
+  position: fixed;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  bottom: 0px;
   gap: 0.8rem;
-  height: 100%;
-  margin: 0;
-  align-items: center;
+  background-color: pink;
+  padding: 10px;
+  margin-bottom: 0;
+  width: 100%;
+  list-style: none;
 `;
 
 const NavLink = styled(Link)`

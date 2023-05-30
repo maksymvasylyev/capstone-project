@@ -3,18 +3,24 @@ import styled from "styled-components";
 import Head from "next/head.js";
 
 const Wrapper = styled.div`
-  height: 185vh;
-  display: grid;
   text-align: center;
-  grid-template-rows: 5rem auto 2em;
 `;
 
 const Main = styled.main`
-  overflow-y: scroll;
+  margin-top: 50px;
 `;
 
 const Headline = styled.h1`
+  position: fixed;
+  width: 100%;
+  display: flex;
+  top: 0px;
+  margin-top: 0;
+  padding-top: 0;
+  justify-content: space-around;
   text-align: center;
+  z-index: 2;
+  background-color: pink;
 `;
 
 export default function Layout({ children }) {
