@@ -10,6 +10,7 @@ import {
   StyledCompareButton,
 } from "./Favorites.styled";
 import Image from "next/image";
+import { StyledFormDiv, StyledLikeImage } from "../FilterForm/Form.styled";
 
 function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
   return (
@@ -27,14 +28,14 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
                   onClick={() => onToggleFavorite(car.id)}
                 >
                   {car.isFavorite ? (
-                    <Image
+                    <StyledLikeImage
                       src="/heart.png"
                       alt="liked"
                       width={40}
                       height={40}
                     />
                   ) : (
-                    <Image
+                    <StyledLikeImage
                       src="/notLiked.png"
                       alt="notLiked"
                       width={40}

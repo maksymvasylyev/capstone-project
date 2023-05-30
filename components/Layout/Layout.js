@@ -7,11 +7,12 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.main`
-  margin-top: 50px;
+  margin-top: 80px;
   /* width: 100%; */
 `;
 
 const Headline = styled.h1`
+  color: #c9c9c9;
   position: fixed;
   width: 100%;
   display: flex;
@@ -21,7 +22,8 @@ const Headline = styled.h1`
   justify-content: space-around;
   text-align: center;
   z-index: 2;
-  background-color: pink;
+  background-color: #252525;
+  box-shadow: 0 0.7em 1.5em 0.5em #252525;
 `;
 
 export default function Layout({ children }) {

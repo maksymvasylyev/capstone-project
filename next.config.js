@@ -13,6 +13,7 @@ const nextConfig = {
       "www.chevrolet.ca",
       "www.ford.com",
       "toyotaassets.scene7.com",
+      "hips.hearstapps.com",
     ],
     remotePatterns: [
       {

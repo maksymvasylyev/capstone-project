@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import StyledForm, {
   StyledFormDiv,
+  StyledInput,
+  StyledLabel,
+  StyledSelect,
   StyledSubmitButton,
 } from "../FilterForm/Form.styled";
 import AddCarList from "./AddCarList";
@@ -9,9 +12,7 @@ import useLocalStorageState from "use-local-storage-state";
 import {
   StyledAddCarButton,
   StyledHeader,
-  StyledNewCarInput,
   StyledNewCarLabel,
-  StyledNewCarSelect,
 } from "./AddCarForm.styled";
 import Image from "next/image";
 
@@ -93,10 +94,10 @@ function AddCarForm({
       <StyledHeader>Add Your Own Car</StyledHeader>
       {isFormShown ? (
         <StyledForm onSubmit={handleSubmit}>
-          <StyledNewCarLabel htmlFor="avatar">
+          <StyledLabel htmlFor="avatar">
             Choose an image of your car, if you have
-          </StyledNewCarLabel>
-          <StyledNewCarInput
+          </StyledLabel>
+          <StyledInput
             type="file"
             id="avatar"
             onChange={handleFileChange}
@@ -111,14 +112,14 @@ function AddCarForm({
               style={{ objectFit: "cover" }}
             />
           )}
-          <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
-          <StyledNewCarInput name="name" id="name" />
+          <StyledLabel htmlFor="name">Name:</StyledLabel>
+          <StyledInput name="name" id="name" />
 
-          <StyledNewCarLabel htmlFor="model">Model:</StyledNewCarLabel>
-          <StyledNewCarInput name="model" id="model" />
+          <StyledLabel htmlFor="model">Model:</StyledLabel>
+          <StyledInput name="model" id="model" />
 
-          <StyledNewCarLabel htmlFor="bodyType">Body Type:</StyledNewCarLabel>
-          <StyledNewCarSelect name="bodyType" id="bodyType">
+          <StyledLabel htmlFor="bodyType">Body Type:</StyledLabel>
+          <StyledSelect name="bodyType" id="bodyType">
             <option defaultValue value="">
               --Make a choice--
             </option>
@@ -127,32 +128,30 @@ function AddCarForm({
             <option value="Coupe">Coupe</option>
             <option value="VAN">VAN</option>
             <option value="Cabriolet">Cabriolet</option>
-          </StyledNewCarSelect>
+          </StyledSelect>
 
-          <StyledNewCarLabel htmlFor="wheelsDrive">
-            Wheels Drive:
-          </StyledNewCarLabel>
-          <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive">
+          <StyledLabel htmlFor="wheelsDrive">Wheels Drive:</StyledLabel>
+          <StyledSelect name="wheelsDrive" id="wheelsDrive">
             <option defaultValue value="">
               --Make a choice--
             </option>
             <option value="awd">awd</option>
             <option value="rwd">rwd</option>
             <option value="fwd">fwd</option>
-          </StyledNewCarSelect>
+          </StyledSelect>
 
-          <StyledNewCarLabel htmlFor="acceleration">
+          <StyledLabel htmlFor="acceleration">
             Acceleration (0-100km/h (s)):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
+          </StyledLabel>
+          <StyledInput
             type="number"
             min={0}
             name="acceleration"
             id="acceleration"
           />
 
-          <StyledNewCarLabel htmlFor="Fuel">Fuel:</StyledNewCarLabel>
-          <StyledNewCarSelect name="Fuel" id="Fuel">
+          <StyledLabel htmlFor="Fuel">Fuel:</StyledLabel>
+          <StyledSelect name="Fuel" id="Fuel">
             <option defaultValue value="">
               --Make a choice--
             </option>
@@ -160,46 +159,34 @@ function AddCarForm({
             <option value="Diesel">Diesel</option>
             <option value="Hybrid">Hybrid</option>
             <option value="Electro">Electro</option>
-          </StyledNewCarSelect>
+          </StyledSelect>
 
-          <StyledNewCarLabel htmlFor="FuelEconomy">
+          <StyledLabel htmlFor="FuelEconomy">
             Fuel Economy (l/100km):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
+          </StyledLabel>
+          <StyledInput
             type="number"
             min={0}
             name="FuelEconomy"
             id="FuelEconomy"
           />
 
-          <StyledNewCarLabel htmlFor="TopSpeed">
-            Top Speed (km/h):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            type="number"
-            min={0}
-            name="TopSpeed"
-            id="TopSpeed"
-          />
+          <StyledLabel htmlFor="TopSpeed">Top Speed (km/h):</StyledLabel>
+          <StyledInput type="number" min={0} name="TopSpeed" id="TopSpeed" />
 
-          <StyledNewCarLabel htmlFor="Engine">Engine (L):</StyledNewCarLabel>
-          <StyledNewCarInput type="number" min={0} name="Engine" id="Engine" />
+          <StyledLabel htmlFor="Engine">Engine (L):</StyledLabel>
+          <StyledInput type="number" min={0} name="Engine" id="Engine" />
 
-          <StyledNewCarLabel htmlFor="Power">Power (HP):</StyledNewCarLabel>
-          <StyledNewCarInput type="number" min={0} name="Power" id="Power" />
+          <StyledLabel htmlFor="Power">Power (HP):</StyledLabel>
+          <StyledInput type="number" min={0} name="Power" id="Power" />
 
-          <StyledNewCarLabel htmlFor="CountryOfManufacture">
+          <StyledLabel htmlFor="CountryOfManufacture">
             Country of Manufacture:
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            name="CountryOfManufacture"
-            id="CountryOfManufacture"
-          />
+          </StyledLabel>
+          <StyledInput name="CountryOfManufacture" id="CountryOfManufacture" />
 
-          <StyledNewCarLabel htmlFor="price">
-            Approx. Price (Euro):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
+          <StyledLabel htmlFor="price">Approx. Price (Euro):</StyledLabel>
+          <StyledInput
             type="number"
             name="price"
             id="price"
@@ -207,7 +194,11 @@ function AddCarForm({
             max={900000000}
           />
 
-          <StyledSubmitButton type="Submit" disabled={!image}>
+          <StyledSubmitButton
+            style={{ left: "0px", marginBottom: "100px" }}
+            type="Submit"
+            disabled={!image}
+          >
             {isUploading ? "Uploading …" : "Upload"}
           </StyledSubmitButton>
         </StyledForm>

@@ -88,9 +88,8 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
 
         <StyledSubmitButton type="Submit">Go</StyledSubmitButton>
       </StyledForm>
-
       <StyledResetButton type="button" onClick={() => setOurFilterData(null)}>
-        Clean search result
+        Clean
       </StyledResetButton>
 
       <FilteredCarsList

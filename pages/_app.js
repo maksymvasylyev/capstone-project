@@ -12,6 +12,11 @@ export default function App({ Component, pageProps }) {
     defaultValue: data,
   });
 
+  // const [isDarkMode, setIsDarkMode] = ("false")
+  // if(isDarkMode){
+  // style{{--color-dark: black}}
+  // }
+
   const router = useRouter();
   function handleToggleFavorite(id) {
     const updatedCars = cars.map((car) => {

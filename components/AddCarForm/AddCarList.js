@@ -3,9 +3,11 @@ import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
 import {
   StyledCompareButton,
+  StyledImage,
   StyledLikeButton,
 } from "../Favorites/Favorites.styled";
 import Link from "next/link";
+import { StyledLikeImage } from "../FilterForm/Form.styled";
 
 const StyledAddCarList = styled.ul`
   list-style: none;
@@ -36,6 +38,10 @@ const StyledDeleteButton = styled.button`
   }
 `;
 
+const StyledDescriptionH2 = styled.h2`
+  color: var(--color-text);
+`;
+
 function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
   return (
     <StyledAddCarList role="list">
@@ -47,9 +53,14 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               type="button"
               onClick={() => onDeleteCar(car.id)}
             >
-              <Image src="/cross.png" alt="delete" width={40} height={40} />
+              <StyledLikeImage
+                src="/cross.png"
+                alt="delete"
+                width={40}
+                height={40}
+              />
             </StyledDeleteButton>
-            <Image
+            <StyledImage
               src={car.imageSource}
               alt="yourCar"
               width={700}
@@ -57,11 +68,16 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
             />
             <div>
               <StyledUpdateLink href={`/updateCar/${car.id}`}>
-                <Image src="/pencil.png" alt="edit" width={40} height={40} />
+                <StyledLikeImage
+                  src="/pencil.png"
+                  alt="edit"
+                  width={40}
+                  height={40}
+                />
               </StyledUpdateLink>
             </div>
-            <h1>{car.name}</h1>
-            <h2>{car.model}</h2>
+            <StyledDescriptionH2>{car.name}</StyledDescriptionH2>
+            <StyledDescriptionH2>{car.model}</StyledDescriptionH2>
             <StyledDescriptionList>
               <li>Body Type: {car.bodyType}</li>
               <li>Wheels Drive: {car.wheelsDrive}</li>
