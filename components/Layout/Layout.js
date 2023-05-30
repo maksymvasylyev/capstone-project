@@ -8,6 +8,7 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   margin-top: 50px;
+  /* width: 100%; */
 `;
 
 const Headline = styled.h1`

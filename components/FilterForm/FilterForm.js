@@ -24,12 +24,14 @@ const StyledLabel = styled.label`
 `;
 
 const StyledResetButton = styled.button`
+  width: 100%;
   background-color: white;
   border: 3px solid black;
   color: black;
   border-radius: 10%;
   padding: 5px 10vw;
   position: relative;
+  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 2rem;
@@ -39,6 +41,15 @@ const StyledResetButton = styled.button`
     border: none;
     color: white;
   }
+`;
+
+const StyledFilter = styled.div`
+  list-style: none;
+  padding: 0px;
+  display: grid;
+  gap: 10px;
+  /* justify-items: center;
+  grid-template-columns: 1fr 1fr; */
 `;
 
 //if the number is in the range
@@ -75,7 +86,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
   }
 
   return (
-    <>
+    <StyledFilter>
       <StyledForm onSubmit={handleSubmit}>
         <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture
@@ -130,7 +141,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
         onToggleFavorite={onToggleFavorite}
         onToggleCompared={onToggleCompared}
       />
-    </>
+    </StyledFilter>
   );
 }
 
