@@ -61,7 +61,7 @@ function AddCarForm({
       setNewCars([
         {
           id: uid(),
-          imageSource: json.secure_url,
+          imageSource: image ? json.secure_url : "/myCarPicture.jpeg",
           isCompared: false,
           isFavorite: null,
           section: "myGarage",
@@ -197,7 +197,6 @@ function AddCarForm({
           <StyledSubmitButton
             style={{ left: "0px", marginBottom: "100px" }}
             type="Submit"
-            disabled={!image}
           >
             {isUploading ? "Uploading …" : "Upload"}
           </StyledSubmitButton>
