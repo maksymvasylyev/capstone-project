@@ -18,7 +18,6 @@ export default createGlobalStyle`
   :root {
   --color-layout: #c9c9c9;
   --color-text: #E9E9E9;
-  --color-highlight: #d30a40;
   --color-backgroundLayout:#252525;
 }
 

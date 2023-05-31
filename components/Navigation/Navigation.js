@@ -25,7 +25,7 @@ const NavLink = styled(Link)`
   background-color: var(--color-backgroundLayout);
   color: var(--color-layout);
   &:hover {
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid #8f0e0e;
     color: #8f0e0e;
   }
 `;

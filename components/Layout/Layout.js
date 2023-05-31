@@ -20,6 +20,7 @@ const Headline = styled.h1`
   margin-bottom: 5px;
   padding-top: 0px;
   text-align: center;
+  box-shadow: 5em 0.7em 1em -0.5em var(--color-backgroundLayout);
 `;
 
 export default function Layout({ children }) {

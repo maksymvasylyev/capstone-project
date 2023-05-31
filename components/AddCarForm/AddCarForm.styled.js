@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.h2`
   font-size: 1.7em;
+  color: var(--color-text);
 `;
 export const StyledNewCarLabel = styled.label`
   color: black;
@@ -27,16 +28,16 @@ export const StyledNewCarInput = styled.input`
 export const StyledAddCarButton = styled.button`
   display: flex;
   position: relative;
-  top: -10px;
-  right: -70px;
+  top: 10px;
+  right: -340px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
   padding: 0.7em 1.4em 0.7em 1.1em;
-  color: white;
-  color: white;
-  background: black;
+  color: var(--color-text);
+
+  background: var(--color-backgroundLayout);
   border: none;
   box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
   letter-spacing: 0.05em;

@@ -54,6 +54,7 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               onClick={() => onDeleteCar(car.id)}
             >
               <StyledLikeImage
+                style={{ top: "10px" }}
                 src="/cross.png"
                 alt="delete"
                 width={40}
@@ -92,7 +93,7 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
             </StyledDescriptionList>
             <StyledCompareButton
               type="button"
-              style={{ top: "30px", right: "-200px", marginBottom: "30px" }}
+              style={{ top: "20px", right: "-250px", marginBottom: "30px" }}
               active={car.isCompared}
               onClick={() =>
                 newCars.filter((car) => car.isCompared).length > 1 &&
