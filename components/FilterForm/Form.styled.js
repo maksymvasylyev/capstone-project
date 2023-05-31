@@ -12,6 +12,11 @@ export default styled.form`
   gap: 10px;
   grid-template-columns: 1fr;
   border: 3px, solid, red;
+  ${({ isFormSown }) =>
+    isFormSown &&
+    `
+      transform: translateX(0);
+    `}
 `;
 
 export const StyledSubmitButton = styled.button`

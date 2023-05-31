@@ -37,7 +37,6 @@ export const StyledAddCarButton = styled.button`
   font-size: 16px;
   padding: 0.7em 1.4em 0.7em 1.1em;
   color: var(--color-text);
-
   background: var(--color-backgroundLayout);
   border: none;
   box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
