@@ -7,12 +7,7 @@ import StyledForm, {
   StyledSubmitButton,
 } from "../FilterForm/Form.styled";
 
-function UpdateCarForm({
-  car,
-  onEditCar,
-  toggleVisibilityOfAddCarForm,
-  isFormShown,
-}) {
+function UpdateCarForm({ car, onEditCar }) {
   const router = useRouter();
 
   function handleSubmit(event) {

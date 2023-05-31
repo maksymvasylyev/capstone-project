@@ -32,7 +32,6 @@ const NavLink = styled(Link)`
 
 export default function Navigation() {
   const router = useRouter();
-
   return (
     <nav>
       <List role="list">
@@ -44,7 +43,6 @@ export default function Navigation() {
             Home
           </NavLink>
         </li>
-
         <li>
           <NavLink
             href="/favorites"

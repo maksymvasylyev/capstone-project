@@ -1,12 +1,7 @@
 import { useRouter } from "next/router";
 import UpdateCarForm from "@/components/UpdateCarForm/UpdateCarForm";
 
-function UpdatePage({
-  cars,
-  onEditCar,
-  toggleVisibilityOfAddCarForm,
-  isFormShown,
-}) {
+function UpdatePage({ cars, onEditCar }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -16,14 +11,7 @@ function UpdatePage({
     return <h1>{"You cannot proceed"}</h1>;
   }
 
-  return (
-    <UpdateCarForm
-      car={currentUpdatedCar}
-      onEditCar={onEditCar}
-      toggleVisibilityOfAddCarForm={toggleVisibilityOfAddCarForm}
-      isFormShown={isFormShown}
-    />
-  );
+  return <UpdateCarForm car={currentUpdatedCar} onEditCar={onEditCar} />;
 }
 
 export default UpdatePage;

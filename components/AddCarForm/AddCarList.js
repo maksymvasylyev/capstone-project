@@ -1,46 +1,17 @@
-import Image from "next/image";
 import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
 import {
   StyledCompareButton,
   StyledImage,
-  StyledLikeButton,
 } from "../Favorites/Favorites.styled";
 import Link from "next/link";
 import { StyledLikeImage } from "../FilterForm/Form.styled";
-
-const StyledAddCarList = styled.ul`
-  list-style: none;
-  padding: 0px;
-  gap: 10px;
-  display: grid;
-  font-size: 1em;
-  justify-items: center;
-  grid-template-columns: 1fr;
-`;
-
-const StyledUpdateLink = styled(Link)`
-  &:hover {
-    border: solid black 1px;
-    padding-top: 30px;
-  }
-`;
-
-const StyledDeleteButton = styled.button`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  position: relative;
-  top: 45px;
-  right: -640px;
-  &:hover {
-    border: solid red 1px;
-  }
-`;
-
-const StyledDescriptionH2 = styled.h2`
-  color: var(--color-text);
-`;
+import {
+  StyledAddCarList,
+  StyledDeleteButton,
+  StyledDescriptionH2,
+  StyledUpdateLink,
+} from "./AddCarForm.styled";
 
 function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
   return (

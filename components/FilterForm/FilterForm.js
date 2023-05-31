@@ -1,5 +1,4 @@
 import FilteredCarsList from "./FilteredCarsList";
-import styled from "styled-components";
 import useLocalStorageState from "use-local-storage-state";
 import StyledForm, {
   StyledFormDiv,

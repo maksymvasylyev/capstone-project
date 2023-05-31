@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 export const StyledHeader = styled.h2`
@@ -54,4 +55,37 @@ export const StyledAddCarButton = styled.button`
   &:active {
     box-shadow: 0 0.3em 1em -0.5em #14a73e98;
   }
+`;
+
+export const StyledAddCarList = styled.ul`
+  list-style: none;
+  padding: 0px;
+  gap: 10px;
+  display: grid;
+  font-size: 1em;
+  justify-items: center;
+  grid-template-columns: 1fr;
+`;
+
+export const StyledUpdateLink = styled(Link)`
+  &:hover {
+    border: solid black 1px;
+    padding-top: 30px;
+  }
+`;
+
+export const StyledDeleteButton = styled.button`
+  background-color: transparent;
+  border: none;
+  display: flex;
+  position: relative;
+  top: 45px;
+  right: -640px;
+  &:hover {
+    border: solid red 1px;
+  }
+`;
+
+export const StyledDescriptionH2 = styled.h2`
+  color: var(--color-text);
 `;

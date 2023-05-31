@@ -1,4 +1,3 @@
-import Image from "next/image";
 import StyledList from "../CarsList/List.styled";
 import Link from "next/link";
 import {
@@ -10,7 +9,6 @@ import {
   StyledPriceDiv,
   StyledCompareButton,
 } from "../Favorites/Favorites.styled";
-import styled from "styled-components";
 import { StyledLikeImage } from "./Form.styled";
 
 function FilteredCarsList({ cars, list, onToggleFavorite, onToggleCompared }) {

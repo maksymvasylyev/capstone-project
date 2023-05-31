@@ -1,20 +1,25 @@
-import Image from "next/image";
 import {
   StyledDescriptionBackLink,
   StyledDescriptionList,
 } from "./CarDetails.styled";
+import { StyledImage } from "../Favorites/Favorites.styled";
+import { StyledLikeImage } from "../FilterForm/Form.styled";
+import { StyledDescriptionH2 } from "../AddCarForm/AddCarForm.styled";
 
 function CarDetails({ car }) {
   return (
     <>
-      <div>
-        <StyledDescriptionBackLink href="/filter-form">
-          <Image src={"/left-arrow.png"} alt="liked" width={40} height={40} />
-        </StyledDescriptionBackLink>
-      </div>
-      <Image src={car.imageSource} alt="car" width={600} height={300} />
-      <h1>{car.name}</h1>
-      <h2>{car.model}</h2>
+      <StyledDescriptionBackLink href="/filter-form">
+        <StyledLikeImage
+          src={"/left-arrow.png"}
+          alt="liked"
+          width={40}
+          height={40}
+        />
+      </StyledDescriptionBackLink>
+      <StyledImage src={car.imageSource} alt="car" width={600} height={300} />
+      <StyledDescriptionH2>{car.name}</StyledDescriptionH2>
+      <StyledDescriptionH2>{car.model}</StyledDescriptionH2>
       <StyledDescriptionList>
         <li>Body Type: {car.bodyType}</li>
         <li>Wheels Drive: {car.wheelsDrive}</li>

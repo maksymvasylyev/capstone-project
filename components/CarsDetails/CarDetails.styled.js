@@ -9,9 +9,10 @@ export const StyledDescriptionList = styled.ul`
 
 export const StyledDescriptionBackLink = styled(Link)`
   text-decoration: none;
-  color: black;
   display: flex;
   justify-content: start;
   position: relative;
-  top: 40px;
+  top: 50px;
+  right: -60px;
+  background-color: transparent;
 `;

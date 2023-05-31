@@ -9,13 +9,8 @@ import StyledForm, {
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
-import {
-  StyledAddCarButton,
-  StyledHeader,
-  StyledNewCarLabel,
-} from "./AddCarForm.styled";
+import { StyledAddCarButton, StyledHeader } from "./AddCarForm.styled";
 import Image from "next/image";
-import { StyledCompareButton } from "../Favorites/Favorites.styled";
 
 function AddCarForm({
   onDeleteCar,

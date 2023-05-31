@@ -27,10 +27,10 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>Choose your New Car</title>
+        <title>Car compare analyser</title>
       </Head>
       <Wrapper>
-        <Headline>Choose your New car</Headline>
+        <Headline>Car compare analyser</Headline>
         <Main>{children}</Main>
         <Navigation />
       </Wrapper>

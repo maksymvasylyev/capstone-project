@@ -4,7 +4,6 @@ import {
   StyledLikeButton,
   StyledResultDiv,
 } from "../Favorites/Favorites.styled";
-import Image from "next/image";
 import styled from "styled-components";
 import { StyledLikeImage, StyledSubmitButton } from "../FilterForm/Form.styled";
 
@@ -204,7 +203,7 @@ function Compare({
               ))}
             </StyledCompareList>
             <StyledSubmitButton
-              style={{ left: "100px", top: "50px" }}
+              style={{ left: "50px", top: "50px" }}
               type="button"
               onClick={clearComparedList}
             >

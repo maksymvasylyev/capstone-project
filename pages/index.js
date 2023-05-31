@@ -18,7 +18,7 @@ const StyledLinkDivMain = styled.div`
   background-color: #252525;
 
   &:hover {
-    background-color: grey;
+    background-color: #3e3e3e;
   }
 `;
 

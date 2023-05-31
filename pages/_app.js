@@ -4,18 +4,12 @@ import data from "../data.json";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Navigation from "@/components/Navigation/Navigation";
 
 export default function App({ Component, pageProps }) {
   const [isFormShown, setIsFormShown] = useState(true);
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: data,
   });
-
-  // const [isDarkMode, setIsDarkMode] = ("false")
-  // if(isDarkMode){
-  // style{{--color-dark: black}}
-  // }
 
   const router = useRouter();
   function handleToggleFavorite(id) {

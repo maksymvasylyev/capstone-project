@@ -9,8 +9,8 @@ import {
   StyledPriceDiv,
   StyledCompareButton,
 } from "./Favorites.styled";
-import Image from "next/image";
-import { StyledFormDiv, StyledLikeImage } from "../FilterForm/Form.styled";
+
+import { StyledLikeImage } from "../FilterForm/Form.styled";
 
 function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
   return (
