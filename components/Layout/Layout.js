@@ -3,27 +3,23 @@ import styled from "styled-components";
 import Head from "next/head.js";
 
 const Wrapper = styled.div`
+  height: 190vh;
+  display: grid;
   text-align: center;
+  grid-template-rows: 3rem auto 3em;
 `;
 
 const Main = styled.main`
-  margin-top: 80px;
-  /* width: 100%; */
+  overflow-y: scroll;
 `;
 
 const Headline = styled.h1`
-  color: #c9c9c9;
-  position: fixed;
-  width: 100%;
-  display: flex;
-  top: 0px;
-  margin-top: 0;
-  padding-top: 0;
-  justify-content: space-around;
+  color: var(--color-layout);
+  background-color: var(--color-backgroundLayout);
+  margin-top: 0px;
+  margin-bottom: 5px;
+  padding-top: 0px;
   text-align: center;
-  z-index: 2;
-  background-color: #252525;
-  box-shadow: 0 0.7em 1.5em 0.5em #252525;
 `;
 
 export default function Layout({ children }) {

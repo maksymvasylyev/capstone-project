@@ -16,14 +16,12 @@ export const StyledLikeButton = styled.button`
   position: relative;
   top: 45px;
   right: -290px;
-  /* z-index: 2; */
 `;
 
 export const StyledImage = styled(Image)`
   border-radius: 10%;
   object-fit: cover;
   box-shadow: 0 0.7em 1.5em -0.5em #c9c9c9;
-  /* z-index: 5; */
 `;
 
 export const StyledLink = styled(Link)`

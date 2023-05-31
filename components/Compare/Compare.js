@@ -103,8 +103,8 @@ function Compare({
                 <StyledImage
                   src={car.imageSource}
                   alt={car.model}
-                  width={400}
-                  height={200}
+                  width={350}
+                  height={175}
                 />
                 <StyledCompareNameDiv>
                   <h2>{car.name}</h2>

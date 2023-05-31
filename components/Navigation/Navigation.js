@@ -3,28 +3,27 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const List = styled.ul`
-  color: #c9c9c9;
-  position: fixed;
-  display: flex;
-  justify-content: space-around;
-  bottom: 0px;
-  gap: 0.8rem;
-  background-color: #252525;
-  padding: 30px 10px 10px 10px;
-  border-top-right-radius: 50px;
-  border-top-left-radius: 50px;
-  margin-bottom: 0;
-  width: 100%;
+  padding-left: 0;
+  padding-top: 5px;
   list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  height: 100%;
+  margin: 0;
+  align-items: center;
+  align-content: end;
+  background-color: var(--color-backgroundLayout);
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  padding: 0.5em;
-  color: ${({ active }) => (active ? "#8F0E0E" : "#C9C9C9")};
+  padding: 0 1.9em;
+  color: ${({ active }) => (active ? "#8f0e0e" : "#C9C9C9")};
   font-weight: bold;
   font-size: 1.3em;
-  background-color: #252525;
+  background-color: var(--color-backgroundLayout);
+  color: var(--color-layout);
   &:hover {
     border-bottom: 5px solid black;
     color: #8f0e0e;
