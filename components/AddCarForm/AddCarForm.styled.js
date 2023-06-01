@@ -1,9 +1,13 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export const StyledHeader = styled.h2`
+export const StyledAddCarHeader = styled.h2`
+  position: relative;
+  left: 160px;
   font-size: 1.7em;
-  color: var(--color-text);
+  color: var(--color-layout);
+  text-align: center;
+  margin: 10px auto 10px auto;
 `;
 export const StyledNewCarLabel = styled.label`
   color: black;
@@ -35,7 +39,7 @@ export const StyledAddCarButton = styled.button`
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
-  padding: 0.7em 1.4em 0.7em 1.1em;
+  padding: 0.7em 15em 0.7em 1.1em;
   color: var(--color-text);
   background: var(--color-backgroundLayout);
   border: none;
@@ -61,6 +65,8 @@ export const StyledAddCarList = styled.ul`
   padding: 0px;
   gap: 10px;
   display: grid;
+  text-align: center;
+  width: 350px;
   font-size: 1em;
   justify-items: center;
   grid-template-columns: 1fr;
@@ -87,4 +93,6 @@ export const StyledDeleteButton = styled.button`
 
 export const StyledDescriptionH2 = styled.h2`
   color: var(--color-text);
+  text-align: start;
+  padding-left: 40px;
 `;

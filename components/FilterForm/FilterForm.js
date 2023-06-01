@@ -2,6 +2,7 @@ import FilteredCarsList from "./FilteredCarsList";
 import useLocalStorageState from "use-local-storage-state";
 import StyledForm, {
   StyledFormDiv,
+  StyledHeader,
   StyledInput,
   StyledLabel,
   StyledResetButton,
@@ -44,6 +45,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
 
   return (
     <StyledFormDiv>
+      <StyledHeader>What is important for you?</StyledHeader>
       <StyledForm onSubmit={handleSubmit}>
         <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture

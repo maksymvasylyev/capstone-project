@@ -23,17 +23,21 @@ const NavLink = styled(Link)`
   font-weight: bold;
   font-size: 1.3em;
   background-color: var(--color-backgroundLayout);
-  color: var(--color-layout);
   &:hover {
     border-bottom: 5px solid #8f0e0e;
     color: #8f0e0e;
   }
 `;
-
+const StyledNav = styled.nav`
+  position: fixed;
+  bottom: 0;
+  height: 3rem;
+  width: 100%;
+`;
 export default function Navigation() {
   const router = useRouter();
   return (
-    <nav>
+    <StyledNav>
       <List role="list">
         <li>
           <NavLink
@@ -68,6 +72,6 @@ export default function Navigation() {
           </NavLink>
         </li>
       </List>
-    </nav>
+    </StyledNav>
   );
 }

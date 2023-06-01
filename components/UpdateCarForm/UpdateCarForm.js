@@ -1,12 +1,25 @@
 import { useRouter } from "next/router";
-import { StyledHeader } from "../AddCarForm/AddCarForm.styled";
 import StyledForm, {
+  StyledHeader,
   StyledInput,
   StyledLabel,
   StyledSelect,
   StyledSubmitButton,
 } from "../FilterForm/Form.styled";
+import styled from "styled-components";
 
+const StyledUpdateDiv = styled.div`
+  display: grid;
+  width: 700px;
+  grid-template-columns: 1fr;
+`;
+
+const StyledUpdateHeader = styled.h2`
+  font-size: 1.7em;
+  color: var(--color-text);
+  text-align: center;
+  margin: 10px auto 10px auto;
+`;
 function UpdateCarForm({ car, onEditCar }) {
   const router = useRouter();
 
@@ -19,8 +32,9 @@ function UpdateCarForm({ car, onEditCar }) {
 
     router.push("/myGarage");
   }
+
   return (
-    <>
+    <StyledUpdateDiv>
       <StyledHeader>Edit Your Car</StyledHeader>
 
       <StyledForm onSubmit={handleSubmit}>
@@ -140,7 +154,7 @@ function UpdateCarForm({ car, onEditCar }) {
           Update
         </StyledSubmitButton>
       </StyledForm>
-    </>
+    </StyledUpdateDiv>
   );
 }
 

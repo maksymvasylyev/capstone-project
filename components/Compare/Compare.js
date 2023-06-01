@@ -23,6 +23,7 @@ const StyledNameCompareH4 = styled.h4`
   margin: 0;
   font-size: 1.2em;
   color: var(--color-layout);
+  text-align: center;
 `;
 
 const StyledYourCarDiv = styled.div`
@@ -36,6 +37,7 @@ const StyledCompareDiv = styled.div`
 `;
 const StyledCompareNameDiv = styled.div`
   color: var(--color-text);
+  text-align: center;
 `;
 
 const StyledCompareNameList = styled.li`
@@ -203,7 +205,7 @@ function Compare({
               ))}
             </StyledCompareList>
             <StyledSubmitButton
-              style={{ left: "50px", top: "50px" }}
+              style={{ left: "50px", top: "0px" }}
               type="button"
               onClick={clearComparedList}
             >

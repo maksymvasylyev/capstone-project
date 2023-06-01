@@ -12,7 +12,19 @@ import {
   StyledDescriptionH2,
   StyledUpdateLink,
 } from "./AddCarForm.styled";
+import Image from "next/image";
 
+export const StyledMyCarImage = styled(Image)`
+  border-radius: 10%;
+  object-fit: cover;
+  box-shadow: 0 2px 20px var(--color-text);
+  position: relative;
+  right: -5px;
+`;
+export const StyledMyCarDescriptionH2 = styled.h2`
+  color: var(--color-text);
+  text-align: center;
+`;
 function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
   return (
     <StyledAddCarList role="list">
@@ -32,7 +44,7 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
                 height={40}
               />
             </StyledDeleteButton>
-            <StyledImage
+            <StyledMyCarImage
               src={car.imageSource}
               alt="yourCar"
               width={700}
@@ -48,8 +60,8 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
                 />
               </StyledUpdateLink>
             </div>
-            <StyledDescriptionH2>{car.name}</StyledDescriptionH2>
-            <StyledDescriptionH2>{car.model}</StyledDescriptionH2>
+            <StyledMyCarDescriptionH2>{car.name}</StyledMyCarDescriptionH2>
+            <StyledMyCarDescriptionH2>{car.model}</StyledMyCarDescriptionH2>
             <StyledDescriptionList>
               <li>Body Type: {car.bodyType}</li>
               <li>Wheels Drive: {car.wheelsDrive}</li>

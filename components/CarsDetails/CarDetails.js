@@ -17,7 +17,7 @@ function CarDetails({ car }) {
           height={40}
         />
       </StyledDescriptionBackLink>
-      <StyledImage src={car.imageSource} alt="car" width={600} height={300} />
+      <StyledImage src={car.imageSource} alt="car" width={700} height={350} />
       <StyledDescriptionH2>{car.name}</StyledDescriptionH2>
       <StyledDescriptionH2>{car.model}</StyledDescriptionH2>
       <StyledDescriptionList>
