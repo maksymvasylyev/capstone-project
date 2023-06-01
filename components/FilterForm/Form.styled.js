@@ -21,7 +21,7 @@ export default styled.form`
 `;
 
 export const StyledSubmitButton = styled.button`
-  background-color: var(--color-text);
+  background-color: var(--color-button);
   color: var(--color-backgroundLayout);
   border-radius: 0.75rem;
   padding: 0 90px;
@@ -71,7 +71,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledResetButton = styled.button`
-  background-color: var(--color-text);
+  background-color: var(--color-button);
   color: var(--color-backgroundLayout);
   width: 250px;
   text-align: center;

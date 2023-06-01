@@ -15,7 +15,7 @@ const StyledLinkDivMain = styled.div`
   padding: 10px;
   box-shadow: 0 0.7em 1.5em -0.5em black;
   border-radius: 10%;
-  background-color: var(--color-backgroundLayout);
+  background-color: var(--color-startButton);
 
   &:hover {
     background-color: #3e3e3e;

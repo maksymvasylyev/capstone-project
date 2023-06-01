@@ -41,7 +41,7 @@ const StyledDarkModeButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   padding: 0.7em 1em 0.7em 1.1em;
-  color: var(--color-text);
+  color: #e9e9e9;
   background: ${({ isDarkMode }) => (isDarkMode ? "#3E3E3E" : "#ff3fa6")};
   border: none;
   box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
@@ -74,7 +74,7 @@ export default function Layout({ children, toggleDarkMode, isDarkMode }) {
             isDarkMode={isDarkMode}
             onClick={() => toggleDarkMode()}
           >
-            {isDarkMode ? "Normal Mode" : "Bubblegum Mode"}
+            {isDarkMode ? "Normal Mode" : "Bubble Gum Mode"}
           </StyledDarkModeButton>
         </Headline>
         <Main>{children}</Main>
