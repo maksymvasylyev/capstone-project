@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }) {
       } else return car;
     });
     setCars(clearComparedCars);
-    router.push("/favorites");
+    router.push("/filter-form");
   }
 
   function handleDeleteCar(id) {

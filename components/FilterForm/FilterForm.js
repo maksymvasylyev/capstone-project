@@ -46,7 +46,7 @@ function FilterForm({ cars, onToggleFavorite, onToggleCompared }) {
   return (
     <StyledFormDiv>
       <StyledHeader>What is important for you?</StyledHeader>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} autoComplete="off">
         <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture
         </StyledLabel>

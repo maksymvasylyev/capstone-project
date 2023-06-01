@@ -90,7 +90,7 @@ function AddCarForm({
 
       {isFormShown ? (
         <>
-          <StyledForm onSubmit={handleSubmit}>
+          <StyledForm onSubmit={handleSubmit} autoComplete="off">
             <StyledLabel htmlFor="avatar">
               Choose an image of your car
             </StyledLabel>

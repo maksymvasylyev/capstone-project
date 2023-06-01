@@ -37,7 +37,7 @@ function UpdateCarForm({ car, onEditCar }) {
     <StyledUpdateDiv>
       <StyledHeader>Edit Your Car</StyledHeader>
 
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} autoComplete="off">
         <StyledLabel htmlFor="name">Name:</StyledLabel>
         <StyledInput name="name" id="name" defaultValue={car.name} />
 
