@@ -32,7 +32,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledNameDiv = styled.div`
   font-size: 1.5em;
-  color: #e9e9e9;
+  color: var(--color-text);
   position: relative;
   text-align: center;
   top: -30px;
@@ -41,7 +41,7 @@ export const StyledNameDiv = styled.div`
 
 export const StyledPriceDiv = styled.div`
   font-size: 1.5em;
-  color: white;
+  color: var(--color-text);
   position: relative;
   text-align: center;
   top: -30px;

@@ -19,7 +19,7 @@ const List = styled.ul`
 const NavLink = styled(Link)`
   text-decoration: none;
   padding: 0 1.9em;
-  color: ${({ active }) => (active ? "#8f0e0e" : "#C9C9C9")};
+  color: ${({ active }) => (active ? "#8f0e0e" : "var(--color-layout)")};
   font-weight: bold;
   font-size: 1.3em;
   background-color: var(--color-backgroundLayout);
@@ -33,6 +33,7 @@ const StyledNav = styled.nav`
   bottom: 0;
   height: 3rem;
   width: 100%;
+  z-index: 30;
 `;
 export default function Navigation() {
   const router = useRouter();

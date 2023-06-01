@@ -10,7 +10,11 @@ export default function App({ Component, pageProps }) {
   const [cars, setCars] = useLocalStorageState("list", {
     defaultValue: data,
   });
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  function toggleDarkMode() {
+    setIsDarkMode(!isDarkMode);
+  }
   const router = useRouter();
   function handleToggleFavorite(id) {
     const updatedCars = cars.map((car) => {
@@ -63,8 +67,8 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-    <Layout>
-      <GlobalStyle />
+    <Layout toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}>
+      <GlobalStyle isDarkMode={isDarkMode} />
       <Component
         {...pageProps}
         cars={cars}
