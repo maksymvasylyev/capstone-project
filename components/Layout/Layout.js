@@ -3,17 +3,9 @@ import styled from "styled-components";
 import Head from "next/head.js";
 import { StyledAddCarButton } from "../AddCarForm/AddCarForm.styled";
 
-const Wrapper = styled.div`
-  /* height: 190vh;
-  display: grid;
-  text-align: center;
-  grid-template-rows: 3rem auto 3em; */
-`;
-
 const Main = styled.main`
-  /* overflow-y: scroll; */
-  padding-top: 3rem; /* top */
-  padding-bottom: 3rem; /* bottom */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 `;
 
 const Headline = styled.h1`
@@ -26,9 +18,9 @@ const Headline = styled.h1`
   text-align: start;
   box-shadow: 5em 0.7em 1em -0.5em var(--color-backgroundLayout);
   position: fixed;
-  top: 0; /* tell it where to position itself */
-  height: 3rem; /* need to set a height */
-  width: 100%; /* need to tell it to take up the full width of the page, otherwise it will only take up the amount of space it needs */
+  top: 0;
+  height: 3rem;
+  width: 100%;
   z-index: 30;
 `;
 const StyledDarkModeButton = styled.button`
@@ -67,7 +59,7 @@ export default function Layout({ children, toggleDarkMode, isDarkMode }) {
       <Head>
         <title>Car compare analyser</title>
       </Head>
-      <Wrapper>
+      <div>
         <Headline>
           Car compare analyser
           <StyledDarkModeButton
@@ -79,7 +71,7 @@ export default function Layout({ children, toggleDarkMode, isDarkMode }) {
         </Headline>
         <Main>{children}</Main>
         <Navigation />
-      </Wrapper>
+      </div>
     </>
   );
 }

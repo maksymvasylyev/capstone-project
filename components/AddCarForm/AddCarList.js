@@ -1,15 +1,10 @@
 import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
-import {
-  StyledCompareButton,
-  StyledImage,
-} from "../Favorites/Favorites.styled";
-import Link from "next/link";
+import { StyledCompareButton } from "../Favorites/Favorites.styled";
 import { StyledLikeImage } from "../FilterForm/Form.styled";
 import {
   StyledAddCarList,
   StyledDeleteButton,
-  StyledDescriptionH2,
   StyledUpdateLink,
 } from "./AddCarForm.styled";
 import Image from "next/image";

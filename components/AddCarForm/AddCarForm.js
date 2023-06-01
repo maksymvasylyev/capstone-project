@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import StyledForm, {
-  StyledFormDiv,
   StyledInput,
   StyledLabel,
   StyledSelect,
@@ -9,11 +8,7 @@ import StyledForm, {
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
-import {
-  StyledAddCarButton,
-  StyledAddCarHeader,
-  StyledHeader,
-} from "./AddCarForm.styled";
+import { StyledAddCarButton, StyledAddCarHeader } from "./AddCarForm.styled";
 import Image from "next/image";
 
 function AddCarForm({
