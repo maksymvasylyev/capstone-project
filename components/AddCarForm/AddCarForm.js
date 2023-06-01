@@ -84,7 +84,7 @@ function AddCarForm({
     event.target.reset();
     toggleVisibilityOfAddCarForm();
   }
-  console.log(newCars.filter((car) => car.section === "myGarage").length);
+
   return (
     <StyledFormDiv>
       <StyledHeader>Add Your Own Car</StyledHeader>
