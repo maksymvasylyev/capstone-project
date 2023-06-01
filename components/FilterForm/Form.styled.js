@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 export default styled.form`
   font-size: 1.5rem;
@@ -11,24 +12,84 @@ export default styled.form`
   gap: 10px;
   grid-template-columns: 1fr;
   border: 3px, solid, red;
+  ${({ isFormSown }) =>
+    isFormSown &&
+    `
+      transform: translateX(0);
+    `}
 `;
 
 export const StyledSubmitButton = styled.button`
-  background-color: white;
-  color: black;
-  border: 3px solid black;
-  border-radius: 50%;
-  padding: 15px;
+  background-color: var(--color-text);
+  color: var(--color-backgroundLayout);
+  border-radius: 0.75rem;
+  padding: 0 90px;
   margin-bottom: 10px;
+  display: flex;
+  top: 79px;
+  left: 185px;
   position: relative;
-  right: -100px;
   text-decoration: none;
-  display: inline-block;
   font-size: 3rem;
-
+  box-shadow: 0 0.7em 1.5em -0.5em var(--color-text);
   &:hover {
-    background-color: black;
+    background-color: var(--color-backgroundLayout);
     border: none;
-    color: white;
+    color: var(--color-layout);
   }
+`;
+
+export const StyledFormDiv = styled.div`
+  list-style: none;
+  padding: 0px;
+  display: grid;
+  gap: 10px;
+`;
+
+export const StyledSelect = styled.select`
+  color: var(--color-layout);
+  margin-top: 0.5em;
+
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: solid var(--color-layout);
+  box-shadow: 0 2px 8px var(--color-text);
+`;
+
+export const StyledInput = styled.input`
+  color: var(--color-layout);
+  margin-top: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: solid var(--color-layout);
+  box-shadow: 0 2px 8px var(--color-text);
+`;
+
+export const StyledLabel = styled.label`
+  color: var(--color-text);
+`;
+
+export const StyledResetButton = styled.button`
+  background-color: var(--color-text);
+  color: var(--color-backgroundLayout);
+  width: 250px;
+  text-align: center;
+  border-radius: 0.75rem;
+  display: flex;
+  position: relative;
+  right: -50px;
+  text-decoration: none;
+  padding: 0 60px;
+  font-size: 3rem;
+  box-shadow: 0 0.7em 1.5em -0.5em var(--color-text);
+  &:hover {
+    background-color: var(--color-backgroundLayout);
+    border: none;
+    color: var(--color-layout);
+  }
+`;
+
+export const StyledLikeImage = styled(Image)`
+  background-color: transparent;
+  position: relative;
 `;

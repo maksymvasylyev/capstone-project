@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const List = styled.ul`
   padding-left: 0;
+  padding-top: 5px;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -11,23 +12,26 @@ const List = styled.ul`
   height: 100%;
   margin: 0;
   align-items: center;
+  align-content: end;
+  background-color: var(--color-backgroundLayout);
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  padding: 0 2em;
-  color: ${({ active }) => (active ? "red" : "black")};
+  padding: 0 1.9em;
+  color: ${({ active }) => (active ? "#8f0e0e" : "#C9C9C9")};
   font-weight: bold;
   font-size: 1.3em;
+  background-color: var(--color-backgroundLayout);
+  color: var(--color-layout);
   &:hover {
-    border-bottom: 5px solid black;
-    color: red;
+    border-bottom: 5px solid #8f0e0e;
+    color: #8f0e0e;
   }
 `;
 
 export default function Navigation() {
   const router = useRouter();
-
   return (
     <nav>
       <List role="list">
@@ -39,7 +43,6 @@ export default function Navigation() {
             Home
           </NavLink>
         </li>
-
         <li>
           <NavLink
             href="/favorites"

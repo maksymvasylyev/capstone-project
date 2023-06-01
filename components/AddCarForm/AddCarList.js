@@ -1,40 +1,17 @@
-import Image from "next/image";
 import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
 import {
   StyledCompareButton,
-  StyledLikeButton,
+  StyledImage,
 } from "../Favorites/Favorites.styled";
 import Link from "next/link";
-
-const StyledAddCarList = styled.ul`
-  list-style: none;
-  padding: 0px;
-  gap: 10px;
-  display: grid;
-  font-size: 1em;
-  justify-items: center;
-  grid-template-columns: 1fr;
-`;
-
-const StyledUpdateLink = styled(Link)`
-  &:hover {
-    border: solid black 1px;
-    padding-top: 30px;
-  }
-`;
-
-const StyledDeleteButton = styled.button`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  position: relative;
-  top: 45px;
-  right: -640px;
-  &:hover {
-    border: solid red 1px;
-  }
-`;
+import { StyledLikeImage } from "../FilterForm/Form.styled";
+import {
+  StyledAddCarList,
+  StyledDeleteButton,
+  StyledDescriptionH2,
+  StyledUpdateLink,
+} from "./AddCarForm.styled";
 
 function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
   return (
@@ -47,9 +24,15 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               type="button"
               onClick={() => onDeleteCar(car.id)}
             >
-              <Image src="/cross.png" alt="delete" width={40} height={40} />
+              <StyledLikeImage
+                style={{ top: "10px" }}
+                src="/cross.png"
+                alt="delete"
+                width={40}
+                height={40}
+              />
             </StyledDeleteButton>
-            <Image
+            <StyledImage
               src={car.imageSource}
               alt="yourCar"
               width={700}
@@ -57,11 +40,16 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
             />
             <div>
               <StyledUpdateLink href={`/updateCar/${car.id}`}>
-                <Image src="/pencil.png" alt="edit" width={40} height={40} />
+                <StyledLikeImage
+                  src="/pencil.png"
+                  alt="edit"
+                  width={40}
+                  height={40}
+                />
               </StyledUpdateLink>
             </div>
-            <h1>{car.name}</h1>
-            <h2>{car.model}</h2>
+            <StyledDescriptionH2>{car.name}</StyledDescriptionH2>
+            <StyledDescriptionH2>{car.model}</StyledDescriptionH2>
             <StyledDescriptionList>
               <li>Body Type: {car.bodyType}</li>
               <li>Wheels Drive: {car.wheelsDrive}</li>
@@ -76,7 +64,7 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
             </StyledDescriptionList>
             <StyledCompareButton
               type="button"
-              style={{ top: "30px", right: "-200px", marginBottom: "30px" }}
+              style={{ top: "20px", right: "-250px", marginBottom: "30px" }}
               active={car.isCompared}
               onClick={() =>
                 newCars.filter((car) => car.isCompared).length > 1 &&

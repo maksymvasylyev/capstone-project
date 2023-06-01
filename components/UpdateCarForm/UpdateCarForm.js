@@ -1,18 +1,13 @@
 import { useRouter } from "next/router";
-import {
-  StyledHeader,
-  StyledNewCarInput,
-  StyledNewCarLabel,
-  StyledNewCarSelect,
-} from "../AddCarForm/AddCarForm.styled";
-import StyledForm, { StyledSubmitButton } from "../FilterForm/Form.styled";
+import { StyledHeader } from "../AddCarForm/AddCarForm.styled";
+import StyledForm, {
+  StyledInput,
+  StyledLabel,
+  StyledSelect,
+  StyledSubmitButton,
+} from "../FilterForm/Form.styled";
 
-function UpdateCarForm({
-  car,
-  onEditCar,
-  toggleVisibilityOfAddCarForm,
-  isFormShown,
-}) {
+function UpdateCarForm({ car, onEditCar }) {
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -23,49 +18,48 @@ function UpdateCarForm({
     onEditCar(updatedData, car.id);
 
     router.push("/myGarage");
-    toggleVisibilityOfAddCarForm();
   }
   return (
     <>
       <StyledHeader>Edit Your Car</StyledHeader>
 
       <StyledForm onSubmit={handleSubmit}>
-        <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
-        <StyledNewCarInput name="name" id="name" defaultValue={car.name} />
+        <StyledLabel htmlFor="name">Name:</StyledLabel>
+        <StyledInput name="name" id="name" defaultValue={car.name} />
 
-        <StyledNewCarLabel htmlFor="model">Model:</StyledNewCarLabel>
-        <StyledNewCarInput name="model" id="model" defaultValue={car.model} />
+        <StyledLabel htmlFor="model">Model:</StyledLabel>
+        <StyledInput name="model" id="model" defaultValue={car.model} />
 
-        <StyledNewCarLabel htmlFor="bodyType">Body Type:</StyledNewCarLabel>
-        <StyledNewCarSelect
-          name="bodyType"
-          id="bodyType"
-          defaultValue={car.bodyType}
-        >
+        <StyledLabel htmlFor="bodyType">Body Type:</StyledLabel>
+        <StyledSelect name="bodyType" id="bodyType" defaultValue={car.bodyType}>
+          <option defaultValue value="">
+            --Make a choice--
+          </option>
           <option value="Sedan">Sedan</option>
           <option value="SUV">SUV</option>
           <option value="Coupe">Coupe</option>
           <option value="VAN">VAN</option>
           <option value="Cabriolet">Cabriolet</option>
-        </StyledNewCarSelect>
+        </StyledSelect>
 
-        <StyledNewCarLabel htmlFor="wheelsDrive">
-          Wheels Drive:
-        </StyledNewCarLabel>
-        <StyledNewCarSelect
+        <StyledLabel htmlFor="wheelsDrive">Wheels Drive:</StyledLabel>
+        <StyledSelect
           name="wheelsDrive"
           id="wheelsDrive"
           defaultValue={car.wheelsDrive}
         >
+          <option defaultValue value="">
+            --Make a choice--
+          </option>
           <option value="awd">awd</option>
           <option value="rwd">rwd</option>
           <option value="fwd">fwd</option>
-        </StyledNewCarSelect>
+        </StyledSelect>
 
-        <StyledNewCarLabel htmlFor="acceleration">
+        <StyledLabel htmlFor="acceleration">
           Acceleration (0-100km/h (s)):
-        </StyledNewCarLabel>
-        <StyledNewCarInput
+        </StyledLabel>
+        <StyledInput
           type="number"
           min={0}
           name="acceleration"
@@ -73,18 +67,19 @@ function UpdateCarForm({
           defaultValue={car.acceleration}
         />
 
-        <StyledNewCarLabel htmlFor="Fuel">Fuel:</StyledNewCarLabel>
-        <StyledNewCarSelect name="Fuel" defaultValue={car.Fuel} id="Fuel">
+        <StyledLabel htmlFor="Fuel">Fuel:</StyledLabel>
+        <StyledSelect name="Fuel" defaultValue={car.Fuel} id="Fuel">
+          <option defaultValue value="">
+            --Make a choice--
+          </option>
           <option value="Benzin">Benzin</option>
           <option value="Diesel">Diesel</option>
           <option value="Hybrid">Hybrid</option>
           <option value="Electro">Electro</option>
-        </StyledNewCarSelect>
+        </StyledSelect>
 
-        <StyledNewCarLabel htmlFor="FuelEconomy">
-          Fuel Economy (l/100km):
-        </StyledNewCarLabel>
-        <StyledNewCarInput
+        <StyledLabel htmlFor="FuelEconomy">Fuel Economy (l/100km):</StyledLabel>
+        <StyledInput
           type="number"
           min={0}
           name="FuelEconomy"
@@ -92,10 +87,8 @@ function UpdateCarForm({
           id="FuelEconomy"
         />
 
-        <StyledNewCarLabel htmlFor="TopSpeed">
-          Top Speed (km/h):
-        </StyledNewCarLabel>
-        <StyledNewCarInput
+        <StyledLabel htmlFor="TopSpeed">Top Speed (km/h):</StyledLabel>
+        <StyledInput
           type="number"
           min={0}
           name="TopSpeed"
@@ -103,8 +96,8 @@ function UpdateCarForm({
           id="TopSpeed"
         />
 
-        <StyledNewCarLabel htmlFor="Engine">Engine (L):</StyledNewCarLabel>
-        <StyledNewCarInput
+        <StyledLabel htmlFor="Engine">Engine (L):</StyledLabel>
+        <StyledInput
           type="number"
           min={0}
           name="Engine"
@@ -112,8 +105,8 @@ function UpdateCarForm({
           id="Engine"
         />
 
-        <StyledNewCarLabel htmlFor="Power">Power (HP):</StyledNewCarLabel>
-        <StyledNewCarInput
+        <StyledLabel htmlFor="Power">Power (HP):</StyledLabel>
+        <StyledInput
           type="number"
           min={0}
           name="Power"
@@ -121,19 +114,17 @@ function UpdateCarForm({
           id="Power"
         />
 
-        <StyledNewCarLabel htmlFor="CountryOfManufacture">
+        <StyledLabel htmlFor="CountryOfManufacture">
           Country of Manufacture:
-        </StyledNewCarLabel>
-        <StyledNewCarInput
+        </StyledLabel>
+        <StyledInput
           name="CountryOfManufacture"
           defaultValue={car.CountryOfManufacture}
           id="CountryOfManufacture"
         />
 
-        <StyledNewCarLabel htmlFor="price">
-          Approx. Price (Euro):
-        </StyledNewCarLabel>
-        <StyledNewCarInput
+        <StyledLabel htmlFor="price">Approx. Price (Euro):</StyledLabel>
+        <StyledInput
           type="number"
           name="price"
           defaultValue={car.price}
@@ -142,7 +133,12 @@ function UpdateCarForm({
           max={900000000}
         />
 
-        <StyledSubmitButton type="Submit">Update</StyledSubmitButton>
+        <StyledSubmitButton
+          style={{ top: "0px", left: "5px", marginTop: "10px" }}
+          type="Submit"
+        >
+          Update
+        </StyledSubmitButton>
       </StyledForm>
     </>
   );

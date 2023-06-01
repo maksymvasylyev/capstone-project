@@ -5,30 +5,32 @@ import styled from "styled-components";
 
 const StyledLinkDivMain = styled.div`
   position: fixed;
-  color: Pink;
+  font-weight: bold;
+  color: #c9c9c9;
   width: 80%;
-  top: 10vh;
-  right: 10vw;
+  bottom: 10vh;
+  right: 17vw;
   text-align: center;
   font-size: 2.5em;
   padding: 10px;
-  border: 3px solid black;
+  box-shadow: 0 0.7em 1.5em -0.5em black;
   border-radius: 10%;
+  background-color: #252525;
 
   &:hover {
-    background-color: grey;
+    background-color: #3e3e3e;
   }
 `;
 
 export default function HomePage() {
   return (
     <>
+      <CarsList data={data} />
       <Link href="/filter-form">
         <StyledLinkDivMain>
           Click to choose exactly what you need{" "}
         </StyledLinkDivMain>
       </Link>
-      <CarsList data={data} />
     </>
   );
 }

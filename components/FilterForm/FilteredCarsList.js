@@ -1,4 +1,3 @@
-import Image from "next/image";
 import StyledList from "../CarsList/List.styled";
 import Link from "next/link";
 import {
@@ -10,6 +9,7 @@ import {
   StyledPriceDiv,
   StyledCompareButton,
 } from "../Favorites/Favorites.styled";
+import { StyledLikeImage } from "./Form.styled";
 
 function FilteredCarsList({ cars, list, onToggleFavorite, onToggleCompared }) {
   return (
@@ -27,14 +27,14 @@ function FilteredCarsList({ cars, list, onToggleFavorite, onToggleCompared }) {
                   onClick={() => onToggleFavorite(car.id)}
                 >
                   {car.isFavorite ? (
-                    <Image
+                    <StyledLikeImage
                       src="/heart.png"
                       alt="liked"
                       width={40}
                       height={40}
                     />
                   ) : (
-                    <Image
+                    <StyledLikeImage
                       src="/notLiked.png"
                       alt="notLiked"
                       width={40}

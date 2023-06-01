@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import StyledForm, { StyledSubmitButton } from "../FilterForm/Form.styled";
+import StyledForm, {
+  StyledFormDiv,
+  StyledInput,
+  StyledLabel,
+  StyledSelect,
+  StyledSubmitButton,
+} from "../FilterForm/Form.styled";
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
-import {
-  StyledAddCarButton,
-  StyledHeader,
-  StyledNewCarInput,
-  StyledNewCarLabel,
-  StyledNewCarSelect,
-} from "./AddCarForm.styled";
+import { StyledAddCarButton, StyledHeader } from "./AddCarForm.styled";
 import Image from "next/image";
 
 function AddCarForm({
@@ -57,7 +57,7 @@ function AddCarForm({
       setNewCars([
         {
           id: uid(),
-          imageSource: json.secure_url,
+          imageSource: image ? json.secure_url : "/myCarPicture.jpeg",
           isCompared: false,
           isFavorite: null,
           section: "myGarage",
@@ -84,129 +84,128 @@ function AddCarForm({
     event.target.reset();
     toggleVisibilityOfAddCarForm();
   }
+
   return (
-    <>
+    <StyledFormDiv>
       <StyledHeader>Add Your Own Car</StyledHeader>
+
       {isFormShown ? (
-        <StyledForm onSubmit={handleSubmit}>
-          <StyledNewCarLabel htmlFor="avatar">
-            Choose an image of your car, if you have
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            type="file"
-            id="avatar"
-            onChange={handleFileChange}
-            value={imageValue}
-          />
-          {image && (
-            <Image
-              src={URL.createObjectURL(image)}
-              width={150}
-              height={150}
-              alt="Preview of the image to upload"
-              style={{ objectFit: "cover" }}
+        <>
+          <StyledForm onSubmit={handleSubmit}>
+            <StyledLabel htmlFor="avatar">
+              Choose an image of your car, if you have
+            </StyledLabel>
+            <StyledInput
+              type="file"
+              id="avatar"
+              onChange={handleFileChange}
+              value={imageValue}
             />
-          )}
-          <StyledNewCarLabel htmlFor="name">Name:</StyledNewCarLabel>
-          <StyledNewCarInput name="name" id="name" />
+            {image && (
+              <Image
+                src={URL.createObjectURL(image)}
+                width={150}
+                height={150}
+                alt="Preview of the image to upload"
+                style={{ objectFit: "cover" }}
+              />
+            )}
+            <StyledLabel htmlFor="name">Name:</StyledLabel>
+            <StyledInput name="name" id="name" />
 
-          <StyledNewCarLabel htmlFor="model">Model:</StyledNewCarLabel>
-          <StyledNewCarInput name="model" id="model" />
+            <StyledLabel htmlFor="model">Model:</StyledLabel>
+            <StyledInput name="model" id="model" />
 
-          <StyledNewCarLabel htmlFor="bodyType">Body Type:</StyledNewCarLabel>
-          <StyledNewCarSelect name="bodyType" id="bodyType">
-            <option defaultValue value="">
-              --Make a choice--
-            </option>
-            <option value="Sedan">Sedan</option>
-            <option value="SUV">SUV</option>
-            <option value="Coupe">Coupe</option>
-            <option value="VAN">VAN</option>
-            <option value="Cabriolet">Cabriolet</option>
-          </StyledNewCarSelect>
+            <StyledLabel htmlFor="bodyType">Body Type:</StyledLabel>
+            <StyledSelect name="bodyType" id="bodyType">
+              <option defaultValue value="">
+                --Make a choice--
+              </option>
+              <option value="Sedan">Sedan</option>
+              <option value="SUV">SUV</option>
+              <option value="Coupe">Coupe</option>
+              <option value="VAN">VAN</option>
+              <option value="Cabriolet">Cabriolet</option>
+            </StyledSelect>
 
-          <StyledNewCarLabel htmlFor="wheelsDrive">
-            Wheels Drive:
-          </StyledNewCarLabel>
-          <StyledNewCarSelect name="wheelsDrive" id="wheelsDrive">
-            <option defaultValue value="">
-              --Make a choice--
-            </option>
-            <option value="awd">awd</option>
-            <option value="rwd">rwd</option>
-            <option value="fwd">fwd</option>
-          </StyledNewCarSelect>
+            <StyledLabel htmlFor="wheelsDrive">Wheels Drive:</StyledLabel>
+            <StyledSelect name="wheelsDrive" id="wheelsDrive">
+              <option defaultValue value="">
+                --Make a choice--
+              </option>
+              <option value="awd">awd</option>
+              <option value="rwd">rwd</option>
+              <option value="fwd">fwd</option>
+            </StyledSelect>
 
-          <StyledNewCarLabel htmlFor="acceleration">
-            Acceleration (0-100km/h (s)):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            type="number"
-            min={0}
-            name="acceleration"
-            id="acceleration"
-          />
+            <StyledLabel htmlFor="acceleration">
+              Acceleration (0-100km/h (s)):
+            </StyledLabel>
+            <StyledInput
+              type="number"
+              min={0}
+              name="acceleration"
+              id="acceleration"
+            />
 
-          <StyledNewCarLabel htmlFor="Fuel">Fuel:</StyledNewCarLabel>
-          <StyledNewCarSelect name="Fuel" id="Fuel">
-            <option defaultValue value="">
-              --Make a choice--
-            </option>
-            <option value="Benzin">Benzin</option>
-            <option value="Diesel">Diesel</option>
-            <option value="Hybrid">Hybrid</option>
-            <option value="Electro">Electro</option>
-          </StyledNewCarSelect>
+            <StyledLabel htmlFor="Fuel">Fuel:</StyledLabel>
+            <StyledSelect name="Fuel" id="Fuel">
+              <option defaultValue value="">
+                --Make a choice--
+              </option>
+              <option value="Benzin">Benzin</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Electro">Electro</option>
+            </StyledSelect>
 
-          <StyledNewCarLabel htmlFor="FuelEconomy">
-            Fuel Economy (l/100km):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            type="number"
-            min={0}
-            name="FuelEconomy"
-            id="FuelEconomy"
-          />
+            <StyledLabel htmlFor="FuelEconomy">
+              Fuel Economy (l/100km):
+            </StyledLabel>
+            <StyledInput
+              type="number"
+              min={0}
+              name="FuelEconomy"
+              id="FuelEconomy"
+            />
 
-          <StyledNewCarLabel htmlFor="TopSpeed">
-            Top Speed (km/h):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            type="number"
-            min={0}
-            name="TopSpeed"
-            id="TopSpeed"
-          />
+            <StyledLabel htmlFor="TopSpeed">Top Speed (km/h):</StyledLabel>
+            <StyledInput type="number" min={0} name="TopSpeed" id="TopSpeed" />
 
-          <StyledNewCarLabel htmlFor="Engine">Engine (L):</StyledNewCarLabel>
-          <StyledNewCarInput type="number" min={0} name="Engine" id="Engine" />
+            <StyledLabel htmlFor="Engine">Engine (L):</StyledLabel>
+            <StyledInput type="number" min={0} name="Engine" id="Engine" />
 
-          <StyledNewCarLabel htmlFor="Power">Power (HP):</StyledNewCarLabel>
-          <StyledNewCarInput type="number" min={0} name="Power" id="Power" />
+            <StyledLabel htmlFor="Power">Power (HP):</StyledLabel>
+            <StyledInput type="number" min={0} name="Power" id="Power" />
 
-          <StyledNewCarLabel htmlFor="CountryOfManufacture">
-            Country of Manufacture:
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            name="CountryOfManufacture"
-            id="CountryOfManufacture"
-          />
+            <StyledLabel htmlFor="CountryOfManufacture">
+              Country of Manufacture:
+            </StyledLabel>
+            <StyledInput
+              name="CountryOfManufacture"
+              id="CountryOfManufacture"
+            />
 
-          <StyledNewCarLabel htmlFor="price">
-            Approx. Price (Euro):
-          </StyledNewCarLabel>
-          <StyledNewCarInput
-            type="number"
-            name="price"
-            id="price"
-            min={1}
-            max={900000000}
-          />
+            <StyledLabel htmlFor="price">Approx. Price (Euro):</StyledLabel>
+            <StyledInput
+              type="number"
+              name="price"
+              id="price"
+              min={1}
+              max={900000000}
+            />
 
-          <StyledSubmitButton type="Submit" disabled={!image}>
-            {isUploading ? "Uploading …" : "Upload"}
-          </StyledSubmitButton>
-        </StyledForm>
+            <StyledSubmitButton
+              style={{ left: "0px", marginBottom: "100px" }}
+              type="Submit"
+            >
+              {isUploading ? "Uploading …" : "Upload"}
+            </StyledSubmitButton>
+          </StyledForm>
+          <StyledAddCarButton onClick={() => toggleVisibilityOfAddCarForm()}>
+            Hide Form
+          </StyledAddCarButton>
+        </>
       ) : (
         <StyledAddCarButton
           type="button"
@@ -220,7 +219,7 @@ function AddCarForm({
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
       />
-    </>
+    </StyledFormDiv>
   );
 }
 
