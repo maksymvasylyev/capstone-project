@@ -1,6 +1,10 @@
-# New Project
+# Capstone Project: Car Compare Analyser
+![ReadMe1](https://github.com/maksymvasylyev/capstone-project/assets/102429024/7319be89-0948-4512-8b66-c7c2c8a4b7c2)
 
-This project was created from the neue fische next template.
+Car compare analyser makes it easy to choose a new car from the amount of all available new car models on the market (later with pay API). 
+You don`t need to visit web-sites of planty auto dealers to choose and compare new cars anymore.
+Also you may add your own car and compare it with others to make a finall decision about changing it.
+Drive safe 🏎
 
 ## Development
 
