@@ -2,9 +2,9 @@
 
 <img width="377" alt="Снимок экрана 2023-06-02 в 11 14 51" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/7d1ede83-877b-47fd-b883-8454de779b35">
 
-Car compare analyser makes it easy to choose a new car from the amount of all available new car models on the market (later with pay API). 
-You don`t need to visit web-sites of planty auto dealers to choose and compare new cars anymore.
-Also you may add your own car and compare it with others to make a finall decision about changing it.
+Car compare analyser makes it easy to choose a new car from the amount of all available new car models on the market (later with pay API). <br>
+You don`t need to visit web-sites of planty auto dealers to choose and compare new cars anymore. <br>
+Also you may add your own car and compare it with others to make a finall decision about changing it. <br>
 Drive safe 🏎
 
 ## Demo
@@ -12,7 +12,7 @@ Drive safe 🏎
 You can find the hosted version on Vercel: <a href="https://cars-compare-analyser.vercel.app/" target="_blank">Demo Version of Capstone Project</a>
 Important: This demo is optimized for mobile screen.
 
-<video src='https://www.youtube.com/shorts/2SAv2DLeUE0' width=180/>
+
 
 <img width="375" alt="Снимок экрана 2023-06-02 в 12 23 21" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/f0cba18e-6528-40bf-a898-54251758a8d6"> <img width="375" alt="Снимок экрана 2023-06-02 в 12 23 40" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/b12b67d7-ac58-4c9e-8c3c-031563acdba4">
 <img width="375" alt="Снимок экрана 2023-06-02 в 12 23 50" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/b5e35226-c4be-49bf-826f-bd1966cdb85c"> <img width="375" alt="Снимок экрана 2023-06-02 в 12 24 06" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/0283e627-35e0-44ee-93c7-bcd1d4d5612b"> 
