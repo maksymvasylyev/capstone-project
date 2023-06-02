@@ -6,7 +6,7 @@ import styled from "styled-components";
 const StyledLinkDivMain = styled.div`
   position: fixed;
   font-weight: bold;
-  color: #c9c9c9;
+  color: var(--color-text);
   width: 80%;
   bottom: 10vh;
   right: 17vw;
@@ -15,7 +15,7 @@ const StyledLinkDivMain = styled.div`
   padding: 10px;
   box-shadow: 0 0.7em 1.5em -0.5em black;
   border-radius: 10%;
-  background-color: #252525;
+  background-color: var(--color-startButton);
 
   &:hover {
     background-color: #3e3e3e;

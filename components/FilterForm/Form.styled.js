@@ -5,11 +5,12 @@ export default styled.form`
   font-size: 1.5rem;
   position: relative;
   display: flex;
+  width: 700px;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   grid-template-columns: 1fr;
   border: 3px, solid, red;
   ${({ isFormSown }) =>
@@ -20,7 +21,7 @@ export default styled.form`
 `;
 
 export const StyledSubmitButton = styled.button`
-  background-color: var(--color-text);
+  background-color: var(--color-button);
   color: var(--color-backgroundLayout);
   border-radius: 0.75rem;
   padding: 0 90px;
@@ -70,7 +71,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledResetButton = styled.button`
-  background-color: var(--color-text);
+  background-color: var(--color-button);
   color: var(--color-backgroundLayout);
   width: 250px;
   text-align: center;
@@ -92,4 +93,12 @@ export const StyledResetButton = styled.button`
 export const StyledLikeImage = styled(Image)`
   background-color: transparent;
   position: relative;
+  z-index: 20;
+`;
+
+export const StyledHeader = styled.h2`
+  font-size: 1.7em;
+  color: var(--color-layout);
+  text-align: center;
+  margin: 10px auto 10px auto;
 `;

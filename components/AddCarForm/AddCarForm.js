@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import StyledForm, {
-  StyledFormDiv,
   StyledInput,
   StyledLabel,
   StyledSelect,
@@ -9,7 +8,7 @@ import StyledForm, {
 import AddCarList from "./AddCarList";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
-import { StyledAddCarButton, StyledHeader } from "./AddCarForm.styled";
+import { StyledAddCarButton, StyledAddCarHeader } from "./AddCarForm.styled";
 import Image from "next/image";
 
 function AddCarForm({
@@ -86,14 +85,14 @@ function AddCarForm({
   }
 
   return (
-    <StyledFormDiv>
-      <StyledHeader>Add Your Own Car</StyledHeader>
+    <>
+      <StyledAddCarHeader>Your Own Car</StyledAddCarHeader>
 
       {isFormShown ? (
         <>
-          <StyledForm onSubmit={handleSubmit}>
+          <StyledForm onSubmit={handleSubmit} autoComplete="off">
             <StyledLabel htmlFor="avatar">
-              Choose an image of your car, if you have
+              Choose an image of your car
             </StyledLabel>
             <StyledInput
               type="file"
@@ -219,7 +218,7 @@ function AddCarForm({
         onDeleteCar={onDeleteCar}
         onToggleCompared={onToggleCompared}
       />
-    </StyledFormDiv>
+    </>
   );
 }
 
