@@ -53,9 +53,12 @@ const StyledDarkModeButton = styled.button`
     box-shadow: 0 0.3em 1em -0.5em #14a73e98;
   }
 `;
+const StyledLayoutDiv = styled.div`
+  width: 700px;
+`;
 export default function Layout({ children, toggleDarkMode, isDarkMode }) {
   return (
-    <>
+    <StyledLayoutDiv>
       <Head>
         <title>Car compare analyser</title>
       </Head>
@@ -72,6 +75,6 @@ export default function Layout({ children, toggleDarkMode, isDarkMode }) {
         <Main>{children}</Main>
         <Navigation />
       </div>
-    </>
+    </StyledLayoutDiv>
   );
 }
