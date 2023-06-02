@@ -1,6 +1,5 @@
 # Capstone Project: Car Compare Analyser
-![ReadMe1](https://github.com/maksymvasylyev/capstone-project/assets/102429024/7319be89-0948-4512-8b66-c7c2c8a4b7c2)
-<img width="377" alt="Снимок экрана 2023-06-02 в 11 14 51" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/7d1ede83-877b-47fd-b883-8454de779b35">
+![ReadMe2](https://github.com/maksymvasylyev/capstone-project/assets/102429024/bec31f13-0502-4135-90e0-fd62dc6a7d55) <img width="377" alt="Снимок экрана 2023-06-02 в 11 14 51" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/7d1ede83-877b-47fd-b883-8454de779b35">
 
 
 
