@@ -6,8 +6,14 @@ export const StyledResultDiv = styled.div`
   text-align: center;
   color: #8f0e0e;
   width: 700px;
+  text-align: center;
+  position: relative;
+  left: -50px;
+  padding: 100px 0;
   font-size: 2.5rem;
   margin: 50px;
+  border: 1px solid white;
+  box-shadow: 0 2px 20px var(--color-text);
 `;
 
 export const StyledLikeButton = styled.button`
