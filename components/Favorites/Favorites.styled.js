@@ -14,9 +14,6 @@ export const StyledResultDiv = styled.div`
   margin: 50px;
   border: 1px solid white;
   box-shadow: 0 2px 20px var(--color-text);
-  padding: 0px;
-  display: grid;
-  grid-template-columns: 1fr;
 `;
 
 export const StyledLikeButton = styled.button`

@@ -9,17 +9,11 @@ import {
   StyledPriceDiv,
   StyledCompareButton,
 } from "./Favorites.styled";
-
 import { StyledLikeImage } from "../FilterForm/Form.styled";
-import styled from "styled-components";
-
-const StyledFavoriteDiv = styled.div`
-  width: 700px;
-`;
 
 function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
   return (
-    <StyledFavoriteDiv>
+    <>
       {cars.filter((car) => car.isFavorite).length < 1 ? (
         <StyledResultDiv>{"You didn`t like anything yet"}</StyledResultDiv>
       ) : (
@@ -80,7 +74,7 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
             ))}
         </StyledList>
       )}
-    </StyledFavoriteDiv>
+    </>
   );
 }
 
