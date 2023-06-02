@@ -6,13 +6,40 @@ import {
 } from "../Favorites/Favorites.styled";
 import styled from "styled-components";
 import { StyledLikeImage, StyledSubmitButton } from "../FilterForm/Form.styled";
-import {
-  StyledCompareDiv,
-  StyledCompareList,
-  StyledCompareNameDiv,
-  StyledNameCompareH4,
-  StyledYourCarDiv,
-} from "./Compare.styled";
+
+const StyledCompareList = styled.ul`
+  list-style: none;
+  padding: 0px;
+  margin-top: 5px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--color-backgroundLayout);
+  font-size: 1.2em;
+`;
+
+const StyledNameCompareH4 = styled.h4`
+  margin: 0;
+  font-size: 1.2em;
+  color: var(--color-layout);
+  text-align: center;
+`;
+
+const StyledYourCarDiv = styled.div`
+  font-size: 1.5em;
+  margin-bottom: 13px;
+  text-align: center;
+`;
+
+const StyledCompareDiv = styled.div`
+  padding: 0px;
+  display: grid;
+`;
+const StyledCompareNameDiv = styled.div`
+  color: var(--color-text);
+  text-align: center;
+`;
 
 const StyledCompareNameList = styled.li`
   color: var(--color-text);
