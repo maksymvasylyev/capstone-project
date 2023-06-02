@@ -9,7 +9,7 @@ Drive safe 🏎
 
 #Demo
 
-You can find the hosted version on Vercel: <a href="[https://www.google.com/](https://cars-compare-analyser.vercel.app/)" target="_blank">Demo Version of Capstone Project</a>
+You can find the hosted version on Vercel: <a href="https://cars-compare-analyser.vercel.app/" target="_blank">Demo Version of Capstone Project</a>
 
 ## Development
 
