@@ -12,7 +12,10 @@ Drive safe 🏎
 You can find the hosted version on Vercel: <a href="https://cars-compare-analyser.vercel.app/" target="_blank">Demo Version of Capstone Project</a>
 Important: This demo is optimized for mobile screen.
 
-[![Watch the video]](https://youtube.com/shorts/2SAv2DLeUE0?feature=share)
+<video controls>
+  <source src="[https://www.example.com/path-to-your-video.mp4](https://www.youtube.com/shorts/2SAv2DLeUE0)" type="video/mp4">
+ Vidoe show.
+</video>
 
 <img width="375" alt="Снимок экрана 2023-06-02 в 12 23 21" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/f0cba18e-6528-40bf-a898-54251758a8d6"> <img width="375" alt="Снимок экрана 2023-06-02 в 12 23 40" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/b12b67d7-ac58-4c9e-8c3c-031563acdba4">
 <img width="375" alt="Снимок экрана 2023-06-02 в 12 23 50" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/b5e35226-c4be-49bf-826f-bd1966cdb85c"> <img width="375" alt="Снимок экрана 2023-06-02 в 12 24 06" src="https://github.com/maksymvasylyev/capstone-project/assets/102429024/0283e627-35e0-44ee-93c7-bcd1d4d5612b"> 
