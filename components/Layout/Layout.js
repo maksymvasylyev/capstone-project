@@ -1,7 +1,6 @@
 import Navigation from "../Navigation/Navigation";
 import styled from "styled-components";
 import Head from "next/head.js";
-import { StyledAddCarButton } from "../AddCarForm/AddCarForm.styled";
 
 const Main = styled.main`
   padding-top: 3rem;
