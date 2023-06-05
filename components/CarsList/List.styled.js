@@ -4,7 +4,8 @@ export default styled.ul`
   list-style: none;
   padding: 0px;
   display: grid;
-  width: 700px;
+  max-width: 700px;
+  width: 100%;
 
   gap: 10px;
   justify-items: center;
