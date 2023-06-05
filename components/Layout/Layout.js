@@ -21,6 +21,7 @@ const Headline = styled.h1`
   height: 3rem;
   width: 100%;
   z-index: 30;
+  width: 700px;
 `;
 const StyledDarkModeButton = styled.button`
   display: flex;
@@ -53,7 +54,7 @@ const StyledDarkModeButton = styled.button`
   }
 `;
 const StyledLayoutDiv = styled.div`
-  width: 700px;
+  /* width: 700px; */
 `;
 export default function Layout({ children, toggleDarkMode, isDarkMode }) {
   return (
