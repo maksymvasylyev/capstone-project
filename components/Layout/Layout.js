@@ -53,8 +53,7 @@ const StyledDarkModeButton = styled.button`
   }
 `;
 const StyledLayoutDiv = styled.div`
-  max-width: 700px;
-  width: 100%;
+  width: 700px;
 `;
 export default function Layout({ children, toggleDarkMode, isDarkMode }) {
   return (
