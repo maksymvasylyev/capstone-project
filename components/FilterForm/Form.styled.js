@@ -2,10 +2,10 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export default styled.form`
-  font-size: 1.5rem;
+  font-size: 0.7 rem;
   position: relative;
   display: flex;
-  width: 700px;
+  /* width: 700px; */
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
@@ -24,14 +24,14 @@ export const StyledSubmitButton = styled.button`
   background-color: var(--color-button);
   color: var(--color-backgroundLayout);
   border-radius: 0.75rem;
-  padding: 0 90px;
+  padding: 0 40px;
   margin-bottom: 10px;
   display: flex;
-  top: 79px;
-  left: 185px;
+  top: 46px;
+  left: 100px;
   position: relative;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: 1.2rem;
   box-shadow: 0 0.7em 1.5em -0.5em var(--color-text);
   &:hover {
     background-color: var(--color-backgroundLayout);
@@ -49,7 +49,7 @@ export const StyledFormDiv = styled.div`
 
 export const StyledSelect = styled.select`
   color: var(--color-layout);
-  margin-top: 0.5em;
+  margin-top: 0;
 
   padding: 0.5em 1em;
   border-radius: 5px;
@@ -59,7 +59,7 @@ export const StyledSelect = styled.select`
 
 export const StyledInput = styled.input`
   color: var(--color-layout);
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
   padding: 0.5em;
   border-radius: 5px;
   border: solid var(--color-layout);
@@ -68,20 +68,24 @@ export const StyledInput = styled.input`
 
 export const StyledLabel = styled.label`
   color: var(--color-text);
+  font-size: 1em;
+  margin-top: 0.5em;
 `;
 
 export const StyledResetButton = styled.button`
   background-color: var(--color-button);
   color: var(--color-backgroundLayout);
-  width: 250px;
+  width: 30px;
   text-align: center;
   border-radius: 0.75rem;
   display: flex;
   position: relative;
   right: -50px;
+
   text-decoration: none;
-  padding: 0 60px;
-  font-size: 3rem;
+  padding: 0 53px;
+  font-size: 1.2rem;
+  justify-content: center;
   box-shadow: 0 0.7em 1.5em -0.5em var(--color-text);
   &:hover {
     background-color: var(--color-backgroundLayout);
@@ -97,7 +101,7 @@ export const StyledLikeImage = styled(Image)`
 `;
 
 export const StyledHeader = styled.h2`
-  font-size: 1.7em;
+  font-size: 1.2em;
   color: var(--color-layout);
   text-align: center;
   margin: 10px auto 10px auto;
