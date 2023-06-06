@@ -9,9 +9,9 @@ const StyledLinkDivMain = styled.div`
   color: var(--color-text);
   width: 80%;
   bottom: 10vh;
-  right: 17vw;
+  left: 10vw;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 1.5em;
   padding: 10px;
   box-shadow: 0 0.7em 1.5em -0.5em black;
   border-radius: 10%;

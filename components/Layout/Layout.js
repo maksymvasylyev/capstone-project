@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Head from "next/head.js";
 
 const Main = styled.main`
+  /* margin-left: 30px; */
   padding-top: 3rem;
   padding-bottom: 3rem;
 `;
@@ -56,7 +57,8 @@ const StyledDarkModeButton = styled.button`
 `;
 const StyledLayoutDiv = styled.div`
   /* width: 700px; */
-  /* width: 100%; */
+  width: 80%;
+  /* justify-content: center; */
 `;
 export default function Layout({ children, toggleDarkMode, isDarkMode }) {
   return (

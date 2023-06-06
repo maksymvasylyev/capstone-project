@@ -8,6 +8,7 @@ import {
   StyledLink,
   StyledPriceDiv,
   StyledCompareButton,
+  StyledPictureDiv,
 } from "./Favorites.styled";
 import { StyledLikeImage } from "../FilterForm/Form.styled";
 
@@ -30,33 +31,28 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
                     <StyledLikeImage
                       src="/heart.png"
                       alt="liked"
-                      width={20}
-                      height={20}
+                      width={30}
+                      height={30}
                     />
                   ) : (
                     <StyledLikeImage
                       src="/notLiked.png"
                       alt="notLiked"
-                      width={20}
-                      height={20}
+                      width={30}
+                      height={30}
                     />
                   )}
                 </StyledLikeButton>
                 <Link href={`/detailsCar/${car.id}`}>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      position: "relative",
-                    }}
-                  >
+                  <StyledPictureDiv>
                     <StyledImage
                       src={car.imageSource}
                       alt={car.model}
-                      layout="fill"
-                      // objectFit="cover"
+                      // layout="fill"
+                      width={180}
+                      height={90}
                     />
-                  </div>
+                  </StyledPictureDiv>
                 </Link>
                 <StyledLink href={`/detailsCar/${car.id}`}>
                   <StyledPriceDiv>from {car.Price} Euro</StyledPriceDiv>

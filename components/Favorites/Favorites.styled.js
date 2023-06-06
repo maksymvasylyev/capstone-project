@@ -23,8 +23,8 @@ export const StyledLikeButton = styled.button`
   border: none;
   display: flex;
   position: relative;
-  top: 45px;
-  right: -90px;
+  top: 32px;
+  right: -140px;
 `;
 
 export const StyledImage = styled(Image)`
@@ -43,8 +43,12 @@ export const StyledNameDiv = styled.div`
   color: var(--color-text);
   position: relative;
   text-align: center;
-  top: -30px;
+  top: -20px;
+  right: -5px;
   background-color: transparent;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledPriceDiv = styled.div`
@@ -52,19 +56,24 @@ export const StyledPriceDiv = styled.div`
   color: var(--color-text);
   position: relative;
   text-align: center;
-  top: -30px;
+
+  top: -20px;
+  right: -5px;
   background-color: transparent;
+  display: flex;
+  /* text-align: center; */
+  justify-content: center;
 `;
 
 export const StyledCompareButton = styled.button`
   display: flex;
   position: relative;
   top: -10px;
-  right: 0px;
+  right: -15px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.7em;
   padding: 0.7em 1.4em 0.7em 1.1em;
   color: white;
   background: ${({ active }) => (active ? "#8F0E0E" : "#4E784F")};
@@ -84,4 +93,11 @@ export const StyledCompareButton = styled.button`
   &:active {
     box-shadow: 0 0.3em 1em -0.5em #14a73e98;
   }
+`;
+
+export const StyledPictureDiv = styled.div`
+  width: 100%;
+  /* height: 100%; */
+  position: relative;
+  left: 2.5px;
 `;

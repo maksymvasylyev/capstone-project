@@ -7,9 +7,9 @@ export default styled.ul`
   /* max-width: 700px;
   width: 100%; */
 
-  gap: 20px;
-  row-gap: 100px;
+  gap: 10px;
+  row-gap: 10px;
   margin-bottom: 10px;
-  justify-items: center;
+  justify-items: space-around;
   grid-template-columns: 1fr 1fr;
 `;
