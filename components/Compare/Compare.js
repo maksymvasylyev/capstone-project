@@ -2,6 +2,7 @@ import StyledList from "../CarsList/List.styled";
 import {
   StyledImage,
   StyledLikeButton,
+  StyledPictureDiv,
   StyledResultDiv,
 } from "../Favorites/Favorites.styled";
 import styled from "styled-components";
@@ -27,7 +28,7 @@ const StyledNameCompareH4 = styled.h4`
 `;
 
 const StyledYourCarDiv = styled.div`
-  font-size: 1.5em;
+  font-size: 1em;
   margin-bottom: 13px;
   text-align: center;
 `;
@@ -44,7 +45,7 @@ const StyledCompareNameDiv = styled.div`
 const StyledCompareNameList = styled.li`
   color: var(--color-text);
   background-color: var(--color-backgroundLayout);
-  font-size: 1.2em;
+  font-size: 1em;
 `;
 function Compare({
   cars,
@@ -67,7 +68,7 @@ function Compare({
                   <StyledYourCarDiv>Your Car</StyledYourCarDiv>
                 ) : (
                   <StyledLikeButton
-                    style={{ top: "65px", right: "-5px" }}
+                    style={{ top: "55px", right: "-5px" }}
                     type="button"
                     onClick={() => onToggleFavorite(car.id)}
                   >
@@ -75,26 +76,27 @@ function Compare({
                       <StyledLikeImage
                         src="/heart.png"
                         alt="liked"
-                        width={40}
-                        height={40}
+                        width={30}
+                        height={30}
                       />
                     ) : (
                       <StyledLikeImage
                         src="/notLiked.png"
                         alt="notLiked"
-                        width={40}
-                        height={40}
+                        width={30}
+                        height={30}
                       />
                     )}
                   </StyledLikeButton>
                 )}
 
                 <StyledLikeButton
-                  style={{ top: "25px", right: "-300px" }}
+                  // style={{ top: "25px", right: "-300px" }}
                   type="button"
                   onClick={() => onToggleCompared(car.id)}
                 >
                   <StyledLikeImage
+                    style={{ top: "-7px", right: "-10px" }}
                     src="/cross.png"
                     alt="delete"
                     width={20}
@@ -102,15 +104,18 @@ function Compare({
                   />
                 </StyledLikeButton>
 
-                <StyledImage
-                  src={car.imageSource}
-                  alt={car.model}
-                  width={350}
-                  height={175}
-                />
+                <StyledPictureDiv>
+                  <StyledImage
+                    src={car.imageSource}
+                    alt={car.model}
+                    // layout="fill"
+                    width={180}
+                    height={90}
+                  />
+                </StyledPictureDiv>
                 <StyledCompareNameDiv>
-                  <h2>{car.name}</h2>
-                  <h3>{car.model}</h3>
+                  <h3>{car.name}</h3>
+                  <h4>{car.model}</h4>
                 </StyledCompareNameDiv>
               </li>
             ))}
