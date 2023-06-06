@@ -5,7 +5,8 @@ import Link from "next/link";
 export const StyledResultDiv = styled.div`
   text-align: center;
   color: #8f0e0e;
-  width: 700px;
+  margin-top: 30%;
+  /* width: 700px; */
 
   text-align: center;
   /* position: relative; */
@@ -23,7 +24,7 @@ export const StyledLikeButton = styled.button`
   display: flex;
   position: relative;
   top: 45px;
-  right: -290px;
+  right: -90px;
 `;
 
 export const StyledImage = styled(Image)`
@@ -38,7 +39,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledNameDiv = styled.div`
-  font-size: 1.5em;
+  font-size: 0.7em;
   color: var(--color-text);
   position: relative;
   text-align: center;
@@ -47,7 +48,7 @@ export const StyledNameDiv = styled.div`
 `;
 
 export const StyledPriceDiv = styled.div`
-  font-size: 1.5em;
+  font-size: 1em;
   color: var(--color-text);
   position: relative;
   text-align: center;
@@ -59,11 +60,11 @@ export const StyledCompareButton = styled.button`
   display: flex;
   position: relative;
   top: -10px;
-  right: -60px;
+  right: 0px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   padding: 0.7em 1.4em 0.7em 1.1em;
   color: white;
   background: ${({ active }) => (active ? "#8F0E0E" : "#4E784F")};

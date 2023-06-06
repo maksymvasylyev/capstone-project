@@ -30,25 +30,33 @@ function Favorites({ cars, onToggleFavorite, onToggleCompared }) {
                     <StyledLikeImage
                       src="/heart.png"
                       alt="liked"
-                      width={40}
-                      height={40}
+                      width={20}
+                      height={20}
                     />
                   ) : (
                     <StyledLikeImage
                       src="/notLiked.png"
                       alt="notLiked"
-                      width={40}
-                      height={40}
+                      width={20}
+                      height={20}
                     />
                   )}
                 </StyledLikeButton>
                 <Link href={`/detailsCar/${car.id}`}>
-                  <StyledImage
-                    src={car.imageSource}
-                    alt={car.model}
-                    width={350}
-                    height={175}
-                  />
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      position: "relative",
+                    }}
+                  >
+                    <StyledImage
+                      src={car.imageSource}
+                      alt={car.model}
+                      layout="fill"
+                      // objectFit="cover"
+                    />
+                  </div>
                 </Link>
                 <StyledLink href={`/detailsCar/${car.id}`}>
                   <StyledPriceDiv>from {car.Price} Euro</StyledPriceDiv>

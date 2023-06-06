@@ -7,7 +7,7 @@ const List = styled.ul`
   padding-top: 5px;
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 0.8rem;
   height: 100%;
   margin: 0;
@@ -18,10 +18,10 @@ const List = styled.ul`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  padding: 0 1.9em;
+  padding: 0 0.4em;
   color: ${({ active }) => (active ? "#8f0e0e" : "var(--color-layout)")};
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1em;
   background-color: var(--color-backgroundLayout);
   &:hover {
     border-bottom: 5px solid #8f0e0e;
@@ -34,8 +34,8 @@ const StyledNav = styled.nav`
   height: 3rem;
   width: 100%;
   z-index: 30;
-  max-width: 700px;
-  width: 100%;
+  /* max-width: 700px;
+  width: 100%; */
 `;
 export default function Navigation() {
   const router = useRouter();
