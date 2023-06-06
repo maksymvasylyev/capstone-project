@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const StyledAddCarHeader = styled.h2`
   position: relative;
-  left: 160px;
-  font-size: 1.7em;
+  left: 40px;
+  font-size: 1.5em;
   color: var(--color-layout);
   text-align: center;
   margin: 10px auto 10px auto;
@@ -34,11 +34,11 @@ export const StyledAddCarButton = styled.button`
   display: flex;
   position: relative;
   top: 10px;
-  right: -340px;
+  right: -140px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 10px;
   padding: 0.7em 15em 0.7em 1.1em;
   color: var(--color-text);
   background: var(--color-backgroundLayout);
@@ -66,7 +66,7 @@ export const StyledAddCarList = styled.ul`
   gap: 10px;
   display: grid;
   text-align: center;
-  width: 350px;
+  /* width: 350px; */
   font-size: 1em;
   justify-items: center;
   grid-template-columns: 1fr;

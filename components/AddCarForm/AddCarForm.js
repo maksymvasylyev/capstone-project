@@ -10,6 +10,7 @@ import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import { StyledAddCarButton, StyledAddCarHeader } from "./AddCarForm.styled";
 import Image from "next/image";
+import styled from "styled-components";
 
 function AddCarForm({
   onDeleteCar,
@@ -89,10 +90,10 @@ function AddCarForm({
       <StyledAddCarHeader>Your Own Car</StyledAddCarHeader>
 
       {isFormShown ? (
-        <>
+        <div style={{ position: "relative", left: "40px" }}>
           <StyledForm onSubmit={handleSubmit} autoComplete="off">
             <StyledLabel htmlFor="avatar">
-              Choose an image of your car
+              Image of your car (if you have)
             </StyledLabel>
             <StyledInput
               type="file"
@@ -204,7 +205,7 @@ function AddCarForm({
           <StyledAddCarButton onClick={() => toggleVisibilityOfAddCarForm()}>
             Hide Form
           </StyledAddCarButton>
-        </>
+        </div>
       ) : (
         <StyledAddCarButton
           type="button"

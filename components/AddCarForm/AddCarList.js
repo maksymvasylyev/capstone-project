@@ -1,6 +1,9 @@
 import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
-import { StyledCompareButton } from "../Favorites/Favorites.styled";
+import {
+  StyledCompareButton,
+  StyledPictureDiv,
+} from "../Favorites/Favorites.styled";
 import { StyledLikeImage } from "../FilterForm/Form.styled";
 import {
   StyledAddCarList,
@@ -32,26 +35,28 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               onClick={() => onDeleteCar(car.id)}
             >
               <StyledLikeImage
-                style={{ top: "10px" }}
+                style={{ top: "10px", right: "350px" }}
                 src="/cross.png"
                 alt="delete"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
             </StyledDeleteButton>
-            <StyledMyCarImage
-              src={car.imageSource}
-              alt="yourCar"
-              width={700}
-              height={350}
-            />
+            <StyledPictureDiv>
+              <StyledMyCarImage
+                src={car.imageSource}
+                alt="yourCar"
+                width={360}
+                height={180}
+              />
+            </StyledPictureDiv>
             <div>
               <StyledUpdateLink href={`/updateCar/${car.id}`}>
                 <StyledLikeImage
                   src="/pencil.png"
                   alt="edit"
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                 />
               </StyledUpdateLink>
             </div>
