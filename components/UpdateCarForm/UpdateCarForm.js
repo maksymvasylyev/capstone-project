@@ -10,7 +10,6 @@ import styled from "styled-components";
 
 const StyledUpdateDiv = styled.div`
   display: grid;
-  width: 700px;
   grid-template-columns: 1fr;
 `;
 
@@ -119,13 +118,13 @@ function UpdateCarForm({ car, onEditCar }) {
           id="Engine"
         />
 
-        <StyledLabel htmlFor="Power">Power (HP):</StyledLabel>
+        <StyledLabel htmlFor="PowerHP">Power (HP):</StyledLabel>
         <StyledInput
           type="number"
           min={0}
-          name="Power"
-          defaultValue={car.Power}
-          id="Power"
+          name="PowerHP"
+          defaultValue={car.PowerHP}
+          id="PowerHP"
         />
 
         <StyledLabel htmlFor="CountryOfManufacture">
@@ -137,12 +136,12 @@ function UpdateCarForm({ car, onEditCar }) {
           id="CountryOfManufacture"
         />
 
-        <StyledLabel htmlFor="price">Approx. Price (Euro):</StyledLabel>
+        <StyledLabel htmlFor="Price">Approx. Price (Euro):</StyledLabel>
         <StyledInput
           type="number"
-          name="price"
-          defaultValue={car.price}
-          id="price"
+          name="Price"
+          defaultValue={car.Price}
+          id="Price"
           min={1}
           max={900000000}
         />

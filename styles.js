@@ -12,7 +12,6 @@ export default createGlobalStyle`
   *::after {
     box-sizing: border-box;
     background-color: var(--color-background);
-    /* outline: 1px solid black; */
   }
   
   :root {

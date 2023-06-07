@@ -1,6 +1,9 @@
 import { StyledDescriptionList } from "../CarsDetails/CarDetails.styled";
 import styled from "styled-components";
-import { StyledCompareButton } from "../Favorites/Favorites.styled";
+import {
+  StyledCompareButton,
+  StyledPictureDiv,
+} from "../Favorites/Favorites.styled";
 import { StyledLikeImage } from "../FilterForm/Form.styled";
 import {
   StyledAddCarList,
@@ -13,8 +16,6 @@ export const StyledMyCarImage = styled(Image)`
   border-radius: 10%;
   object-fit: cover;
   box-shadow: 0 2px 20px var(--color-text);
-  position: relative;
-  right: -5px;
 `;
 export const StyledMyCarDescriptionH2 = styled.h2`
   color: var(--color-text);
@@ -32,26 +33,27 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               onClick={() => onDeleteCar(car.id)}
             >
               <StyledLikeImage
-                style={{ top: "10px" }}
                 src="/cross.png"
                 alt="delete"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
             </StyledDeleteButton>
-            <StyledMyCarImage
-              src={car.imageSource}
-              alt="yourCar"
-              width={700}
-              height={350}
-            />
+            <StyledPictureDiv>
+              <StyledMyCarImage
+                src={car.imageSource}
+                alt="yourCar"
+                width={360}
+                height={180}
+              />
+            </StyledPictureDiv>
             <div>
               <StyledUpdateLink href={`/updateCar/${car.id}`}>
                 <StyledLikeImage
                   src="/pencil.png"
                   alt="edit"
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                 />
               </StyledUpdateLink>
             </div>
@@ -65,13 +67,13 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               <li>Fuel Economy (l/100km): {car.FuelEconomy}</li>
               <li>Top Speed (km/h): {car.TopSpeed}</li>
               <li>Engine (L): {car.Engine}</li>
-              <li>Power (HP): {car.Power}</li>
+              <li>Power (HP): {car.PowerHP}</li>
               <li>Country of Manufacture: {car.CountryOfManufacture}</li>
-              <li>Approx. Price (Euro): {car.price}</li>
+              <li>Approx. Price (Euro): {car.Price}</li>
             </StyledDescriptionList>
             <StyledCompareButton
               type="button"
-              style={{ top: "20px", right: "-250px", marginBottom: "30px" }}
+              style={{ top: "20px", right: "-100px", marginBottom: "30px" }}
               active={car.isCompared}
               onClick={() =>
                 newCars.filter((car) => car.isCompared).length > 1 &&

@@ -7,13 +7,13 @@ const Main = styled.main`
   padding-bottom: 3rem;
 `;
 
-const Headline = styled.h1`
+const Headline = styled.h3`
   color: var(--color-layout);
   background-color: var(--color-backgroundLayout);
   margin-top: 0px;
   margin-bottom: 5px;
-  padding-top: 0px;
-  padding-left: 30px;
+  padding-top: 7px;
+  padding-left: 10px;
   text-align: start;
   box-shadow: 5em 0.7em 1em -0.5em var(--color-backgroundLayout);
   position: fixed;
@@ -25,17 +25,17 @@ const Headline = styled.h1`
 const StyledDarkModeButton = styled.button`
   display: flex;
   position: relative;
-  top: -40px;
-  right: -480px;
+  top: -20px;
+  left: 240px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 10px;
   padding: 0.7em 1em 0.7em 1.1em;
   color: #e9e9e9;
   background: ${({ isDarkMode }) => (isDarkMode ? "#3E3E3E" : "#ff3fa6")};
   border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  box-shadow: 0 0.7em 1.5em -0.5em #ff3fa6;
   letter-spacing: 0.05em;
   border-radius: 20em;
   cursor: pointer;
@@ -53,7 +53,7 @@ const StyledDarkModeButton = styled.button`
   }
 `;
 const StyledLayoutDiv = styled.div`
-  width: 700px;
+  width: 100%;
 `;
 export default function Layout({ children, toggleDarkMode, isDarkMode }) {
   return (

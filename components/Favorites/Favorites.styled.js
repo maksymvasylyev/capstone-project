@@ -5,16 +5,16 @@ import Link from "next/link";
 export const StyledResultDiv = styled.div`
   text-align: center;
   color: #8f0e0e;
-  width: 700px;
-
+  margin: 20px 20px 20px 60px;
+  width: 300px;
   text-align: center;
-  /* position: relative; */
-  /* left: -50px; */
   padding: 100px 0;
-  font-size: 2.5rem;
-  /* margin: 50px; */
+  font-size: 2rem;
   border: 1px solid white;
   box-shadow: 0 2px 20px var(--color-text);
+  position: relative;
+  right: 20px;
+  max-width: 700px;
 `;
 
 export const StyledLikeButton = styled.button`
@@ -22,8 +22,8 @@ export const StyledLikeButton = styled.button`
   border: none;
   display: flex;
   position: relative;
-  top: 45px;
-  right: -290px;
+  top: 32px;
+  right: -135px;
 `;
 
 export const StyledImage = styled(Image)`
@@ -38,32 +38,39 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledNameDiv = styled.div`
-  font-size: 1.5em;
+  font-size: 0.9em;
   color: var(--color-text);
   position: relative;
   text-align: center;
-  top: -30px;
+  top: -22px;
+  right: 0px;
   background-color: transparent;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledPriceDiv = styled.div`
-  font-size: 1.5em;
+  font-size: 1em;
   color: var(--color-text);
   position: relative;
   text-align: center;
-  top: -30px;
+  top: -23px;
+  right: 0px;
   background-color: transparent;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledCompareButton = styled.button`
   display: flex;
   position: relative;
-  top: -10px;
-  right: -60px;
+  top: -5px;
+  right: -10px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 0.7em;
   padding: 0.7em 1.4em 0.7em 1.1em;
   color: white;
   background: ${({ active }) => (active ? "#8F0E0E" : "#4E784F")};
@@ -83,4 +90,10 @@ export const StyledCompareButton = styled.button`
   &:active {
     box-shadow: 0 0.3em 1em -0.5em #14a73e98;
   }
+`;
+
+export const StyledPictureDiv = styled.div`
+  width: 100%;
+  position: relative;
+  left: 2.5px;
 `;

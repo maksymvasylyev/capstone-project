@@ -2,6 +2,7 @@ import StyledList from "../CarsList/List.styled";
 import {
   StyledImage,
   StyledLikeButton,
+  StyledPictureDiv,
   StyledResultDiv,
 } from "../Favorites/Favorites.styled";
 import styled from "styled-components";
@@ -16,24 +17,24 @@ const StyledCompareList = styled.ul`
   justify-items: center;
   grid-template-columns: 1fr 1fr;
   background-color: var(--color-backgroundLayout);
-  font-size: 1.2em;
+  font-size: 1em;
 `;
 
-const StyledNameCompareH4 = styled.h4`
+const StyledNameCompareDiv = styled.div`
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1em;
   color: var(--color-layout);
   text-align: center;
 `;
 
 const StyledYourCarDiv = styled.div`
-  font-size: 1.5em;
+  font-size: 1em;
   margin-bottom: 13px;
   text-align: center;
 `;
 
 const StyledCompareDiv = styled.div`
-  padding: 0px;
+  padding-left: 0px;
   display: grid;
 `;
 const StyledCompareNameDiv = styled.div`
@@ -44,7 +45,11 @@ const StyledCompareNameDiv = styled.div`
 const StyledCompareNameList = styled.li`
   color: var(--color-text);
   background-color: var(--color-backgroundLayout);
-  font-size: 1.2em;
+  font-size: 0.7em;
+`;
+
+const StyledCompareListDiv = styled.div`
+  width: 100%;
 `;
 function Compare({
   cars,
@@ -67,7 +72,7 @@ function Compare({
                   <StyledYourCarDiv>Your Car</StyledYourCarDiv>
                 ) : (
                   <StyledLikeButton
-                    style={{ top: "65px", right: "-5px" }}
+                    style={{ top: "55px", right: "-5px" }}
                     type="button"
                     onClick={() => onToggleFavorite(car.id)}
                   >
@@ -75,26 +80,26 @@ function Compare({
                       <StyledLikeImage
                         src="/heart.png"
                         alt="liked"
-                        width={40}
-                        height={40}
+                        width={30}
+                        height={30}
                       />
                     ) : (
                       <StyledLikeImage
                         src="/notLiked.png"
                         alt="notLiked"
-                        width={40}
-                        height={40}
+                        width={30}
+                        height={30}
                       />
                     )}
                   </StyledLikeButton>
                 )}
 
                 <StyledLikeButton
-                  style={{ top: "25px", right: "-300px" }}
                   type="button"
                   onClick={() => onToggleCompared(car.id)}
                 >
                   <StyledLikeImage
+                    style={{ top: "-7px", right: "-10px" }}
                     src="/cross.png"
                     alt="delete"
                     width={20}
@@ -102,21 +107,23 @@ function Compare({
                   />
                 </StyledLikeButton>
 
-                <StyledImage
-                  src={car.imageSource}
-                  alt={car.model}
-                  width={350}
-                  height={175}
-                />
+                <StyledPictureDiv>
+                  <StyledImage
+                    src={car.imageSource}
+                    alt={car.model}
+                    width={180}
+                    height={90}
+                  />
+                </StyledPictureDiv>
                 <StyledCompareNameDiv>
-                  <h2>{car.name}</h2>
-                  <h3>{car.model}</h3>
+                  <div>{car.name}</div>
+                  <div>{car.model}</div>
                 </StyledCompareNameDiv>
               </li>
             ))}
           </StyledList>
-          <div>
-            <StyledNameCompareH4>{"Body Type:"}</StyledNameCompareH4>
+          <StyledCompareListDiv>
+            <StyledNameCompareDiv>{"Body Type:"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -124,7 +131,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Wheels Drive:"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Wheels Drive:"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -132,9 +139,9 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>
+            <StyledNameCompareDiv>
               {"Acceleration (0-100km/h (s))"}
-            </StyledNameCompareH4>
+            </StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -142,7 +149,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4> {"Fuel:"}</StyledNameCompareH4>
+            <StyledNameCompareDiv> {"Fuel:"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -153,9 +160,9 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>
+            <StyledNameCompareDiv>
               {"Fuel Economy (l/100km)"}
-            </StyledNameCompareH4>
+            </StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -163,7 +170,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Top Speed (km/h)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Top Speed (km/h)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -171,7 +178,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Engine (L)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Engine (L)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -179,7 +186,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Power (HP)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Power (HP)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -187,9 +194,9 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>
+            <StyledNameCompareDiv>
               {"Country of Manufacture"}
-            </StyledNameCompareH4>
+            </StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -197,7 +204,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Price from (Euro)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Price from (Euro)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -212,7 +219,7 @@ function Compare({
             >
               Compare Other Cars
             </StyledSubmitButton>
-          </div>
+          </StyledCompareListDiv>
         </StyledCompareDiv>
       )}
     </>

@@ -7,21 +7,23 @@ const List = styled.ul`
   padding-top: 5px;
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 0.8rem;
   height: 100%;
   margin: 0;
   align-items: center;
   align-content: end;
   background-color: var(--color-backgroundLayout);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  padding: 0 1.9em;
+  padding: 0 0.4em;
   color: ${({ active }) => (active ? "#8f0e0e" : "var(--color-layout)")};
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1em;
   background-color: var(--color-backgroundLayout);
   &:hover {
     border-bottom: 5px solid #8f0e0e;
@@ -34,6 +36,8 @@ const StyledNav = styled.nav`
   height: 3rem;
   width: 100%;
   z-index: 30;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 export default function Navigation() {
   const router = useRouter();
