@@ -175,7 +175,7 @@ function AddCarForm({
             <StyledInput type="number" min={0} name="Engine" id="Engine" />
 
             <StyledLabel htmlFor="Power">Power (HP):</StyledLabel>
-            <StyledInput type="number" min={0} name="Power" id="Power" />
+            <StyledInput type="number" min={0} name="PowerHP" id="PowerHP" />
 
             <StyledLabel htmlFor="CountryOfManufacture">
               Country of Manufacture:
@@ -188,8 +188,8 @@ function AddCarForm({
             <StyledLabel htmlFor="price">Approx. Price (Euro):</StyledLabel>
             <StyledInput
               type="number"
-              name="price"
-              id="price"
+              name="Price"
+              id="Price"
               min={1}
               max={900000000}
             />

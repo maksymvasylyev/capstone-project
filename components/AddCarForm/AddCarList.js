@@ -67,9 +67,9 @@ function AddCarList({ newCars, onDeleteCar, onToggleCompared }) {
               <li>Fuel Economy (l/100km): {car.FuelEconomy}</li>
               <li>Top Speed (km/h): {car.TopSpeed}</li>
               <li>Engine (L): {car.Engine}</li>
-              <li>Power (HP): {car.Power}</li>
+              <li>Power (HP): {car.PowerHP}</li>
               <li>Country of Manufacture: {car.CountryOfManufacture}</li>
-              <li>Approx. Price (Euro): {car.price}</li>
+              <li>Approx. Price (Euro): {car.Price}</li>
             </StyledDescriptionList>
             <StyledCompareButton
               type="button"

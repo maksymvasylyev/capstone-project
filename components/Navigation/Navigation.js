@@ -14,6 +14,8 @@ const List = styled.ul`
   align-items: center;
   align-content: end;
   background-color: var(--color-backgroundLayout);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 
 const NavLink = styled(Link)`
@@ -34,6 +36,8 @@ const StyledNav = styled.nav`
   height: 3rem;
   width: 100%;
   z-index: 30;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 `;
 export default function Navigation() {
   const router = useRouter();
