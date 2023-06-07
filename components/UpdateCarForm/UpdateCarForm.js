@@ -12,6 +12,9 @@ const StyledUpdateDiv = styled.div`
   display: grid;
   /* width: 700px; */
   grid-template-columns: 1fr;
+
+  position: relative;
+  right: -35px;
 `;
 
 const StyledUpdateHeader = styled.h2`

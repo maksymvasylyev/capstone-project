@@ -208,6 +208,7 @@ function AddCarForm({
         </div>
       ) : (
         <StyledAddCarButton
+          style={{ right: "-140px" }}
           type="button"
           onClick={() => toggleVisibilityOfAddCarForm()}
         >

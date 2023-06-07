@@ -84,8 +84,8 @@ export const StyledDeleteButton = styled.button`
   border: none;
   display: flex;
   position: relative;
-  top: 45px;
-  right: -640px;
+  top: 35px;
+  right: -320px;
   &:hover {
     border: solid red 1px;
   }
