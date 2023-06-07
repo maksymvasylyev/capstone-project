@@ -1,5 +1,23 @@
 [
   {
+    "id": 30,
+    "name": "Chevrolet",
+    "model": "Equinox",
+    "imageSource": "https://www.chevrolet.ca/content/dam/chevrolet/global/us/english/index/crossovers-and-suvs/2023-equinox/01-images/rs/2023-equinox-rs-01.jpg?imwidth=900",
+    "bodyType": "SUV",
+    "wheelsDrive": "fwd",
+    "acceleration": 8.5,
+    "Fuel": ["Benzin", "Hybrid"],
+    "FuelEconomy": 6.6,
+    "TopSpeed": 118,
+    "Engine": 1.5,
+    "PowerHP": 170,
+    "Price": 25500,
+    "CountryOfManufacture": "United States",
+    "isFavorite": false,
+    "isCompared": false
+  },
+  {
     "id": 1,
     "name": "Mercedes-Benz",
     "model": "C-Class",
@@ -484,24 +502,6 @@
     "Engine": 5,
     "PowerHP": 450,
     "Price": 27600,
-    "CountryOfManufacture": "United States",
-    "isFavorite": false,
-    "isCompared": false
-  },
-  {
-    "id": 30,
-    "name": "Chevrolet",
-    "model": "Equinox",
-    "imageSource": "https://www.chevrolet.ca/content/dam/chevrolet/global/us/english/index/crossovers-and-suvs/2023-equinox/01-images/rs/2023-equinox-rs-01.jpg?imwidth=900",
-    "bodyType": "SUV",
-    "wheelsDrive": "fwd",
-    "acceleration": 8.5,
-    "Fuel": ["Benzin", "Hybrid"],
-    "FuelEconomy": 6.6,
-    "TopSpeed": 118,
-    "Engine": 1.5,
-    "PowerHP": 170,
-    "Price": 25500,
     "CountryOfManufacture": "United States",
     "isFavorite": false,
     "isCompared": false
