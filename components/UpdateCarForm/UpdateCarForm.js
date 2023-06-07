@@ -11,8 +11,6 @@ import styled from "styled-components";
 const StyledUpdateDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  position: relative;
-  right: -35px;
 `;
 
 const StyledUpdateHeader = styled.h2`

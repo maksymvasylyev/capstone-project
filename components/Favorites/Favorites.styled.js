@@ -43,7 +43,7 @@ export const StyledNameDiv = styled.div`
   position: relative;
   text-align: center;
   top: -22px;
-  right: -5px;
+  right: 0px;
   background-color: transparent;
   align-items: center;
   display: flex;
@@ -55,9 +55,8 @@ export const StyledPriceDiv = styled.div`
   color: var(--color-text);
   position: relative;
   text-align: center;
-
   top: -23px;
-  right: -5px;
+  right: 0px;
   background-color: transparent;
   display: flex;
   justify-content: center;

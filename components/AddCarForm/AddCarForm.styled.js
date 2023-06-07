@@ -2,8 +2,6 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export const StyledAddCarHeader = styled.h2`
-  position: relative;
-  left: 40px;
   font-size: 1.5em;
   color: var(--color-layout);
   text-align: center;
@@ -84,9 +82,9 @@ export const StyledDeleteButton = styled.button`
   display: flex;
   position: relative;
   top: 35px;
-  right: -320px;
+  right: -310px;
   &:hover {
-    border: solid red 1px;
+    border: solid black 1px;
   }
 `;
 

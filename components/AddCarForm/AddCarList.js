@@ -16,8 +16,6 @@ export const StyledMyCarImage = styled(Image)`
   border-radius: 10%;
   object-fit: cover;
   box-shadow: 0 2px 20px var(--color-text);
-  position: relative;
-  right: -5px;
 `;
 export const StyledMyCarDescriptionH2 = styled.h2`
   color: var(--color-text);

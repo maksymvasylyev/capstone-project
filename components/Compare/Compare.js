@@ -17,12 +17,12 @@ const StyledCompareList = styled.ul`
   justify-items: center;
   grid-template-columns: 1fr 1fr;
   background-color: var(--color-backgroundLayout);
-  font-size: 1.2em;
+  font-size: 1em;
 `;
 
-const StyledNameCompareH4 = styled.h4`
+const StyledNameCompareDiv = styled.div`
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1em;
   color: var(--color-layout);
   text-align: center;
 `;
@@ -34,7 +34,7 @@ const StyledYourCarDiv = styled.div`
 `;
 
 const StyledCompareDiv = styled.div`
-  padding: 0px;
+  padding-left: 0px;
   display: grid;
 `;
 const StyledCompareNameDiv = styled.div`
@@ -45,7 +45,11 @@ const StyledCompareNameDiv = styled.div`
 const StyledCompareNameList = styled.li`
   color: var(--color-text);
   background-color: var(--color-backgroundLayout);
-  font-size: 1em;
+  font-size: 0.7em;
+`;
+
+const StyledCompareListDiv = styled.div`
+  width: 100%;
 `;
 function Compare({
   cars,
@@ -112,14 +116,14 @@ function Compare({
                   />
                 </StyledPictureDiv>
                 <StyledCompareNameDiv>
-                  <h3>{car.name}</h3>
-                  <h4>{car.model}</h4>
+                  <div>{car.name}</div>
+                  <div>{car.model}</div>
                 </StyledCompareNameDiv>
               </li>
             ))}
           </StyledList>
-          <div>
-            <StyledNameCompareH4>{"Body Type:"}</StyledNameCompareH4>
+          <StyledCompareListDiv>
+            <StyledNameCompareDiv>{"Body Type:"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -127,7 +131,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Wheels Drive:"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Wheels Drive:"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -135,9 +139,9 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>
+            <StyledNameCompareDiv>
               {"Acceleration (0-100km/h (s))"}
-            </StyledNameCompareH4>
+            </StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -145,7 +149,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4> {"Fuel:"}</StyledNameCompareH4>
+            <StyledNameCompareDiv> {"Fuel:"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -156,9 +160,9 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>
+            <StyledNameCompareDiv>
               {"Fuel Economy (l/100km)"}
-            </StyledNameCompareH4>
+            </StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -166,7 +170,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Top Speed (km/h)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Top Speed (km/h)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -174,7 +178,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Engine (L)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Engine (L)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -182,7 +186,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Power (HP)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Power (HP)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -190,9 +194,9 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>
+            <StyledNameCompareDiv>
               {"Country of Manufacture"}
-            </StyledNameCompareH4>
+            </StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -200,7 +204,7 @@ function Compare({
                 </StyledCompareNameList>
               ))}
             </StyledCompareList>
-            <StyledNameCompareH4>{"Price from (Euro)"}</StyledNameCompareH4>
+            <StyledNameCompareDiv>{"Price from (Euro)"}</StyledNameCompareDiv>
             <StyledCompareList>
               {carsToCompare.map((car) => (
                 <StyledCompareNameList key={car.id}>
@@ -215,7 +219,7 @@ function Compare({
             >
               Compare Other Cars
             </StyledSubmitButton>
-          </div>
+          </StyledCompareListDiv>
         </StyledCompareDiv>
       )}
     </>

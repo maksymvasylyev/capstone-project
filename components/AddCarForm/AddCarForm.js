@@ -89,7 +89,7 @@ function AddCarForm({
       <StyledAddCarHeader>Your Own Car</StyledAddCarHeader>
 
       {isFormShown ? (
-        <div style={{ position: "relative", left: "40px" }}>
+        <>
           <StyledForm onSubmit={handleSubmit} autoComplete="off">
             <StyledLabel htmlFor="avatar">
               Image of your car (if you have)
@@ -204,7 +204,7 @@ function AddCarForm({
           <StyledAddCarButton onClick={() => toggleVisibilityOfAddCarForm()}>
             Hide Form
           </StyledAddCarButton>
-        </div>
+        </>
       ) : (
         <StyledAddCarButton
           style={{ right: "-140px" }}

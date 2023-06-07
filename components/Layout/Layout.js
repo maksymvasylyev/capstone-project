@@ -53,7 +53,7 @@ const StyledDarkModeButton = styled.button`
   }
 `;
 const StyledLayoutDiv = styled.div`
-  width: 80%;
+  width: 100%;
 `;
 export default function Layout({ children, toggleDarkMode, isDarkMode }) {
   return (
