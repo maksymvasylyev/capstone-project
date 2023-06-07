@@ -2,7 +2,7 @@ import {
   StyledDescriptionBackLink,
   StyledDescriptionList,
 } from "./CarDetails.styled";
-import { StyledImage } from "../Favorites/Favorites.styled";
+import { StyledImage, StyledPictureDiv } from "../Favorites/Favorites.styled";
 import { StyledLikeImage } from "../FilterForm/Form.styled";
 import { StyledDescriptionH2 } from "../AddCarForm/AddCarForm.styled";
 
@@ -13,11 +13,19 @@ function CarDetails({ car }) {
         <StyledLikeImage
           src={"/left-arrow.png"}
           alt="liked"
-          width={40}
-          height={40}
+          width={30}
+          height={30}
         />
       </StyledDescriptionBackLink>
-      <StyledImage src={car.imageSource} alt="car" width={700} height={350} />
+      <StyledPictureDiv>
+        <StyledImage
+          style={{ left: "5px" }}
+          src={car.imageSource}
+          alt="car"
+          width={360}
+          height={180}
+        />
+      </StyledPictureDiv>
       <StyledDescriptionH2>{car.name}</StyledDescriptionH2>
       <StyledDescriptionH2>{car.model}</StyledDescriptionH2>
       <StyledDescriptionList>
