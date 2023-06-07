@@ -10,7 +10,6 @@ import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
 import { StyledAddCarButton, StyledAddCarHeader } from "./AddCarForm.styled";
 import Image from "next/image";
-import styled from "styled-components";
 
 function AddCarForm({
   onDeleteCar,

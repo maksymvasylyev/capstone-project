@@ -5,20 +5,16 @@ import Link from "next/link";
 export const StyledResultDiv = styled.div`
   text-align: center;
   color: #8f0e0e;
-  margin-top: 30%;
-  /* width: 700px; */
-
+  margin: 20px 20px 20px 60px;
+  width: 300px;
   text-align: center;
-  /* position: relative; */
-  /* left: -50px; */
   padding: 100px 0;
-  font-size: 2.5rem;
-  /* margin: 50px; */
+  font-size: 2rem;
   border: 1px solid white;
   box-shadow: 0 2px 20px var(--color-text);
   position: relative;
-  right: -7px;
-  width: 120%;
+  right: 20px;
+  max-width: 700px;
 `;
 
 export const StyledLikeButton = styled.button`
@@ -27,7 +23,7 @@ export const StyledLikeButton = styled.button`
   display: flex;
   position: relative;
   top: 32px;
-  right: -140px;
+  right: -135px;
 `;
 
 export const StyledImage = styled(Image)`
@@ -42,11 +38,11 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledNameDiv = styled.div`
-  font-size: 0.7em;
+  font-size: 0.9em;
   color: var(--color-text);
   position: relative;
   text-align: center;
-  top: -20px;
+  top: -22px;
   right: -5px;
   background-color: transparent;
   align-items: center;
@@ -60,19 +56,18 @@ export const StyledPriceDiv = styled.div`
   position: relative;
   text-align: center;
 
-  top: -20px;
+  top: -23px;
   right: -5px;
   background-color: transparent;
   display: flex;
-  /* text-align: center; */
   justify-content: center;
 `;
 
 export const StyledCompareButton = styled.button`
   display: flex;
   position: relative;
-  top: -10px;
-  right: -15px;
+  top: -5px;
+  right: -10px;
   align-items: center;
   font-family: inherit;
   font-weight: 500;
@@ -100,7 +95,6 @@ export const StyledCompareButton = styled.button`
 
 export const StyledPictureDiv = styled.div`
   width: 100%;
-  /* height: 100%; */
   position: relative;
   left: 2.5px;
 `;

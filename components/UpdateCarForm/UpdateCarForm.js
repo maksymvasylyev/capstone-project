@@ -10,9 +10,7 @@ import styled from "styled-components";
 
 const StyledUpdateDiv = styled.div`
   display: grid;
-  /* width: 700px; */
   grid-template-columns: 1fr;
-
   position: relative;
   right: -35px;
 `;

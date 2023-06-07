@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Head from "next/head.js";
 
 const Main = styled.main`
-  /* margin-left: 30px; */
   padding-top: 3rem;
   padding-bottom: 3rem;
 `;
@@ -22,8 +21,6 @@ const Headline = styled.h3`
   height: 3rem;
   width: 100%;
   z-index: 30;
-  /* max-width: 700px;
-  width: 100%; */
 `;
 const StyledDarkModeButton = styled.button`
   display: flex;
@@ -56,9 +53,7 @@ const StyledDarkModeButton = styled.button`
   }
 `;
 const StyledLayoutDiv = styled.div`
-  /* width: 700px; */
   width: 80%;
-  /* justify-content: center; */
 `;
 export default function Layout({ children, toggleDarkMode, isDarkMode }) {
   return (

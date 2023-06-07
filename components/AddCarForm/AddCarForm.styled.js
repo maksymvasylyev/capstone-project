@@ -66,7 +66,6 @@ export const StyledAddCarList = styled.ul`
   gap: 10px;
   display: grid;
   text-align: center;
-  /* width: 350px; */
   font-size: 1em;
   justify-items: center;
   grid-template-columns: 1fr;

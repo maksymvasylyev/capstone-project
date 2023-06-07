@@ -13,7 +13,6 @@ function CarsList({ data }) {
               <StyledImage
                 src={car.imageSource}
                 alt={car.model}
-                // layout="fill"
                 width={180}
                 height={90}
               />

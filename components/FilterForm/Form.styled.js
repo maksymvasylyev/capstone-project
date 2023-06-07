@@ -5,7 +5,6 @@ export default styled.form`
   font-size: 0.7 rem;
   position: relative;
   display: flex;
-  /* width: 700px; */
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
@@ -13,11 +12,6 @@ export default styled.form`
   gap: 8px;
   grid-template-columns: 1fr;
   border: 3px, solid, red;
-  ${({ isFormSown }) =>
-    isFormSown &&
-    `
-      transform: translateX(0);
-    `}
 `;
 
 export const StyledSubmitButton = styled.button`
@@ -25,9 +19,9 @@ export const StyledSubmitButton = styled.button`
   color: var(--color-backgroundLayout);
   border-radius: 0.75rem;
   padding: 0 40px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   display: flex;
-  top: 46px;
+  top: 16px;
   left: 100px;
   position: relative;
   text-decoration: none;
@@ -44,7 +38,6 @@ export const StyledFormDiv = styled.div`
   list-style: none;
   padding: 0px;
   display: grid;
-  gap: 10px;
 `;
 
 export const StyledSelect = styled.select`
@@ -59,7 +52,6 @@ export const StyledSelect = styled.select`
 
 export const StyledInput = styled.input`
   color: var(--color-layout);
-  /* margin-top: 0.5em; */
   padding: 0.5em;
   border-radius: 5px;
   border: solid var(--color-layout);
@@ -80,12 +72,13 @@ export const StyledResetButton = styled.button`
   border-radius: 0.75rem;
   display: flex;
   position: relative;
-  right: -50px;
-
+  right: -35px;
+  top: -10px;
   text-decoration: none;
   padding: 0 53px;
   font-size: 1.2rem;
   justify-content: center;
+  margin-bottom: 0px;
   box-shadow: 0 0.7em 1.5em -0.5em var(--color-text);
   &:hover {
     background-color: var(--color-backgroundLayout);

@@ -34,8 +34,6 @@ const StyledNav = styled.nav`
   height: 3rem;
   width: 100%;
   z-index: 30;
-  /* max-width: 700px;
-  width: 100%; */
 `;
 export default function Navigation() {
   const router = useRouter();

@@ -48,7 +48,6 @@ function FilteredCarsList({ cars, list, onToggleFavorite, onToggleCompared }) {
                     <StyledImage
                       src={car.imageSource}
                       alt={car.model}
-                      // layout="fill"
                       width={180}
                       height={90}
                     />
