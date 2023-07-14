@@ -16,6 +16,7 @@ export default function App({ Component, pageProps }) {
     setIsDarkMode(!isDarkMode);
   }
   const router = useRouter();
+
   function handleToggleFavorite(id) {
     const updatedCars = cars.map((car) => {
       if (car.id === id) {
